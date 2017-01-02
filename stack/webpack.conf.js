@@ -25,8 +25,7 @@ module.exports = {
         loaders: [
           'style-loader',
           'css-loader',
-          'less-loader',
-          'postcss-loader'
+          'less-loader'
         ]
       },
       {
@@ -50,12 +49,6 @@ module.exports = {
     FailPlugin,
     new HtmlWebpackPlugin({
       template: conf.path.src('index.html')
-    }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: () => []
-      },
-      debug: true
     })
   ],
   devtool: 'source-map',

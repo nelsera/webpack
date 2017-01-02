@@ -18,7 +18,7 @@ exports.ngModule = 'app';
  */
 exports.paths = {
   src: 'client',
-  dist: 'dist',
+  dist: 'public',
   tmp: '._',
   tasks: 'stack'
 };

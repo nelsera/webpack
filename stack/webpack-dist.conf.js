@@ -26,7 +26,7 @@ module.exports = {
         test: /\.(css|less)$/,
         loaders: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
-          loader: 'css-loader?minimize!less-loader!postcss-loader'
+          loader: 'css-loader?minimize!less-loader'
         })
       },
       {
@@ -39,7 +39,7 @@ module.exports = {
       {
         test: /.html$/,
         loaders: [
-          'html-loader'
+          'html-loader?minimize'
         ]
       }
     ]
@@ -55,12 +55,7 @@ module.exports = {
       compress: {unused: true, dead_code: true, warnings: false} // eslint-disable-line camelcase
     }),
     new ExtractTextPlugin('index-[contenthash].css'),
-    new webpack.optimize.CommonsChunkPlugin({name: 'vendor'}),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: () => []
-      }
-    })
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendor'})
   ],
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
