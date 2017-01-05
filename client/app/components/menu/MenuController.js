@@ -9,12 +9,12 @@ module.exports = {
   factory: MenuResources
 };
 
-function MenuController($log, MenuResources) {
+function MenuController(MenuResources, $log) {
   let $scope = this;
 
   MenuResources.angularIssues.query(function (res) {
-    $log.debug(res);
     $scope.items = res;
+    $log.debug(res);
   });
 
   $scope.menu = function ($event) {

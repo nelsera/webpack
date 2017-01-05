@@ -73,9 +73,9 @@
   "text": "Estab. Credenciado",
   "children": [{
     "id": 1,
-    "level": 0,
+    "level": 1,
     "text": "Administração",
-    "childen": [{
+    "children": [{
       "id": 1,
       "level": 2,
       "text": "Adicionar Estab. Credenciado"
@@ -97,7 +97,7 @@
     "id": 1,
     "level": 1,
     "text": "Publicações",
-    "childen": [{
+    "children": [{
       "id": 1,
       "level": 2,
       "text": "Cadastro Usuário Adm"
