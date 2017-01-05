@@ -16,7 +16,7 @@ module.exports = {
       },
       {
         test: /.js$/,
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         loader: 'eslint-loader',
         enforce: 'pre'
       },
@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         loaders: [
           'ng-annotate-loader'
         ]

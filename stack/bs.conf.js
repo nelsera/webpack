@@ -6,8 +6,11 @@ module.exports = function () {
       baseDir: [
         conf.paths.tmp,
         conf.paths.src
-      ]
+      ],
+      routes: {
+      	'/node_modules': './node_modules'
+      }
     },
-    open: false
+    open: true
   };
 };

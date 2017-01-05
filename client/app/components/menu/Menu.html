@@ -1,0 +1,18 @@
+<div id="leftPanel" class="no-select">
+    <div class="nav no-margin margin-top-15">
+        <ul class="margin-bottom-25">
+            <li ng-repeat="level0 in $ctrl.items">
+                <a href="javascript:;" ng-click="$ctrl.menu($event)"><i class="icon-eng2"></i><span class="menu-item-parent">{{level0.text}}</span></a>
+
+                <ul ng-if="level0.children">
+                    <li ng-repeat="level1 in level0.children">
+                        <a href="javascript:;" ng-click="$ctrl.subMenu($event)"><i class="icon-plus"></i><i class="icon-minus hide"></i>{{level1.text}}</a>
+                        <ul ng-if="level1.children">
+                            <li ng-repeat="level2 in level1.children"><a href="javascript:;" data-level="2">{{level2.text}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

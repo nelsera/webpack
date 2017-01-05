@@ -5,8 +5,11 @@ module.exports = function () {
     server: {
       baseDir: [
         conf.paths.dist
-      ]
+      ],
+      routes: {
+      	'/node_modules': './node_modules'
+      }
     },
-    open: false
+    open: true
   };
 };

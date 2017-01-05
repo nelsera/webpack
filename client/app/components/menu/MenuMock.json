@@ -1,0 +1,110 @@
+[{
+  "id": 1,
+  "level": 0,
+  "text": "Empresa Cliente",
+  "children": [{
+    "id": 1,
+    "level": 1,
+    "text": "Administração",
+    "children": [{
+      "id": 1,
+      "level": 2,
+      "text": "Adicionar Empresa Cliente"
+    }]
+  }, {
+    "id": 2,
+    "level": 1,
+    "text": "Estabelecimento",
+    "children": [{
+      "id": 1,
+      "level": 2,
+      "text": "Cadastrar"
+    }, {
+      "id": 2,
+      "level": 2,
+      "text": "Listar"
+    }]
+  }, {
+    "id": 3,
+    "level": 1,
+    "text": "Gestor",
+    "children": [{
+      "id": 1,
+      "level": 2,
+      "text": "Cadastrar"
+    }, {
+      "id": 2,
+      "level": 2,
+      "text": "Listar"
+    }]
+  }, {
+    "id": 4,
+    "level": 1,
+    "text": "Relatórios",
+    "children": [{
+      "id": 1,
+      "level": 2,
+      "text": "Empresas ativas/inativas/bloqueadas"
+    }, {
+      "id": 2,
+      "level": 2,
+      "text": "Associar Empresa a Grupo"
+    }, {
+      "id": 3,
+      "level": 2,
+      "text": "Associar Menu a Empresa"
+    }, {
+      "id": 4,
+      "level": 2,
+      "text": "Associar Menu Colaborador a Empresa"
+    }, {
+      "id": 5,
+      "level": 2,
+      "text": "Parametrizar bloqueio de Solicitação/Justificativa"
+    }, {
+      "id": 6,
+      "level": 2,
+      "text": "Credenciados Ativos/bloqueados/inativos"
+    }]
+  }]
+}, {
+  "id": 2,
+  "level": 0,
+  "text": "Estab. Credenciado",
+  "children": [{
+    "id": 1,
+    "level": 0,
+    "text": "Administração",
+    "childen": [{
+      "id": 1,
+      "level": 2,
+      "text": "Adicionar Estab. Credenciado"
+    }, {
+      "id": 2,
+      "level": 2,
+      "text": "Listagem Estab. Credenciado"
+    }, {
+      "id": 3,
+      "level": 2,
+      "text": "Autorizar Estab. Credenciado nji9"
+    }]
+  }]
+}, {
+  "id": 3,
+  "level": 0,
+  "text": "Administrativo",
+  "children": [{
+    "id": 1,
+    "level": 1,
+    "text": "Publicações",
+    "childen": [{
+      "id": 1,
+      "level": 2,
+      "text": "Cadastro Usuário Adm"
+    }, {
+      "id": 2,
+      "level": 2,
+      "text": "Listagem Usuário Adm"
+    }]
+  }]
+}]

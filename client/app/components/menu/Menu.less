@@ -1,0 +1,35 @@
+/* Menu */
+#leftPanel .nav{
+    min-height: 473px;
+}
+#leftPanel .nav ul li a {
+    padding: 0;
+}
+#leftPanel .nav>ul>li>a {
+    padding: 12px 10px 12px 20px;
+    font-size: 16px;
+    line-height: normal;
+    color: #a8a8a8;
+    display: block;
+    font-weight: 400;
+    position: relative;
+}
+
+#leftPanel .nav>ul>li>a i {
+    display: inline-block;
+    font-size: 16px;
+    width: 30px;
+    height: 16px;
+    vertical-align: text-top;
+    margin-right: 2px;
+}
+
+#leftPanel .nav>ul>li.active>a:before {
+    content: '' !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #3697cd;
+    width: 4px;
+    height: 100%;
+}
