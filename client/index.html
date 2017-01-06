@@ -7,6 +7,12 @@
     <link rel="icon" href="https://s3.amazonaws.com/wappa-assets/images/favicons/favicon@16x16.ico">
   </head>
   <body ng-app="client">
-    <ui-view></ui-view>
+    <topbar-component></topbar-component>
+    <navbar-component></navbar-component>
+    <main id="main" role="main">            
+      <div id="content">
+        <ui-view></ui-view>
+      </div>
+    </main>
   </body>  
 </html>

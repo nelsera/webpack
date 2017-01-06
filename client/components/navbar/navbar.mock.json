@@ -9,7 +9,8 @@
     "children": [{
       "id": 1,
       "level": 2,
-      "text": "Adicionar Empresa Cliente"
+      "text": "Adicionar Empresa Cliente",
+      "link": "/empresa/nova"
     }]
   }, {
     "id": 2,

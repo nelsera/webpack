@@ -1,21 +1,24 @@
+import './index.less';
+
 import ang from 'angular';
 import uiRouter from 'angular-ui-router';
 import routing from './index.config';
-import container from './container';
-import header from './components/header';
-import menu from './components/menu';
 import ngResource from 'angular-resource';
+
+import topbar from './components/topbar';
+import navbar from './components/navbar';
 import rest from './resources/rest';
+import firmSignup from './features/firm-signup';
 
 const modules = [
   uiRouter,
   ngResource,
-  rest
+  rest,
+  firmSignup
 ];
 
 export default ang
   .module('client', modules)
   .config(routing)
-  .component('app', container)
-  .component('headerComponent', header)
-  .component('menuComponent', menu);
+  .component('topbarComponent', topbar)
+  .component('navbarComponent', navbar);

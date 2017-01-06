@@ -1,4 +1,4 @@
-module.exports = routesConfig;
+export default routesConfig;
 
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
@@ -6,7 +6,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $stateProvider
     .state('app', {
-      url: '/',
-      component: 'app'
+      url: '/'
     });
 }

@@ -6,7 +6,7 @@ export default ang.module('client.$rest', [])
 
 function $rest($resource) {
   return {
-    getMenu: $resource('./components/menu/menu.mock.json', {}, {
+    getMenu: $resource('./components/navbar/navbar.mock.json', {}, {
       query: {method: 'GET', isArray: true}
     })
   };
