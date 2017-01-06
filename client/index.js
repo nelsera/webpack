@@ -1,23 +1,21 @@
-import angular from 'angular';
-import App from './app/containers/AppController';
-import Header from './app/components/header/HeaderController';
-import Menu from './app/components/menu/MenuController';
-import routesConfig from './routes';
+import ang from 'angular';
 import uiRouter from 'angular-ui-router';
+import routing from './index.config';
+import container from './container';
+import header from './components/header';
+import menu from './components/menu';
 import ngResource from 'angular-resource';
+import rest from './resources/rest';
 
-const app = 'app';
 const modules = [
   uiRouter,
-  ngResource
+  ngResource,
+  rest
 ];
 
-angular
-  .module(app, modules)
-  .config(routesConfig)
-  .component('app', App)
-  .component('headerComponent', Header)
-  .component('menuComponent', Menu)
-  .factory('MenuResources', Menu.factory);
-
-module.exports = app;
+export default ang
+  .module('client', modules)
+  .config(routing)
+  .component('app', container)
+  .component('headerComponent', header)
+  .component('menuComponent', menu);

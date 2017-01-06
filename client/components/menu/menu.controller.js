@@ -1,20 +1,12 @@
-import './Menu.less';
 import $ from 'jquery';
-import MenuResources from './MenuResources';
 
-module.exports = {
-  template: require('./Menu.html'),
-  controller: MenuController,
-  bindings: {},
-  factory: MenuResources
-};
+module.exports = menu;
 
-function MenuController(MenuResources, $log) {
+function menu($rest) {
   let $scope = this;
 
-  MenuResources.angularIssues.query(function (res) {
+  $rest.getMenu.query(function (res) {
     $scope.items = res;
-    $log.debug(res);
   });
 
   $scope.menu = function ($event) {
@@ -58,5 +50,3 @@ function MenuController(MenuResources, $log) {
       .find('i.icon-minus').addClass('hide');
   }
 }
-
-MenuController.prototype = {};
