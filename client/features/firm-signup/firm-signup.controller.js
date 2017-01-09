@@ -1,5 +1,6 @@
 export default class firmSignup {
   constructor() {
-    this.title = 'Cadastro de empresa';
+    this.title = 'Adicionar Empresa Cliente';
+    this.tab = 1;
   }
 }
