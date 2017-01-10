@@ -1,16 +1,16 @@
 import $ from 'jquery';
+import ang from 'angular';
+
 global.$ = $;
 
-module.exports = navbar;
+var navbar = ($rest, $location, $log, $timeout) => {
+  var $scope = this;
 
-function navbar($rest, $location, $log) {
-  let $scope = this;
-
-  $rest.getMenu.query(function (res) {
+  $rest.getMenu.query(res => {
     $scope.items = res;
   });
 
-  $scope.menu = function ($event) {
+  $scope.menu = $event => {
     const $el = $($event.currentTarget);
 
     resetSubmenu();
@@ -23,7 +23,7 @@ function navbar($rest, $location, $log) {
     }
   };
 
-  $scope.subMenu = function ($event) {
+  $scope.subMenu = $event => {
     const $el = $($event.currentTarget);
 
     resetSubmenu();
@@ -58,29 +58,26 @@ function navbar($rest, $location, $log) {
   };
 
   function setMenu() {
-    var $itemMenu = $('[href="' + $location.path() + '"]', 'body');
-    $log.debug($itemMenu);
+    $timeout(function () {
+      var $itemMenu = $('[href="/empresa/nova"]', 'body');
 
-    // if(!$itemMenu.length) {
-    //   this.pageName = ($.trim($config.pageName
-    //     .replace(/([A-Z])/g, ' $1')
-    //     .replace(/^./, function(str){ return str.toUpperCase(); })))
-    //     .split(' ');
-    //   this.pageName = this.pageName[0] + (this.pageName[1] || '') + (this.pageName[2] || '');
-    //   $itemMenu = $('[href^="'+this.pageName+'"]', this.ui.leftPanel );
-    // }
+      if ($itemMenu.data('level')) {
+        $log.debug('sfdfsdf');
+        $itemMenu
+          .addClass('active')
+          .closest('ul').parent()
+          .closest('ul').siblings('a').trigger('click');
 
-    if ($itemMenu.data('level')) {
-      $itemMenu
-        .addClass('active')
-        .closest('ul').parent()
-        .closest('ul').siblings('a').trigger('click');
+        ang.element($('[href="/empresa/nova"]', 'body').addClass('active').closest('ul').parent().closest('ul').siblings('a')).triggerHandler('click');
 
-      $itemMenu.closest('ul').siblings('a').trigger('click');
-    } else {
-      $itemMenu.parent().addClass('active');
-    }
+        $itemMenu.closest('ul').siblings('a').trigger('click');
+      } else {
+        $itemMenu.parent().addClass('active');
+      }
+    }, 0);
   }
 
   setMenu();
-}
+};
+
+module.exports = navbar;

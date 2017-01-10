@@ -1,0 +1,91 @@
+<h3 class="no-margin margin-bottom-25">Produto de interesse</h3>
+<div class="no-margin row margin-bottom-25">
+  <div class="no-margin col-md-6">
+    <label class="label-block">
+      Nome
+      <input type="text" class="text w100" value="Wappa Táxi" readonly>
+    </label>
+  </div>
+  <div class="no-margin col-md-6">
+    <label class="label-block">
+      Benefício mensal (R$) - Taxa
+      <input type="text" class="text w100" maxlength="17">
+    </label>
+  </div>
+</div>
+
+<h3 class="no-margin margin-bottom-25">Taxas e prazos sugeridos e total mensal</h3>
+<div class="no-margin row margin-bottom-15">
+  <div class="no-margin col-md-6">
+    <label class="select w100">
+      <span class="label-block">Tipo de contrato</span>
+      <select class="col-xs-12 select-default">
+        <option disabled selected hidden>Selecione</option>
+        <option>Processamento</option>
+        <option>Reembolso</option>
+      </select>
+    </label>
+  </div>
+  <div class="no-margin col-md-3">
+    <label class="select w100">
+      <span class="label-block">Prazo</span>
+      <select class="col-xs-12 select-default">
+        <option disabled selected hidden>Selecione</option>
+        <option ng-repeat="day in fs.days()" val="{{day}}">{{day}}</option>
+      </select>
+    </label>
+  </div>
+  <div class="no-margin col-md-3">
+    <label class="label-block">
+      Dia redundância
+      <input type="text" class="text w100" maxlength="2">
+    </label>
+  </div>
+</div>
+<div class="no-margin row margin-bottom-15">
+  <div class="no-margin col-md-4">
+    <label class="select w100">
+      <span class="label-block">Tipo de taxa</span>
+      <select class="col-xs-12 select-default">
+        <option disabled selected hidden>Selecione</option>
+        <option>Percentual da transação</option>
+        <option>Valor por transação</option>
+      </select>
+    </label>
+  </div>
+  <div class="no-margin col-md-2">
+    <label class="label-block">
+      Taxa
+      <input type="text" class="text w100" maxlength="5">
+    </label>
+  </div>
+  <div class="no-margin col-md-3">
+    <label class="label-block">
+      Início período
+      <div class="no-margin row">
+        <div class="no-margin col-md-5 no-padding">
+          <input type="number" class="text w100" maxlength="2">
+        </div>
+        <div class="no-margin col-md-2 no-padding text-center">
+          <div class="margin-top-15">e</div>
+        </div>
+        <div class="no-margin col-md-5 no-padding">
+          <input type="number" class="text w100" maxlength="2">
+        </div>
+      </div>
+    </label>
+  </div>
+  <div class="no-margin col-md-3">
+    <label class="select w100">
+      <span class="label-block">Fechar em (dias)</span>
+      <select class="col-xs-12 select-default">
+        <option disabled selected hidden>Selecione</option>
+        <option ng-repeat="day in fs.days()" val="{{day}}">{{day}}</option>
+      </select>
+    </label>
+  </div>
+</div>
+<div class="no-margin row margin-top-25">
+  <button type="reset" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=3">Voltar</button>
+  <button type="submit" class="btn btn-primary btn-lg margin-left-10 pull-right">Concluir o cadastro</button>
+</div>

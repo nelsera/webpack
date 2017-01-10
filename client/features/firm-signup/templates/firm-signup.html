@@ -1,0 +1,42 @@
+<ol class="no-margin breadcrumb bgWhite">
+  <li><a href="#">Empresa cliente</a></li>
+  <li><a href="#">Administração</a></li>
+  <li class="active">Adicionar empresa cliente</li>
+</ol>
+
+<h2 class="margin-top-40 margin-bottom-25">{{fs.title}}</h2>
+
+<div class="contentTabs no-select display-block">
+  <a href="#" class="Tabs" ng-click="fs.tab = 1" ng-class="{active:fs.tab===1}">
+    <span class="label label-primary margin-right-5">1</span>
+    Informações da empresa
+  </a>
+  <a href="#" class="Tabs" ng-click="fs.tab = 2" ng-class="{active:fs.tab===2}">
+    <span class="label label-primary margin-right-5">2</span>
+    Informações do gestor
+  </a>
+  <a href="#" class="Tabs" ng-click="fs.tab = 3" ng-class="{active:fs.tab===3}">
+    <span class="label label-primary margin-right-5">3</span>
+    Condições de faturamento e entrega
+  </a>
+  <a href="#" class="Tabs" ng-click="fs.tab = 4" ng-class="{active:fs.tab===4}">
+    <span class="label label-primary margin-right-5">4</span>
+    Preço do serviço intermediação
+  </a>
+</div>
+<div class="bgWhite boxShadow padding-25 no-margin margin-bottom-25 transition">
+  <form novalidate>
+    <div ng-show="fs.tab === 1">
+      <div ng-include="'./features/firm-signup/templates/firm-infos.html'"></div>
+    </div>
+    <div ng-show="fs.tab === 2">
+      <div ng-include="'./features/firm-signup/templates/firm-manager.html'"></div>
+    </div>
+    <div ng-show="fs.tab === 3">
+      <div ng-include="'./features/firm-signup/templates/firm-billing.html'"></div>
+    </div>
+    <div ng-show="fs.tab === 4">
+      <div ng-include="'./features/firm-signup/templates/firm-service.html'"></div>
+    </div>
+  </form>
+</div>

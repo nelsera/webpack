@@ -1,3 +1,3 @@
-module.exports = topbar;
+module.exports = () => {
 
-function topbar() {}
+};
