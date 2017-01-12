@@ -4,6 +4,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FailPlugin = require('webpack-fail-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   module: {
@@ -16,7 +17,7 @@ module.exports = {
       },
       {
         test: /.js$/,
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
         loader: 'eslint-loader',
         enforce: 'pre'
       },
@@ -25,14 +26,16 @@ module.exports = {
         loaders: [
           'style-loader',
           'css-loader',
-          'less-loader'
+          'less-loader',
+          'postcss-loader'
         ]
       },
       {
         test: /\.js$/,
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
         loaders: [
-          'ng-annotate-loader'
+          'ng-annotate-loader',
+          'babel-loader'
         ]
       },
       {
@@ -49,6 +52,12 @@ module.exports = {
     FailPlugin,
     new HtmlWebpackPlugin({
       template: conf.path.src('index.html')
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: () => [autoprefixer]
+      },
+      debug: true
     })
   ],
   devtool: 'source-map',

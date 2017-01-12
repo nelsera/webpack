@@ -1,7 +1,7 @@
 import ang from 'angular';
 
 class Rest {
-
+  /** @ngInject */
   constructor($resource) {
     return {
       getMenu: $resource('./components/navbar/navbar.mock.json', {}, {

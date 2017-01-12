@@ -1,6 +1,12 @@
 import './topbar.less';
 
-export default {
+class TopbarController {
+  constructor() {
+    this.name = 'Topbar';
+  }
+}
+
+export const Topbar = {
   template: require('./topbar.html'),
-  controller: require('./topbar.controller')
+  controller: TopbarController
 };

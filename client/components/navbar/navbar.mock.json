@@ -1,7 +1,7 @@
 [{
   "id": 1,
   "level": 0,
-  "text": "Empresa Cliente",
+  "text": "Empresa cliente",
   "children": [{
     "id": 1,
     "level": 1,
@@ -9,7 +9,7 @@
     "children": [{
       "id": 1,
       "level": 2,
-      "text": "Adicionar Empresa Cliente",
+      "text": "Adicionar empresa cliente",
       "link": "/empresa/nova"
     }]
   }, {
@@ -49,29 +49,29 @@
     }, {
       "id": 2,
       "level": 2,
-      "text": "Associar Empresa a Grupo"
+      "text": "Associar empresa a grupo"
     }, {
       "id": 3,
       "level": 2,
-      "text": "Associar Menu a Empresa"
+      "text": "Associar menu a empresa"
     }, {
       "id": 4,
       "level": 2,
-      "text": "Associar Menu Colaborador a Empresa"
+      "text": "Associar menu colaborador a empresa"
     }, {
       "id": 5,
       "level": 2,
-      "text": "Parametrizar bloqueio de Solicitação/Justificativa"
+      "text": "Parametrizar bloqueio de solicitação/justificativa"
     }, {
       "id": 6,
       "level": 2,
-      "text": "Credenciados Ativos/bloqueados/inativos"
+      "text": "Credenciados ativos/bloqueados/inativos"
     }]
   }]
 }, {
   "id": 2,
   "level": 0,
-  "text": "Estab. Credenciado",
+  "text": "Estab. credenciado",
   "children": [{
     "id": 1,
     "level": 1,
@@ -79,15 +79,15 @@
     "children": [{
       "id": 1,
       "level": 2,
-      "text": "Adicionar Estab. Credenciado"
+      "text": "Adicionar estab. credenciado"
     }, {
       "id": 2,
       "level": 2,
-      "text": "Listagem Estab. Credenciado"
+      "text": "Listagem estab. credenciado"
     }, {
       "id": 3,
       "level": 2,
-      "text": "Autorizar Estab. Credenciado nji9"
+      "text": "Autorizar estab. credenciado nji9"
     }]
   }]
 }, {
@@ -101,11 +101,11 @@
     "children": [{
       "id": 1,
       "level": 2,
-      "text": "Cadastro Usuário Adm"
+      "text": "Cadastro usuário adm"
     }, {
       "id": 2,
       "level": 2,
-      "text": "Listagem Usuário Adm"
+      "text": "Listagem usuário adm"
     }]
   }]
 }]

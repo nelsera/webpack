@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FailPlugin = require('webpack-fail-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pkg = require('../package.json');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   module: {
@@ -18,7 +19,7 @@ module.exports = {
       },
       {
         test: /.js$/,
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
         loader: 'eslint-loader',
         enforce: 'pre'
       },
@@ -26,20 +27,21 @@ module.exports = {
         test: /\.(css|less)$/,
         loaders: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
-          loader: 'css-loader?minimize!less-loader'
+          loader: 'css-loader?minimize!less-loader!postcss-loader'
         })
       },
       {
         test: /\.js$/,
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
         loaders: [
-          'ng-annotate-loader'
+          'ng-annotate-loader',
+          'babel-loader'
         ]
       },
       {
         test: /.html$/,
         loaders: [
-          'html-loader?minimize'
+          'html-loader'
         ]
       }
     ]
@@ -55,7 +57,12 @@ module.exports = {
       compress: {unused: true, dead_code: true, warnings: false} // eslint-disable-line camelcase
     }),
     new ExtractTextPlugin('index-[contenthash].css'),
-    new webpack.optimize.CommonsChunkPlugin({name: 'vendor'})
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendor'}),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: () => [autoprefixer]
+      }
+    })
   ],
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
@@ -63,6 +70,6 @@ module.exports = {
   },
   entry: {
     app: `./${conf.path.src('index')}`,
-    vendor: Object.keys(pkg.dependencies)
+    vendor: Object.keys(pkg.dependencies).filter(dep => ['wappa-uikit'].indexOf(dep) === -1)
   }
 };
