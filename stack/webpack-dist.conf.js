@@ -64,9 +64,10 @@ module.exports = {
         postcss: () => [autoprefixer]
       }
     }),
-    new CopyWebpackPlugin([{
-      from: './node_modules/wappa-uikit/**/*'
-    }])
+    new CopyWebpackPlugin([
+      {from: './node_modules/wappa-uikit/**/*'},
+      {from: './client/Web.config'}
+    ])
   ],
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
