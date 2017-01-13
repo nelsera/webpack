@@ -9,7 +9,7 @@ import {Topbar} from './components/topbar';
 import {Navbar} from './components/navbar';
 
 import firmSignup from './features/firm-signup';
-import rest from './resources/rest';
+import rest from './rest';
 
 const modules = [
   uiRouter,

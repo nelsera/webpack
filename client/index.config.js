@@ -11,7 +11,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('empresa/nova', {
       url: '/empresa/nova',
-      template: require('./features/firm-signup/templates/firm-signup.html'),
+      template: require('./features/firm-signup/templates/index.html'),
       controller: 'FirmSignup',
       controllerAs: 'fs'
     });

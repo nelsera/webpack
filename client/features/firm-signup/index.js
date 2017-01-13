@@ -6,6 +6,7 @@ class FirmSignupController {
   /** @ngInject */
   constructor($rest) {
     this.title = 'Adicionar empresa cliente';
+
     this.tab = 1;
 
     this.days = this.getDays();
