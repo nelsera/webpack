@@ -6,7 +6,7 @@
 
 <h2 class="margin-top-40 margin-bottom-25">{{fs.title}}</h2>
 
-<div class="contentTabs no-select display-block">
+<div class="contentTabs no-select display-block overflow-hidden">
   <a href="#" class="Tabs" ng-click="fs.tab = 1" ng-class="{active:fs.tab===1}">
     <span class="label label-primary margin-right-5">1</span>
     Informações da empresa
@@ -398,7 +398,7 @@
         </div>
         <div class="no-margin col-md-6">
           <label class="label-block">
-            Benefício mensal (R$) - Taxa
+            Benefício mensal (R$)
             <input type="text" class="text w100" ng-model="money" ui-money-mask maxlength="17">
           </label>
         </div>
