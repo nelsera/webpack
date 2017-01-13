@@ -46,7 +46,7 @@
         <div class="no-margin col-md-6">
           <label class="label-block">
             CNPJ*
-            <input type="text" class="text w100" maxlength="14" required>
+            <input type="text" class="text w100" ng-model="fs.initializedCpfCnpj" ui-br-cpfcnpj-mask required>
           </label>
         </div>
         <div class="no-margin col-md-6">
@@ -66,9 +66,9 @@
         <div class="no-margin col-md-6">
           <label class="label-block">
             CEP*
-            <input type="text" class="text w100" maxlength="8" required>
+            <input type="text" class="text w100" ng-model="fs.cep" ui-br-cep-mask required>
 
-            <a href="" class="absolute bottom-10 right-5">Buscar o CEP</a>
+            <a href="" class="absolute bottom-10 right-5 label-link">Buscar o CEP</a>
           </label>
         </div>
       </div>
@@ -82,7 +82,7 @@
         <div class="no-margin col-md-3">
           <label class="label-block">
             Número
-            <input type="number" class="text w100" maxlength="10" required>
+            <input type="text" class="text w100" ng-model="fs.number" ui-number-mask="0" required>
           </label>
         </div>
         <div class="no-margin col-md-3">
@@ -126,13 +126,13 @@
         <div class="no-margin col-md-3">
           <label class="label-block">
             Quantidade de funcionários
-            <input type="number" class="text w100" maxlength="4">
+            <input type="text" class="text w100" ng-model="fs.number2" ui-number-mask="0">
           </label>
         </div>
         <div class="no-margin col-md-3">
           <label class="label-block">
             Telefone comercial
-            <input type="text" class="text w100" maxlength="10" required>
+            <input type="text" class="text w100" ng-model="fs.phoneNumber" ui-br-phone-number required>
           </label>
         </div>
       </div>
@@ -183,7 +183,7 @@
         <div class="no-margin col-md-6">
           <label class="label-block">
             Telefone comercial
-            <input type="text" class="text w100" maxlength="10">
+            <input type="text" class="text w100" ng-model="fs.phoneNumber2" ui-br-phone-number>
           </label>
         </div>
       </div>
@@ -191,14 +191,14 @@
         <div class="no-margin col-md-6">
           <label class="label-block">
             E-mail*
-            <input type="text" class="text w100" maxlength="250" required>
+            <input type="email" class="text w100" maxlength="250" required>
           </label>
         </div>
         <div class="no-margin col-md-6">
           <label class="label-block">
             CEP
-            <input type="text" class="text w100" maxlength="8">
-            <a href="" class="absolute bottom-10 right-5">Buscar o CEP</a>
+            <input type="text" class="text w100" ng-model="fs.cep2" ui-br-cep-mask>
+            <a href="" class="absolute bottom-10 right-5 label-link">Buscar o CEP</a>
           </label>
         </div>
       </div>
@@ -212,13 +212,13 @@
         <div class="no-margin col-md-3">
           <label class="label-block">
             Número
-            <input type="number" class="text w100" maxlength="10">
+            <input type="text" class="text w100" ng-model="fs.number3" ui-number-mask="0">
           </label>
         </div>
         <div class="no-margin col-md-3">
           <label class="label-block">
             Complemento
-            <input type="number" class="text w100" maxlength="30">
+            <input type="text" class="text w100" maxlength="30">
           </label>
         </div>
       </div>
@@ -256,8 +256,8 @@
         <div class="no-margin col-md-3">
           <label class="label-block">
             CEP
-            <input type="text" class="text w100" maxlength="8">
-            <a href="" class="absolute bottom-10 right-10">Buscar o CEP</a>
+            <input type="text" class="text w100" ng-model="fs.cep3" ui-br-cep-mask>
+            <a href="" class="absolute bottom-10 right-10 label-link">Buscar o CEP</a>
           </label>
         </div>
         <div class="no-margin col-md-7">
@@ -269,7 +269,7 @@
         <div class="no-margin col-md-2">
           <label class="label-block">
             Número
-            <input type="number" class="text w100" maxlength="10">
+            <input type="text" class="text w100" ng-model="fs.number4" ui-number-mask="0">
           </label>
         </div>
       </div>
@@ -313,7 +313,7 @@
         <div class="no-margin col-md-6">
           <label class="label-block">
             E-mail do responsável pelo faturamento
-            <input type="text" class="text w100" maxlength="250">
+            <input type="email" class="text w100" maxlength="250">
           </label>
         </div>
       </div>
@@ -327,7 +327,7 @@
         <div class="no-margin col-md-6">
           <label class="label-block">
             E-mail do 2º responsável pelo faturamento
-            <input type="text" class="text w100" maxlength="250">
+            <input type="email" class="text w100" maxlength="250">
           </label>
         </div>
       </div>
@@ -336,8 +336,8 @@
         <div class="no-margin col-md-3">
           <label class="label-block">
             CEP
-            <input type="text" class="text w100" required>
-            <a href="" class="absolute bottom-10 right-10">Buscar o CEP</a>
+            <input type="text" class="text w100" ng-model="fs.cep4" ui-br-cep-mask required>
+            <a href="" class="absolute bottom-10 right-10 label-link">Buscar o CEP</a>
           </label>
         </div>
         <div class="no-margin col-md-7">
@@ -349,7 +349,7 @@
         <div class="no-margin col-md-2">
           <label class="label-block">
             Número
-            <input type="number" class="text w100" maxlength="10">
+            <input type="text" class="text w100" ng-model="fs.number5" ui-number-mask="0">
           </label>
         </div>
       </div>
@@ -399,7 +399,7 @@
         <div class="no-margin col-md-6">
           <label class="label-block">
             Benefício mensal (R$) - Taxa
-            <input type="text" class="text w100" maxlength="17">
+            <input type="text" class="text w100" ng-model="money" ui-money-mask maxlength="17">
           </label>
         </div>
       </div>
@@ -428,7 +428,7 @@
         <div class="no-margin col-md-3">
           <label class="label-block">
             Dia redundância
-            <input type="text" class="text w100" maxlength="2">
+            <input type="text" class="text w100" ng-model="fs.number9" ui-number-mask="0" maxlength="2">
           </label>
         </div>
       </div>
@@ -446,7 +446,7 @@
         <div class="no-margin col-md-2">
           <label class="label-block">
             Taxa
-            <input type="text" class="text w100" maxlength="5">
+            <input type="text" class="text w100" maxlength="5" ng-model="fs.percentage" ui-percentage-mask="0">
           </label>
         </div>
         <div class="no-margin col-md-3">
@@ -454,13 +454,13 @@
             Início período
             <div class="no-margin row">
               <div class="no-margin col-md-5 no-padding">
-                <input type="number" class="text w100" maxlength="2">
+                <input type="text" class="text w100" ng-model="fs.number6" ui-number-mask="0" maxlength="2">
               </div>
               <div class="no-margin col-md-2 no-padding text-center">
                 <div class="margin-top-15">e</div>
               </div>
               <div class="no-margin col-md-5 no-padding">
-                <input type="number" class="text w100" maxlength="2">
+                <input type="text" class="text w100" ng-model="fs.number7" ui-number-mask="0" maxlength="2">
               </div>
             </div>
           </label>

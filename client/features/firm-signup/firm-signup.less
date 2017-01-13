@@ -16,3 +16,21 @@
 .Tabs.active .label-primary {
     background: #0099CC;
 }
+
+.text, .label-block {
+  &::-moz-selection {
+    background: #0099ff;
+    color: white;
+  }
+  &::selection {
+    background: #0099ff;
+    color: white;
+  }
+}
+
+.label-link {
+  color: #797979;
+  &:hover, &:focus, &:active {
+    color: #0099cc;
+  }
+}

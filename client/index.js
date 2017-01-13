@@ -10,12 +10,14 @@ import {Navbar} from './components/navbar';
 
 import firmSignup from './features/firm-signup';
 import rest from './rest';
+import mask from 'angular-input-masks';
 
 const modules = [
   uiRouter,
   ngResource,
   rest,
-  firmSignup
+  firmSignup,
+  mask
 ];
 
 export default ang

@@ -7,6 +7,7 @@ const FailPlugin = require('webpack-fail-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pkg = require('../package.json');
 const autoprefixer = require('autoprefixer');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   module: {
@@ -62,7 +63,10 @@ module.exports = {
       options: {
         postcss: () => [autoprefixer]
       }
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: './node_modules/wappa-uikit/**/*'
+    }])
   ],
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
