@@ -1,0 +1,65 @@
+Primeira semana: 02/01 - 06/01 - Desenvolvimento - 35h:
+
+ ✔ Setup do projeto novo adm - 4h @done (17-01-02 18:12)
+ ✔ Header e menu - layout - 4h @done (17-01-03 15:37)
+ ✔ Menu - integração com API - 2h @done (17-01-05 15:13)
+ ✔ Login - layout - 2h @done (17-01-05 15:13)
+ ☐ Empresa Cliente/Administração/Adicionar Empresa Cliente - layout - 19h
+
+
+Segunda semana: 09/01 - 13/01 - Desenvolvimento - 70h:
+
+ ☐ Login - integração com API autenticação/renovação/expiração do token - 4h
+ ☐ Empresa Cliente/Administração/Adicionar Empresa Cliente - layout - 9h
+ ☐ Empresa Cliente/Administração/Adicionar Empresa Cliente - integação com API - 16h
+ ☐ Login - gerenciar permissões de acesso - 4h
+ ☐ Estab. Credenciado/Administração/Adicionar Estab. Credenciado - layout - 6h
+
+
+Terceira semana: 16/01 - 20/01 - Desenvolvimento - 105h:
+ 
+ ☐ Estab. Credenciado/Administração/Adicionar Estab. Credenciado - layout - 2h
+ ☐ Estab. Credenciado/Administração/Adicionar Estab. Credenciado - integração com API - 4h
+ ☐ Estab. Credenciado/Administração/Listagem Estab. Credenciado - layout - 2h
+ ☐ Estab. Credenciado/Administração/Listagem Estab. Credenciado - integração com API - 2h
+ ☐ Estab. Credenciado/Administração/Deleção Estab. Credenciado - layout - 2h
+ ☐ Estab. Credenciado/Administração/Deleção Estab. Credenciado - integração com API - 2h
+ ☐ Estab. Credenciado/Administração/Autorizar Estab. Credenciado - layout - 4h
+ ☐ Estab. Credenciado/Administração/Autorizar Estab. Credenciado - integração com API - 2h
+ ☐ Administrativo/Publicações/Cadastro Usuário Adm - layout - 12h
+ ☐ Administrativo/Publicações/Cadastro Usuário Adm - integação com API - 3h 
+
+
+Quarta semana: 23/01 - 27/01 - Desenvolvimento - 140h:
+
+ ☐ Administrativo/Publicações/Cadastro Usuário Adm - integação com API - 1h
+ ☐ Administrativo/Publicações/Listagem Usuário Adm - layout - 4h
+ ☐ Administrativo/Publicações/Listagem Usuário Adm - integação com API - 2h
+ ☐ Administrativo/Publicações/Deleção Usuário Adm por departamento/cargo - layout - 2h
+ ☐ Administrativo/Publicações/Deleção Usuário Adm por departamento/cargo - integação com API - 2h
+ ☐ Empresa Cliente/Relatórios/Empresas ativas/inativas/bloqueadas - layout - 8h
+ ☐ Empresa Cliente/Relatórios/Empresas ativas/inativas/bloqueadas - integação com API - 6h 
+ ☐ Empresa Cliente/Relatórios/Associar Empresa a Grupo - layout - 4h
+ ☐ Empresa Cliente/Relatórios/Associar Empresa a Grupo - integação com API - 2h
+ ☐ Empresa Cliente/Relatórios/Associar Menu a Empresa - layout - 2h
+ ☐ Empresa Cliente/Relatórios/Associar Menu a Empresa - integação com API - 2h 
+
+
+Quinta semana: 30/01 - 03/02 - Desenvolvimento - 175h:
+
+ ☐ Empresa Cliente/Relatórios/Associar Menu Colaborador a Empresa - layout - 2h
+ ☐ Empresa Cliente/Relatórios/Associar Menu Colaborador a Empresa - integação com API - 2h
+ ☐ Empresa Cliente/Relatórios/Parametrizar bloqueio de Solicitação/Justificativa - layout - 4h 
+ ☐ Empresa Cliente/Relatórios/Parametrizar bloqueio de Solicitação/Justificativa - integração com API - 2h
+ ☐ Empresa Cliente/Relatórios/Cadastrar Gestor Wappa - layout - 2h
+ ☐ Empresa Cliente/Relatórios/Cadastrar Gestor Wappa - integração com API - 2h
+ ☐ Empresa Cliente/Relatórios/Listagem Gestor Wappa - layout - 2h
+ ☐ Empresa Cliente/Relatórios/Listagem Gestor Wappa - integração com API - 2h
+ ☐ Estab. Credenciado/Relatórios/Cadastro de Estabelecimento - Cadastro da Empresa - layout - 6h
+ ☐ Estab. Credenciado/Relatórios/Cadastro de Estabelecimento - Cadastro da Empresa - integração com API - 4h  
+ ☐ Estab. Credenciado/Relatórios/Credenciados Ativos/bloqueados/inativos - layout - 4h
+ ☐ Estab. Credenciado/Relatórios/Credenciados Ativos/bloqueados/inativos - integração com API - 2h
+
+
+Sexta semana: 06/02 - 10/02 - QA:
+ ☐ Executar o plano de testes
