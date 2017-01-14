@@ -55,6 +55,7 @@
     "webpack-fail-plugin": "^1.0.5"
   },
   "scripts": {
+    "start": "npm i && gulp b",
     "build": "gulp",
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",
