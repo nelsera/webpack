@@ -1,19 +1,18 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <base href="/">
-    <meta charset="utf-8">
-    <title>Novo Adm</title>
-    <link rel="icon" href="https://s3.amazonaws.com/wappa-assets/images/favicons/favicon@16x16.ico">
-  </head>
-  <body ng-app="client">
-    <uikit-component></uikit-component>
-    <topbar-component></topbar-component>
-    <navbar-component></navbar-component>
-    <main id="main" role="main">            
-      <div id="content">
-        <ui-view></ui-view>
-      </div>
-    </main>
-  </body>  
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <title>Novo Adm</title>
+  <link rel="icon" href="https://s3.amazonaws.com/wappa-assets/images/favicons/favicon@16x16.ico">
+</head>
+<body ng-app="client">
+  <topbar></topbar>
+  <navbar></navbar>
+  <main id="main" role="main">            
+    <div id="content">
+      <ui-view></ui-view>
+    </div>
+  </main>
+</body>  
 </html>

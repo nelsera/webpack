@@ -1,18 +1,6 @@
-export default routesConfig;
+route.$inject = ['$urlRouterProvider', '$locationProvider'];
 
-/** @ngInject */
-function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+export default function route($urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
   $urlRouterProvider.otherwise('/');
-
-  $stateProvider
-    .state('app', {
-      url: '/'
-    })
-    .state('empresa/nova', {
-      url: '/empresa/nova',
-      template: require('./features/firm-signup/templates/index.html'),
-      controller: 'FirmSignup',
-      controllerAs: 'fs'
-    });
 }

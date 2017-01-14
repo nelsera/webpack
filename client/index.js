@@ -1,27 +1,27 @@
 import './index.less';
 
 import ang from 'angular';
-import uiRouter from 'angular-ui-router';
-import routing from './index.config';
-import ngResource from 'angular-resource';
+import uir from 'angular-ui-router';
+import route from './index.config';
+import resource from 'angular-resource';
 
-import {Topbar} from './components/topbar';
-import {Navbar} from './components/navbar';
+import {Topbar} from './comps/topbar';
+import {Navbar} from './comps/navbar';
 
-import firmSignup from './features/firm-signup';
+import firmSignup from './feats/firm-signup';
 import rest from './rest';
 import mask from 'angular-input-masks';
 
-const modules = [
-  uiRouter,
-  ngResource,
+const mods = [
+  uir,
+  resource,
   rest,
   firmSignup,
   mask
 ];
 
 export default ang
-  .module('client', modules)
-  .config(routing)
-  .component('topbarComponent', Topbar)
-  .component('navbarComponent', Navbar);
+  .module('client', mods)
+  .config(route)
+  .component('topbar', Topbar)
+  .component('navbar', Navbar);

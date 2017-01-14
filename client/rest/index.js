@@ -4,7 +4,6 @@ import menu from './menu.mock';
 import states from './states.mock';
 
 class Rest {
-  /** @ngInject */
   constructor() {
     return {
       // getMenu: $resource('../components/navbar/navbar.mock.js', menu, {

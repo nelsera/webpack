@@ -1,8 +1,6 @@
-import './navbar.less';
-
 import $ from 'jquery';
 
-class NavbarController {
+export default class NavbarCtrl {
   /** @ngInject */
   constructor($rest, $location, $timeout) {
     const level0 = '.nav>ul>li';
@@ -80,8 +78,3 @@ class NavbarController {
     }
   }
 }
-
-export const Navbar = {
-  template: require('./navbar.html'),
-  controller: NavbarController
-};

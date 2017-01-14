@@ -1,8 +1,4 @@
-import './firm-signup.less';
-
-import ang from 'angular';
-
-class FirmSignupController {
+export default class FirmSignupCtrl {
   /** @ngInject */
   constructor($rest) {
     this.title = 'Adicionar empresa cliente';
@@ -23,7 +19,3 @@ class FirmSignupController {
     return days;
   }
 }
-
-export default ang.module('client.FirmSignup', [])
-  .controller('FirmSignup', FirmSignupController)
-  .name;
