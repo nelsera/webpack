@@ -17,6 +17,7 @@ exports.ngModule = 'client';
  *  The main paths of your project handle these with care
  */
 exports.paths = {
+  npm: 'node_modules',
   src: 'client',
   dist: 'dist',
   tmp: '._',

@@ -65,8 +65,8 @@ module.exports = {
       }
     }),
     new CopyWebpackPlugin([
-      {from: './node_modules/wappa-uikit/**/*'},
-      {from: './client/Web.config'}
+      {from: `./${conf.path.npm('wappa-uikit/dist/**/*')}`},
+      {from: `./${conf.path.src('Web.config')}`}
     ])
   ],
   output: {

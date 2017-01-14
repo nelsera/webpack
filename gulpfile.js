@@ -11,9 +11,12 @@ const hub = new HubRegistry([conf.path.tasks('gulp_tasks/*.js')]);
 g.registry(hub);
 
 g.task('default', g.series('build'));
+g.task('b', g.series(g.parallel('clean', 'webpack:dist')));
 g.task('build', g.series(g.parallel('clean', 'webpack:dist')));
 
+g.task('s', g.series('webpack:watch', 'watch', 'browsersync'));
 g.task('serve', g.series('webpack:watch', 'watch', 'browsersync'));
+g.task('s:dist', g.series('default', 'browsersync:dist'));
 g.task('serve:dist', g.series('default', 'browsersync:dist'));
 
 g.task('watch', watch);
