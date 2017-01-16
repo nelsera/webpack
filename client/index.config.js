@@ -1,6 +1,5 @@
-route.$inject = ['$urlRouterProvider', '$locationProvider'];
-
+/** @ngInject */
 export default function route($urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/painel');
 }

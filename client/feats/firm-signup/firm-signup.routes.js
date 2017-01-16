@@ -1,5 +1,4 @@
-routes.$inject = ['$stateProvider'];
-
+/** @ngInject */
 export default function routes($stateProvider) {
   $stateProvider
     .state('painel.empresa/nova', {
