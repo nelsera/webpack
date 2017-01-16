@@ -5,7 +5,7 @@ const del = require('del');
 const conf = require('./stack/gulp.conf');
 
 // Load de outros arquivos com tasks do gulp
-const hub = new HubRegistry([conf.path.tasks('gulp-tasks/*.js')]);
+const hub = new HubRegistry([conf.path.tasks('tasks/*.js')]);
 
 
 g.registry(hub);
