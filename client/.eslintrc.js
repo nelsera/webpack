@@ -6,6 +6,7 @@ module.exports = {
     'angular/no-service-method': 0,
     'angular/angularelement': 0,
     'angular/controller-name': 0,
+    'angular/on-watch': 0,
     'camelcase': 0,
     'linebreak-style': 0,
     'no-return-assign': 0

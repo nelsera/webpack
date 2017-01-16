@@ -74,7 +74,7 @@ module.exports = {
     filename: '[name]-[hash].js'
   },
   entry: {
-    app: `./${conf.path.src('index')}`,
+    app: `./${conf.path.src('start/index')}`,
     vendor: Object.keys(pkg.dependencies).filter(dep => ['wappa-uikit'].indexOf(dep) === -1)
   }
 };
