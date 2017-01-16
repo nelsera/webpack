@@ -24,34 +24,37 @@ const m = [
   panel
 ];
 
+/** @ngInject */
+function flash($rootScope, $timeout) {
+  $rootScope.flash = {};
+
+  function flash(data) {
+    $rootScope.flash = data;
+    $timeout(() => $rootScope.flash = {}, 5000);
+  }
+
+  return {
+    success: i => {
+      flash({
+        message: i,
+        type: 'success',
+        info: 'Sucesso'
+      });
+    },
+    danger: i => {
+      flash({
+        message: i,
+        type: 'danger',
+        info: 'Atenção'
+      });
+    }
+  };
+}
+
 export default ang
   .module('client', m)
   .config(config)
   .run(run)
   .component('topbar', topbar)
   .component('navbar', navbar)
-  .factory('flash', ($rootScope, $timeout) => {
-    $rootScope.flash = {};
-
-    function flash(data) {
-      $rootScope.flash = data;
-      $timeout(() => $rootScope.flash = {}, 5000);
-    }
-
-    return {
-      success: i => {
-        flash({
-          message: i,
-          type: 'success',
-          info: 'Sucesso'
-        });
-      },
-      danger: i => {
-        flash({
-          message: i,
-          type: 'danger',
-          info: 'Atenção'
-        });
-      }
-    };
-  });
+  .factory('flash', flash);
