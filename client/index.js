@@ -4,24 +4,28 @@ import ang from 'angular';
 import uir from 'angular-ui-router';
 import route from './index.config';
 import resource from 'angular-resource';
+import mask from 'angular-input-masks';
 
 import {Topbar} from './comps/topbar';
 import {Navbar} from './comps/navbar';
 
+import auth from './feats/auth';
+import panel from './feats/panel';
 import firmSignup from './feats/firm-signup';
 import rest from './rest';
-import mask from 'angular-input-masks';
 
-const mods = [
+const m = [
   uir,
   resource,
   rest,
+  mask,
+  auth,
   firmSignup,
-  mask
+  panel
 ];
 
 export default ang
-  .module('client', mods)
+  .module('client', m)
   .config(route)
   .component('topbar', Topbar)
   .component('navbar', Navbar);

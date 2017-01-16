@@ -1,7 +1,7 @@
-export default class FirmSignupCtrl {
+export default class FirmSignup {
   /** @ngInject */
-  constructor($rest) {
-    this.title = 'Adicionar empresa cliente';
+  constructor($rootScope, $rest) {
+    $rootScope.title = this.title = 'Adicionar empresa cliente';
 
     this.tab = 1;
 

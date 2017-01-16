@@ -1,18 +1,10 @@
 <!doctype html>
-<html lang="pt-br">
+<html ng-app="client" lang="pt-br" class="{{htmlClass}}">
 <head>
   <base href="/">
   <meta charset="utf-8">
-  <title>Novo Adm</title>
+  <title ng-bind="title || 'Administrativo'"></title>
   <link rel="icon" href="https://s3.amazonaws.com/wappa-assets/images/favicons/favicon@16x16.ico">
 </head>
-<body ng-app="client">
-  <topbar></topbar>
-  <navbar></navbar>
-  <main id="main" role="main">            
-    <div id="content">
-      <ui-view></ui-view>
-    </div>
-  </main>
-</body>  
+<body ui-view></body>
 </html>

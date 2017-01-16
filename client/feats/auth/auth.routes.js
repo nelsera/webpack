@@ -2,10 +2,10 @@ routes.$inject = ['$stateProvider'];
 
 export default function routes($stateProvider) {
   $stateProvider
-    .state('painel.empresa/nova', {
-      url: '/empresa/nova',
+    .state('entrar', {
+      url: '/entrar',
       template: require('./index.html'),
-      controller: 'FirmSignup',
-      controllerAs: 'fs'
+      controller: 'Auth',
+      controllerAs: 'au'
     });
 }
