@@ -1,25 +1,42 @@
-<div class="html-login">
-  <div class="msgErro"><span></span></div>
-  <div class="row padding-0">
-    <div class="no-margin col-md-12 content-login">
-      <div class="global-container">
-        <div class="page-wrapper">
-          <div id="page-internal" class="container login">
-            <div class="inner">
-              <div class="logo">
-                <i class="icon-logo-wappa"></i>
-              </div>
-              <div class="link-atendimento no-select">{{au.teste}}Administrativo</div>
-              <div class="formLogin">
-                <form novalidate name="form" ng-submit="au.connect()">
-                  <label class="no-select display-block">E-mail</label>
-                  <input type="text" id="telefone" name="telefone" ng-model="login.dadosLogin.login" tabindex="1" autofocus class="w100" required>
-                  <label class="no-select display-block">Senha</label>
-                  <input type="password" id="senha" name="senha" ng-model="login.dadosLogin.senha" tabindex="2" maxlength="8" class="w100" required>
-                  <button class="btn btn-success margin-top-5" type="submit">Entrar</button>
-                  <div class="validacaoFormLogin no-select"></div>
-                </form>
-              </div>
+<div ng-show="flash.message" class="alert alert-{{flash.type}} alert-fixed">
+  <p><b>{{flash.info}}!</b> {{flash.message}}</p>
+</div>
+
+<div class="msgErro"><span></span></div>
+<div class="row padding-0">
+  <div class="no-margin col-md-12 content-login">
+    <div class="global-container">
+      <div class="page-wrapper">
+        <div id="page-internal" class="container login">
+          <div class="inner">
+            <div class="logo">
+              <i class="icon-logo-wappa"></i>
+            </div>
+            <div class="link-atendimento no-select">{{au.teste}}Administrativo</div>
+            <div class="formLogin">
+              <form novalidate ng-submit="au.connect(au.form)">
+                <label class="no-select display-block">Usuário</label>
+                <input 
+                  type="text"
+                  tabindex="1"
+                  ng-model="au.form.username"
+                  class="w100"
+                  maxlength="10"
+                  autofocus
+                  required>
+                
+                <label class="no-select display-block">Senha</label>
+                <input 
+                  type="password"
+                  tabindex="2"
+                  ng-model="au.form.password"
+                  maxlength="8"
+                  class="w100"
+                  required>
+
+                <button class="btn btn-success margin-top-5" type="submit">Entrar</button>
+                <div class="validacaoFormLogin no-select"></div>
+              </form>
             </div>
           </div>
         </div>

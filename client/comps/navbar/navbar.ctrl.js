@@ -1,7 +1,5 @@
 import $ from 'jquery';
 
-global.$ = $;
-
 export default class Navbar {
   /** @ngInject */
   constructor($rest, $location, $timeout) {

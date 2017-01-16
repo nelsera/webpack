@@ -2,7 +2,7 @@ import './navbar.less';
 
 import ctrl from './navbar.ctrl';
 
-export const Navbar = {
+export default {
   template: require('./navbar.html'),
   controller: ctrl
 };

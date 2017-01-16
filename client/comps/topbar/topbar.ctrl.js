@@ -1,11 +1,11 @@
 export default class Topbar {
   /** @ngInject */
-  constructor($log) {
-    this.name = 'Topbar';
-    this.log = $log;
+  constructor($location) {
+    this.location = $location;
   }
 
   logOut() {
-    this.log.debug('logout');
+    localStorage.removeItem('wappaAdm');
+    this.location.path('/entrar');
   }
 }

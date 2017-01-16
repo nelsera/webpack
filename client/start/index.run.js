@@ -1,8 +1,6 @@
 /** @ngInject */
 export default function run($location) {
-  const logado = 1;
-
-  if (logado) {
+  if (localStorage.getItem('wappaAdm')) {
     if ($location.path() === '/entrar') {
       $location.path('/painel');
     }

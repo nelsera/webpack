@@ -2,7 +2,7 @@ import './topbar.less';
 
 import ctrl from './topbar.ctrl';
 
-export const Topbar = {
+export default {
   template: require('./topbar.html'),
   controller: ctrl
 };

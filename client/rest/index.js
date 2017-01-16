@@ -13,7 +13,7 @@ class Rest {
       getToken: $resource('https://dev-auth.wappa.com.br/api/core/connect/token', {}, {
         save: {
           method: 'POST',
-          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          headers: {'content-type': 'application/x-www-form-urlencoded'}
         }
       }),
       getMenu: {query: menu},
