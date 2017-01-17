@@ -327,56 +327,6 @@
         </label>
       </div>
     </div>
-    <h3 class="no-margin margin-bottom-15">Informações da cobrança</h3>
-    <div class="no-margin row margin-bottom-15">
-      <div class="no-margin col-md-3">
-        <label class="label-block">
-          CEP
-          <input type="text" class="text w100" ng-model="fs.fields.teste40" ui-br-cep-mask required>
-          <a href="http://m.correios.com.br/movel/buscaCep.do" class="absolute bottom-10 right-10 label-link" target="_blank">Não sei o cep</a>
-        </label>
-      </div>
-      <div class="no-margin col-md-7">
-        <label class="label-block">
-          Enredeço
-          <input type="text" ng-model="fs.fields.teste41" class="text w100" maxlength="8">
-        </label>
-      </div>
-      <div class="no-margin col-md-2">
-        <label class="label-block">
-          Número
-          <input type="text" class="text w100" ng-model="fs.fields.teste42" ui-number-mask="0">
-        </label>
-      </div>
-    </div>
-    <div class="no-margin row margin-bottom-15">
-      <div class="no-margin col-md-3">
-        <label class="label-block">
-          Complemento
-          <input type="text" ng-model="fs.fields.teste43" class="text w100" maxlength="30">
-        </label>
-      </div>
-      <div class="no-margin col-md-3">
-        <label class="label-block">
-          Bairro
-          <input type="text" ng-model="fs.fields.teste44" class="text w100" maxlength="50">
-        </label>
-      </div>
-      <div class="no-margin col-md-4">
-        <label class="label-block">
-          Cidade
-          <input type="text" ng-model="fs.fields.teste45" class="text w100" maxlength="50">
-        </label>
-      </div>
-      <div class="no-margin col-md-2">
-        <label class="select w100">
-          <span class="label-block">Estado</span>
-          <select ng-model="fs.fields.teste46" class="col-xs-12 select-default">
-            <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
-          </select>
-        </label>
-      </div>
-    </div>
     <div class="no-margin row margin-top-25">
       <button type="reset" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=2">Voltar</button>
       <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="formBilling.$invalid" ng-click="fs.tab=4">Avançar</button>

@@ -6,17 +6,20 @@ export default class FirmSignup {
   constructor($rootScope, $rest, $log) {
     $rootScope.title = this.title = 'Adicionar empresa cliente';
 
-    this.tab = 3;
+    this.tab = 1;
     this.rest = $rest;
     this.log = $log;
 
     this.days = this.getDays();
     this.states = $rest.getStates();
 
-    this.fieldser: {},
+    this.fields = {
+      formInfos: {},
+      formManager: {},
       formBilling: {},
       formProduct: {
-
+        revenues: {},
+        collection: {}
       }
     };
   }
