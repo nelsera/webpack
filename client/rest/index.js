@@ -15,6 +15,10 @@ class Rest {
     });
   }
 
+  getAdress(zipcode) {
+    return this.xhr.get(`https://dev-adm-api.wappa.com.br/api/address?zipcode=${zipcode}`);
+  }
+
   getMenu() {
     return menu;
   }

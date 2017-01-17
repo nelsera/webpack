@@ -65,9 +65,9 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           CEP*
-          <input type="text" ng-model="fs.fields.teste6" class="text w100" ng-model="fs.cep" ui-br-cep-mask required>
+          <input type="text" ng-model="fs.fields.formInfos.zipcode" class="text w100" ui-br-cep-mask required ng-blur="fs.getAdress('formInfos')">
 
-          <a href="" class="absolute bottom-10 right-5 label-link">Buscar o CEP</a>
+          <a href="http://m.correios.com.br/movel/buscaCep.do" target="_blank" class="absolute bottom-10 right-5 label-link">Não sei o cep</a>
         </label>
       </div>
     </div>
@@ -75,19 +75,19 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Endereço*
-          <input type="text" ng-model="fs.fields.teste7" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formInfos.street" class="text w100" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Número*
-          <input type="text" class="text w100" ng-model="fs.fields.teste7" ui-number-mask="0" required>
+          <input type="text" class="text w100" ng-model="fs.fields.formInfos.number" ui-number-mask="0" required>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Complemento
-          <input type="text" ng-model="fs.fields.teste8" class="text w100" maxlength="30">
+          <input type="text" ng-model="fs.fields.formInfos.complement" class="text w100" maxlength="30">
         </label>
       </div>
     </div>
@@ -96,19 +96,19 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Bairro*
-          <input type="text" ng-model="fs.fields.teste9" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formInfos.district" class="text w100" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Cidade*
-          <input type="text" ng-model="fs.fields.teste10" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formInfos.city" class="text w100" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-2">
         <label class="select w100">
           <span class="label-block">Estado*</span>
-          <select ng-model="fs.fields.teste11" class="col-xs-12 select-default" required>
+          <select ng-model="fs.fields.formInfos.state" class="col-xs-12 select-default" required>
             <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
           </select>
         </label>
@@ -195,8 +195,8 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           CEP
-          <input type="text" class="text w100" ng-model="fs.fields.teste22" ui-br-cep-mask>
-          <a href="" class="absolute bottom-10 right-5 label-link">Buscar o CEP</a>
+          <input type="text" class="text w100" ng-model="fs.fields.formManager.zipcode" ui-br-cep-mask ng-blur="fs.getAdress('formManager')">
+          <a href="http://m.correios.com.br/movel/buscaCep.do" target="_blank" class="absolute bottom-10 right-5 label-link">Não sei o cep</a>
         </label>
       </div>
     </div>
@@ -204,19 +204,19 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Endereço
-          <input type="text" ng-model="fs.fields.teste23" class="text w100" maxlength="100">
+          <input type="text" ng-model="fs.fields.formManager.street" class="text w100" maxlength="100">
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Número
-          <input type="text" class="text w100" ng-model="fs.fields.teste24" ui-number-mask="0">
+          <input type="text" class="text w100" ng-model="fs.fields.formManager.number" ui-number-mask="0">
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Complemento
-          <input type="text" ng-model="fs.fields.teste25" class="text w100" maxlength="30">
+          <input type="text" ng-model="fs.fields.formManager.complement" class="text w100" maxlength="30">
         </label>
       </div>
     </div>
@@ -224,19 +224,19 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Bairro
-          <input type="text" ng-model="fs.fields.teste26" class="text w100" maxlength="50">
+          <input type="text" ng-model="fs.fields.formManager.district" class="text w100" maxlength="50">
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Cidade
-          <input type="text" ng-model="fs.fields.teste27" class="text w100" maxlength="50">
+          <input type="text" ng-model="fs.fields.formManager.city" class="text w100" maxlength="50">
         </label>
       </div>
       <div class="no-margin col-md-2">
         <label class="select w100">
           <span class="label-block">Estado</span>
-          <select ng-model="fs.fields.teste28" class="col-xs-12 select-default">
+          <select ng-model="fs.fields.formManager.state" class="col-xs-12 select-default">
             <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
           </select>
         </label>
@@ -253,20 +253,20 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           CEP
-          <input type="text" class="text w100" ng-model="fs.fields.teste29" ui-br-cep-mask>
-          <a href="" class="absolute bottom-10 right-10 label-link">Buscar o CEP</a>
+          <input type="text" class="text w100" ng-model="fs.fields.formBilling.zipcode" ui-br-cep-mask ng-blur="fs.getAdress('formBilling')">
+          <a href="http://m.correios.com.br/movel/buscaCep.do" class="absolute bottom-10 right-10 label-link" target="_blank">Não sei o cep</a>
         </label>
       </div>
       <div class="no-margin col-md-7">
         <label class="label-block">
           Enredeço
-          <input type="text" ng-model="fs.fields.teste30" class="text w100" maxlength="100">
+          <input type="text" ng-model="fs.fields.formBilling.street" class="text w100" maxlength="100">
         </label>
       </div>
       <div class="no-margin col-md-2">
         <label class="label-block">
           Número
-          <input type="text" class="text w100" ng-model="fs.fields.teste31" ui-number-mask="0">
+          <input type="text" class="text w100" ng-model="fs.fields.formBilling.number" ui-number-mask="0">
         </label>
       </div>
     </div>
@@ -274,25 +274,25 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Complemento
-          <input type="text" ng-model="fs.fields.teste32" class="text w100" maxlength="30">
+          <input type="text" ng-model="fs.fields.formBilling.complement" class="text w100" maxlength="30">
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Bairro
-          <input type="text" ng-model="fs.fields.teste33" class="text w100" maxlength="50">
+          <input type="text" ng-model="fs.fields.formBilling.district" class="text w100" maxlength="50">
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Cidade
-          <input type="text" ng-model="fs.fields.teste34" class="text w100" maxlength="50">
+          <input type="text" ng-model="fs.fields.formBilling.city" class="text w100" maxlength="50">
         </label>
       </div>
       <div class="no-margin col-md-2">
         <label class="select w100">
           <span class="label-block">Estado*</span>
-          <select ng-model="fs.fields.teste35" class="col-xs-12 select-default" required>
+          <select ng-model="fs.fields.formBilling.state" class="col-xs-12 select-default" required>
             <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
           </select>
         </label>
@@ -333,7 +333,7 @@
         <label class="label-block">
           CEP
           <input type="text" class="text w100" ng-model="fs.fields.teste40" ui-br-cep-mask required>
-          <a href="" class="absolute bottom-10 right-10 label-link">Buscar o CEP</a>
+          <a href="http://m.correios.com.br/movel/buscaCep.do" class="absolute bottom-10 right-10 label-link" target="_blank">Não sei o cep</a>
         </label>
       </div>
       <div class="no-margin col-md-7">

@@ -8,10 +8,10 @@ export default ang.module('client.Flash', [])
 function flash($rootScope, $timeout) {
   $rootScope.flash = {};
 
-  function flash(data) {
+  const flash = data => {
     $rootScope.flash = data;
     $timeout(() => $rootScope.flash = {}, 5000);
-  }
+  };
 
   return {
     success: i => {
