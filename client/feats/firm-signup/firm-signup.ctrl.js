@@ -9,6 +9,8 @@ export default class FirmSignup {
     this.states = $rest.getStates.query(res => {
       return res;
     });
+
+    this.fields = {};
   }
 
   getDays(day = 7, days = []) {

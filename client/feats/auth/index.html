@@ -14,7 +14,7 @@
             </div>
             <div class="link-atendimento no-select">{{au.teste}}Administrativo</div>
             <div class="formLogin">
-              <form novalidate ng-submit="au.connect(au.form)">
+              <form novalidate name="auth" ng-submit="au.connect(au.form)">
                 <label class="no-select display-block">Usuário</label>
                 <input 
                   type="text"
@@ -34,7 +34,10 @@
                   class="w100"
                   required>
 
-                <button class="btn btn-success margin-top-5" type="submit">Entrar</button>
+                <button id="authBtnSuccess" class="btn btn-success margin-top-5" type="submit" ng-disabled="auth.$invalid">
+                  <span id="authBtnSuccessText" class="bold">Entrar</span>
+                  <span id="authBtnSuccessLoad" class="loading__inline"></span>
+                </button>
                 <div class="validacaoFormLogin no-select"></div>
               </form>
             </div>

@@ -25,460 +25,450 @@
   </a>
 </div>
 <div class="bgWhite boxShadow padding-25 no-margin margin-bottom-25 transition">
-  <form novalidate>
-    <div ng-show="fs.tab === 1">
-      <h3 class="no-margin margin-bottom-25">Informações da empresa</h3>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6"> 
-          <label class="label-block">
-            Razão social*
-            <input type="text" class="text w100" maxlength="50" required>
-          </label>
-        </div>
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Nome fantasia*
-            <input type="text" class="text w100" maxlength="50" required>
-          </label>
-        </div>
+  <form novalidate name="formInfos" ng-show="fs.tab === 1">
+    <h3 class="no-margin margin-bottom-25">Informações da empresa</h3>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6"> 
+        <label class="label-block">
+          Razão social*
+          <input type="text" ng-model="fs.fields.teste1" class="text w100" maxlength="50" required>
+        </label>
       </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            CNPJ*
-            <input type="text" class="text w100" ng-model="fs.initializedCpfCnpj" ui-br-cpfcnpj-mask required>
-          </label>
-        </div>
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Inscrição estadual
-            <input type="text" class="text w100" maxlength="14">
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Inscrição municipal
-            <input type="text" class="text w100" maxlength="14">
-          </label>
-        </div>
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            CEP*
-            <input type="text" class="text w100" ng-model="fs.cep" ui-br-cep-mask required>
-
-            <a href="" class="absolute bottom-10 right-5 label-link">Buscar o CEP</a>
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Endereço*
-            <input type="text" class="text w100" maxlength="50" required>
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Número
-            <input type="text" class="text w100" ng-model="fs.number" ui-number-mask="0" required>
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Complemento
-            <input type="text" class="text w100" maxlength="30">
-          </label>
-        </div>
-      </div>
-
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Bairro*
-            <input type="text" class="text w100" maxlength="50" required>
-          </label>
-        </div>
-        <div class="no-margin col-md-4">
-          <label class="label-block">
-            Cidade*
-            <input type="text" class="text w100" maxlength="50">
-          </label>
-        </div>
-        <div class="no-margin col-md-2">
-          <label class="select w100">
-            <span class="label-block">Estado*</span>
-            <select class="col-xs-12 select-default" required>
-              <option disabled selected hidden>Selecione</option>
-              <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
-            </select>
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Porte
-            <input type="text" class="text w100" maxlength="50">
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Quantidade de funcionários
-            <input type="text" class="text w100" ng-model="fs.number2" ui-number-mask="0">
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Telefone comercial
-            <input type="text" class="text w100" ng-model="fs.phoneNumber" ui-br-phone-number required>
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Segmento e/ou setor
-            <input type="text" class="text w100" maxlength="50">
-          </label>
-        </div>
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Categoria
-            <input type="text" class="text w100" maxlength="50">
-          </label>
-        </div>
-      </div>
-
-      <div class="no-margin row margin-top-25">
-        <button type="reset" class="btn btn-default btn-lg pull-left">Cancelar</button>
-        <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-click="fs.tab=2">Avançar</button>
-      </div>      
-    </div>
-    <div ng-show="fs.tab === 2">
-      <h3 class="no-margin margin-bottom-25">Informações do gestor</h3>
-
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Nome*
-            <input type="text" class="text w100" maxlength="50" required>
-          </label>
-        </div>
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Área em que trabalha*
-            <input type="text" class="text w100" maxlength="30" required>
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Cargo*
-            <input type="text" class="text w100" maxlength="30" required>
-          </label>
-        </div>
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Telefone comercial
-            <input type="text" class="text w100" ng-model="fs.phoneNumber2" ui-br-phone-number>
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            E-mail*
-            <input type="email" class="text w100" maxlength="250" required>
-          </label>
-        </div>
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            CEP
-            <input type="text" class="text w100" ng-model="fs.cep2" ui-br-cep-mask>
-            <a href="" class="absolute bottom-10 right-5 label-link">Buscar o CEP</a>
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Endereço
-            <input type="text" class="text w100" maxlength="100">
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Número
-            <input type="text" class="text w100" ng-model="fs.number3" ui-number-mask="0">
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Complemento
-            <input type="text" class="text w100" maxlength="30">
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Bairro*
-            <input type="text" class="text w100" maxlength="50">
-          </label>
-        </div>
-        <div class="no-margin col-md-4">
-          <label class="label-block">
-            Cidade*
-            <input type="text" class="text w100" maxlength="50">
-          </label>
-        </div>
-        <div class="no-margin col-md-2">
-          <label class="select w100">
-            <span class="label-block">Estado*</span>
-            <select class="col-xs-12 select-default">
-              <option disabled selected hidden>Selecione</option>
-              <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
-            </select>
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-top-25">
-        <button type="button" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=1">Voltar</button>
-        <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-click="fs.tab=3">Avançar</button>
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Nome fantasia*
+          <input type="text" ng-model="fs.fields.teste2" class="text w100" maxlength="50" required>
+        </label>
       </div>
     </div>
-    <div ng-show="fs.tab === 3">
-      <h3 class="no-margin margin-bottom-15">Informações do faturamento</h3>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            CEP
-            <input type="text" class="text w100" ng-model="fs.cep3" ui-br-cep-mask>
-            <a href="" class="absolute bottom-10 right-10 label-link">Buscar o CEP</a>
-          </label>
-        </div>
-        <div class="no-margin col-md-7">
-          <label class="label-block">
-            Enredeço
-            <input type="text" class="text w100" maxlength="100">
-          </label>
-        </div>
-        <div class="no-margin col-md-2">
-          <label class="label-block">
-            Número
-            <input type="text" class="text w100" ng-model="fs.number4" ui-number-mask="0">
-          </label>
-        </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          CNPJ*
+          <input type="text" ng-model="fs.fields.teste3" class="text w100" ng-model="fs.initializedCpfCnpj" ui-br-cpfcnpj-mask required>
+        </label>
       </div>
-      <div class="no-margin row margin-bottom-25">
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Complemento
-            <input type="text" class="text w100" maxlength="30">
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Bairro
-            <input type="text" class="text w100" maxlength="50">
-          </label>
-        </div>
-        <div class="no-margin col-md-4">
-          <label class="label-block">
-            Cidade*
-            <input type="text" class="text w100" maxlength="50">
-          </label>
-        </div>
-        <div class="no-margin col-md-2">
-          <label class="select w100">
-            <span class="label-block">Estado*</span>
-            <select class="col-xs-12 select-default" required>
-              <option disabled selected hidden>Selecione</option>
-              <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
-            </select>
-          </label>
-        </div>
-      </div>
-      <h3 class="no-margin margin-bottom-15">Responsáveis</h3>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Responsável pelo faturamento
-            <input type="text" class="text w100" maxlength="250">
-          </label>
-        </div>
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            E-mail do responsável pelo faturamento
-            <input type="email" class="text w100" maxlength="250">
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-bottom-25">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            2º Responsável pelo faturamento
-            <input type="text" class="text w100" maxlength="250">
-          </label>
-        </div>
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            E-mail do 2º responsável pelo faturamento
-            <input type="email" class="text w100" maxlength="250">
-          </label>
-        </div>
-      </div>
-      <h3 class="no-margin margin-bottom-15">Informações da cobrança</h3>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            CEP
-            <input type="text" class="text w100" ng-model="fs.cep4" ui-br-cep-mask required>
-            <a href="" class="absolute bottom-10 right-10 label-link">Buscar o CEP</a>
-          </label>
-        </div>
-        <div class="no-margin col-md-7">
-          <label class="label-block">
-            Enredeço
-            <input type="text" class="text w100" maxlength="8">
-          </label>
-        </div>
-        <div class="no-margin col-md-2">
-          <label class="label-block">
-            Número
-            <input type="text" class="text w100" ng-model="fs.number5" ui-number-mask="0">
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Complemento
-            <input type="text" class="text w100" maxlength="30">
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Bairro
-            <input type="text" class="text w100" maxlength="50">
-          </label>
-        </div>
-        <div class="no-margin col-md-4">
-          <label class="label-block">
-            Cidade*
-            <input type="text" class="text w100" maxlength="50">
-          </label>
-        </div>
-        <div class="no-margin col-md-2">
-          <label class="select w100">
-            <span class="label-block">Estado*</span>
-            <select class="col-xs-12 select-default" required>
-              <option disabled selected hidden>Selecione</option>
-              <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
-            </select>
-          </label>
-        </div>
-      </div>
-      <div class="no-margin row margin-top-25">
-        <button type="reset" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=2">Voltar</button>
-        <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-click="fs.tab=4">Avançar</button>
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Inscrição estadual
+          <input type="text" ng-model="fs.fields.teste4" class="text w100" maxlength="14">
+        </label>
       </div>
     </div>
-    <div ng-show="fs.tab === 4">
-      <h3 class="no-margin margin-bottom-25">Produto de interesse</h3>
-      <div class="no-margin row margin-bottom-25">
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Nome
-            <input type="text" class="text w100" value="Wappa Táxi" readonly>
-          </label>
-        </div>
-        <div class="no-margin col-md-6">
-          <label class="label-block">
-            Benefício mensal (R$)
-            <input type="text" class="text w100" ng-model="money" ui-money-mask maxlength="17">
-          </label>
-        </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Inscrição municipal
+          <input type="text" ng-model="fs.fields.teste5" class="text w100" maxlength="14">
+        </label>
       </div>
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          CEP*
+          <input type="text" ng-model="fs.fields.teste6" class="text w100" ng-model="fs.cep" ui-br-cep-mask required>
 
-      <h3 class="no-margin margin-bottom-25">Taxas e prazos sugeridos e total mensal</h3>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-6">
-          <label class="select w100">
-            <span class="label-block">Tipo de contrato</span>
-            <select class="col-xs-12 select-default">
-              <option disabled selected hidden>Selecione</option>
-              <option>Processamento</option>
-              <option>Reembolso</option>
-            </select>
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="select w100">
-            <span class="label-block">Prazo</span>
-            <select class="col-xs-12 select-default">
-              <option disabled selected hidden>Selecione</option>
-              <option ng-repeat="day in fs.days" val="{{day}}">{{day}}</option>
-            </select>
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Dia redundância
-            <input type="text" class="text w100" ng-model="fs.number9" ui-number-mask="0" maxlength="2">
-          </label>
-        </div>
+          <a href="" class="absolute bottom-10 right-5 label-link">Buscar o CEP</a>
+        </label>
       </div>
-      <div class="no-margin row margin-bottom-15">
-        <div class="no-margin col-md-4">
-          <label class="select w100">
-            <span class="label-block">Tipo de taxa</span>
-            <select class="col-xs-12 select-default">
-              <option disabled selected hidden>Selecione</option>
-              <option>Percentual da transação</option>
-              <option>Valor por transação</option>
-            </select>
-          </label>
-        </div>
-        <div class="no-margin col-md-2">
-          <label class="label-block">
-            Taxa
-            <input type="text" class="text w100" maxlength="5" ng-model="fs.percentage" ui-percentage-mask="0">
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="label-block">
-            Início período
-            <div class="no-margin row">
-              <div class="no-margin col-md-5 no-padding">
-                <input type="text" class="text w100" ng-model="fs.number6" ui-number-mask="0" maxlength="2">
-              </div>
-              <div class="no-margin col-md-2 no-padding text-center">
-                <div class="margin-top-15">e</div>
-              </div>
-              <div class="no-margin col-md-5 no-padding">
-                <input type="text" class="text w100" ng-model="fs.number7" ui-number-mask="0" maxlength="2">
-              </div>
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Endereço*
+          <input type="text" ng-model="fs.fields.teste7" class="text w100" maxlength="50" required>
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Número*
+          <input type="text" class="text w100" ng-model="fs.fields.teste7" ui-number-mask="0" required>
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Complemento
+          <input type="text" ng-model="fs.fields.teste8" class="text w100" maxlength="30">
+        </label>
+      </div>
+    </div>
+
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Bairro*
+          <input type="text" ng-model="fs.fields.teste9" class="text w100" maxlength="50" required>
+        </label>
+      </div>
+      <div class="no-margin col-md-4">
+        <label class="label-block">
+          Cidade*
+          <input type="text" ng-model="fs.fields.teste10" class="text w100" maxlength="50" required>
+        </label>
+      </div>
+      <div class="no-margin col-md-2">
+        <label class="select w100">
+          <span class="label-block">Estado*</span>
+          <select ng-model="fs.fields.teste11" class="col-xs-12 select-default" required>
+            <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Porte
+          <input type="text" class="text w100" ng-model="fs.fields.teste12" maxlength="50">
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Quantidade de funcionários
+          <input type="text" class="text w100" ng-model="fs.fields.teste13" ui-number-mask="0">
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Telefone comercial*
+          <input type="text" class="text w100" ng-model="fs.fields.teste14" ui-br-phone-number required>
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Segmento e/ou setor
+          <input type="text" class="text w100" ng-model="fs.fields.teste15" maxlength="50">
+        </label>
+      </div>
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Categoria
+          <input type="text" class="text w100" ng-model="fs.fields.teste16" maxlength="50">
+        </label>
+      </div>
+    </div>
+
+    <div class="no-margin row margin-top-25">
+      <button type="reset" class="btn btn-default btn-lg pull-left">Cancelar</button>
+      <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="formInfos.$invalid" ng-click="fs.tab=2">Avançar</button>
+    </div>      
+  </form>
+  <form novalidate name="formManager" ng-show="fs.tab === 2">
+    <h3 class="no-margin margin-bottom-25">Informações do gestor</h3>
+
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Nome*
+          <input type="text" ng-model="fs.fields.teste17" class="text w100" maxlength="50" required>
+        </label>
+      </div>
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Área em que trabalha*
+          <input type="text" ng-model="fs.fields.teste18" class="text w100" maxlength="30" required>
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Cargo*
+          <input type="text" ng-model="fs.fields.teste19" class="text w100" maxlength="30" required>
+        </label>
+      </div>
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Telefone comercial
+          <input type="text" ng-model="fs.fields.teste20" class="text w100" ui-br-phone-number>
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          E-mail*
+          <input type="email" ng-model="fs.fields.teste21" class="text w100" maxlength="250" required>
+        </label>
+      </div>
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          CEP
+          <input type="text" class="text w100" ng-model="fs.fields.teste22" ui-br-cep-mask>
+          <a href="" class="absolute bottom-10 right-5 label-link">Buscar o CEP</a>
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Endereço
+          <input type="text" ng-model="fs.fields.teste23" class="text w100" maxlength="100">
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Número
+          <input type="text" class="text w100" ng-model="fs.fields.teste24" ui-number-mask="0">
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Complemento
+          <input type="text" ng-model="fs.fields.teste25" class="text w100" maxlength="30">
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Bairro
+          <input type="text" ng-model="fs.fields.teste26" class="text w100" maxlength="50">
+        </label>
+      </div>
+      <div class="no-margin col-md-4">
+        <label class="label-block">
+          Cidade
+          <input type="text" ng-model="fs.fields.teste27" class="text w100" maxlength="50">
+        </label>
+      </div>
+      <div class="no-margin col-md-2">
+        <label class="select w100">
+          <span class="label-block">Estado</span>
+          <select ng-model="fs.fields.teste28" class="col-xs-12 select-default">
+            <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-top-25">
+      <button type="button" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=1">Voltar</button>
+      <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="formManager.$invalid" ng-click="fs.tab=3">Avançar</button>
+    </div>
+  </form>
+  <form novalidate name="formBilling" ng-show="fs.tab === 3">
+    <h3 class="no-margin margin-bottom-15">Informações do faturamento</h3>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          CEP
+          <input type="text" class="text w100" ng-model="fs.fields.teste29" ui-br-cep-mask>
+          <a href="" class="absolute bottom-10 right-10 label-link">Buscar o CEP</a>
+        </label>
+      </div>
+      <div class="no-margin col-md-7">
+        <label class="label-block">
+          Enredeço
+          <input type="text" ng-model="fs.fields.teste30" class="text w100" maxlength="100">
+        </label>
+      </div>
+      <div class="no-margin col-md-2">
+        <label class="label-block">
+          Número
+          <input type="text" class="text w100" ng-model="fs.fields.teste31" ui-number-mask="0">
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-25">
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Complemento
+          <input type="text" ng-model="fs.fields.teste32" class="text w100" maxlength="30">
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Bairro
+          <input type="text" ng-model="fs.fields.teste33" class="text w100" maxlength="50">
+        </label>
+      </div>
+      <div class="no-margin col-md-4">
+        <label class="label-block">
+          Cidade
+          <input type="text" ng-model="fs.fields.teste34" class="text w100" maxlength="50">
+        </label>
+      </div>
+      <div class="no-margin col-md-2">
+        <label class="select w100">
+          <span class="label-block">Estado*</span>
+          <select ng-model="fs.fields.teste35" class="col-xs-12 select-default" required>
+            <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <h3 class="no-margin margin-bottom-15">Responsáveis</h3>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Responsável pelo faturamento
+          <input type="text" ng-model="fs.fields.teste36" class="text w100" maxlength="250">
+        </label>
+      </div>
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          E-mail do responsável pelo faturamento
+          <input type="email" ng-model="fs.fields.teste37" class="text w100" maxlength="250">
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-25">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          2º Responsável pelo faturamento
+          <input type="text" ng-model="fs.fields.teste38" class="text w100" maxlength="250">
+        </label>
+      </div>
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          E-mail do 2º responsável pelo faturamento
+          <input type="email" ng-model="fs.fields.teste39" class="text w100" maxlength="250">
+        </label>
+      </div>
+    </div>
+    <h3 class="no-margin margin-bottom-15">Informações da cobrança</h3>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          CEP
+          <input type="text" class="text w100" ng-model="fs.fields.teste40" ui-br-cep-mask required>
+          <a href="" class="absolute bottom-10 right-10 label-link">Buscar o CEP</a>
+        </label>
+      </div>
+      <div class="no-margin col-md-7">
+        <label class="label-block">
+          Enredeço
+          <input type="text" ng-model="fs.fields.teste41" class="text w100" maxlength="8">
+        </label>
+      </div>
+      <div class="no-margin col-md-2">
+        <label class="label-block">
+          Número
+          <input type="text" class="text w100" ng-model="fs.fields.teste42" ui-number-mask="0">
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Complemento
+          <input type="text" ng-model="fs.fields.teste43" class="text w100" maxlength="30">
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Bairro
+          <input type="text" ng-model="fs.fields.teste44" class="text w100" maxlength="50">
+        </label>
+      </div>
+      <div class="no-margin col-md-4">
+        <label class="label-block">
+          Cidade
+          <input type="text" ng-model="fs.fields.teste45" class="text w100" maxlength="50">
+        </label>
+      </div>
+      <div class="no-margin col-md-2">
+        <label class="select w100">
+          <span class="label-block">Estado</span>
+          <select ng-model="fs.fields.teste46" class="col-xs-12 select-default">
+            <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-top-25">
+      <button type="reset" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=2">Voltar</button>
+      <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="formBilling.$invalid" ng-click="fs.tab=4">Avançar</button>
+    </div>
+  </form>
+  <form novalidate name="formProduct" ng-show="fs.tab === 4">
+    <h3 class="no-margin margin-bottom-25">Produto de interesse</h3>
+    <div class="no-margin row margin-bottom-25">
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Nome
+          <input type="text" ng-model="fs.fields.teste47" class="text w100" value="Wappa Táxi" readonly>
+        </label>
+      </div>
+      <div class="no-margin col-md-6">
+        <label class="label-block">
+          Benefício mensal (R$)
+          <input type="text" class="text w100" ng-model="fs.fields.teste48" ui-money-mask maxlength="17">
+        </label>
+      </div>
+    </div>
+
+    <h3 class="no-margin margin-bottom-25">Taxas e prazos sugeridos e total mensal</h3>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-6">
+        <label class="select w100">
+          <span class="label-block">Tipo de contrato</span>
+          <select ng-model="fs.fields.teste49" class="col-xs-12 select-default">
+            <option>Processamento</option>
+            <option>Reembolso</option>
+          </select>
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="select w100">
+          <span class="label-block">Prazo</span>
+          <select ng-model="fs.fields.teste50" class="col-xs-12 select-default">
+            <option ng-repeat="day in fs.days" val="{{day}}">{{day}}</option>
+          </select>
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Dia redundância
+          <input type="text" class="text w100" ng-model="fs.fields.teste51" ui-number-mask="0" maxlength="2">
+        </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-4">
+        <label class="select w100">
+          <span class="label-block">Tipo de taxa</span>
+          <select ng-model="fs.fields.teste52" class="col-xs-12 select-default">
+            <option>Percentual da transação</option>
+            <option>Valor por transação</option>
+          </select>
+        </label>
+      </div>
+      <div class="no-margin col-md-2">
+        <label class="label-block">
+          Taxa
+          <input type="text" class="text w100" maxlength="5" ng-model="fs.fields.teste53" ui-percentage-mask="0">
+        </label>
+      </div>
+      <div class="no-margin col-md-3">
+        <label class="label-block">
+          Início período
+          <div class="no-margin row">
+            <div class="no-margin col-md-5 no-padding">
+              <input type="text" class="text w100" ng-model="fs.fields.teste54" ui-number-mask="0" maxlength="2">
             </div>
-          </label>
-        </div>
-        <div class="no-margin col-md-3">
-          <label class="select w100">
-            <span class="label-block">Fechar em (dias)</span>
-            <select class="col-xs-12 select-default">
-              <option disabled selected hidden>Selecione</option>
-              <option ng-repeat="day in fs.days" val="{{day}}">{{day}}</option>
-            </select>
-          </label>
-        </div>
+            <div class="no-margin col-md-2 no-padding text-center">
+              <div class="margin-top-15">e</div>
+            </div>
+            <div class="no-margin col-md-5 no-padding">
+              <input type="text" class="text w100" ng-model="fs.fields.teste55" ui-number-mask="0" maxlength="2">
+            </div>
+          </div>
+        </label>
       </div>
-      <div class="no-margin row margin-top-25">
-        <button type="reset" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=3">Voltar</button>
-        <button type="submit" class="btn btn-primary btn-lg margin-left-10 pull-right">Concluir o cadastro</button>
+      <div class="no-margin col-md-3">
+        <label class="select w100">
+          <span class="label-block">Fechar em (dias)</span>
+          <select ng-model="fs.fields.teste56" class="col-xs-12 select-default">
+            <option ng-repeat="day in fs.days" val="{{day}}">{{day}}</option>
+          </select>
+        </label>
       </div>
+    </div>
+    <div class="no-margin row margin-top-25">
+      <button type="reset" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=3">Voltar</button>
+      <button type="submit" class="btn btn-primary btn-lg margin-left-10 pull-right" ng-invalid="formProduct.$invalid">Concluir o cadastro</button>
     </div>
   </form>
 </div>

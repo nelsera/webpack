@@ -8,7 +8,7 @@ export default fn => {
         text: 'Administração',
         child: [{
           level: 2,
-          text: 'Adicionar empresa cliente',
+          text: 'Adicionar empresa',
           link: 'empresa/nova'
         }]
       },
