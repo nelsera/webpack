@@ -19,20 +19,17 @@ export default class Login {
   connect(data) {
     this.loadingInline('none', 'block', true);
 
-    this.rest.getToken.save(
-      encodeURI(`client_id=appadm&client_secret=BC444D64-037A-4F32-80C6-FD83F7465441&grant_type=password&scope=administrative offline_access&username=${data.username}&password=${data.password}`)
-    )
-    .$promise
-    .then(
-      res => this.setSession(res),
-      err => {
+    const post = encodeURI(`client_id=appadm&client_secret=BC444D64-037A-4F32-80C6-FD83F7465441&grant_type=password&scope=administrative offline_access&username=${data.username}&password=${data.password}`);
+
+    this.rest.getToken(post)
+      .then(res => this.setSession(res))
+      .catch(err => {
         this.loadingInline('block', 'none', false);
 
         if (err.data.error === 'invalid_grant') {
           this.flash.danger('Login e/ou senhas inválidos.');
         }
-      }
-    );
+      });
   }
 
   setSession(data) {

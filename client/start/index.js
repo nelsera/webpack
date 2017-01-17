@@ -2,7 +2,6 @@ import './index.less';
 
 import ang from 'angular';
 import uir from 'angular-ui-router';
-import resource from 'angular-resource';
 import mask from 'angular-input-masks';
 
 import run from './index.run';
@@ -17,7 +16,6 @@ import flash from '../comps/flash';
 
 const m = [
   uir,
-  resource,
   rest,
   mask,
   auth,

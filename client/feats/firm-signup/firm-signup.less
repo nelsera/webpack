@@ -6,15 +6,26 @@
 .label-block{
   color: #302f2f;
 }
+.contentTabs .Tabs {
+  cursor: not-allowed;
+  &:hover:not(.active) {
+    color: #797979;
+  }
+  &.active {
+    cursor: default;
+  }
+}
 
-.Tabs .label-primary {
+.Tabs {
+  .label-primary {
     position: relative;
     bottom: 2px;
     background: #b3b3b3;
-}
+  }
 
-.Tabs.active .label-primary {
+  &.active .label-primary {
     background: #0099CC;
+  }
 }
 
 .text, .label-block {

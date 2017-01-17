@@ -7,7 +7,7 @@ export default class Navbar {
     this.level0 = '.nav>ul>li';
     this.level1 = '.nav>ul>li>ul>li';
 
-    $rest.getMenu.query(res => this.items = res);
+    this.items = $rest.getMenu();
 
     $timeout(() => this.activeMenu($location.path()));
 
