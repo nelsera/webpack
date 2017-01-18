@@ -109,6 +109,7 @@
         <label class="select w100">
           <span class="label-block">Estado*</span>
           <select ng-model="fs.fields.formInfos.state" class="col-xs-12 select-default" required>
+            <option disabled selected hidden></option>
             <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
           </select>
         </label>
@@ -116,9 +117,12 @@
     </div>
     <div class="no-margin row margin-bottom-15">
       <div class="no-margin col-md-6">
-        <label class="label-block">
-          Porte
-          <input type="text" class="text w100" ng-model="fs.fields.teste12" maxlength="50">
+        <label class="select w100">
+          <span class="label-block">Porte</span>
+          <select ng-model="fs.fields.formInfos.size" class="col-xs-12 select-default">
+            <option disabled selected hidden></option>  
+            <option ng-repeat="size in fs.formInfosSizes" value="{{size.Id}}">{{size.Description}}</option>
+          </select>
         </label>
       </div>
       <div class="no-margin col-md-3">
@@ -237,6 +241,7 @@
         <label class="select w100">
           <span class="label-block">Estado</span>
           <select ng-model="fs.fields.formManager.state" class="col-xs-12 select-default">
+            <option disabled selected hidden></option>
             <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
           </select>
         </label>
@@ -293,6 +298,7 @@
         <label class="select w100">
           <span class="label-block">Estado*</span>
           <select ng-model="fs.fields.formBilling.state" class="col-xs-12 select-default" required>
+            <option disabled selected hidden></option>
             <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
           </select>
         </label>
@@ -338,13 +344,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Nome
-          <input type="text" ng-model="fs.fields.teste47" class="text w100" value="Wappa Táxi" readonly>
+          <input type="text" ng-model="fs.fields.taxiProduct.name" class="text w100" value="Wappa Táxi" readonly>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Benefício mensal (R$)
-          <input type="text" class="text w100" ng-model="fs.fields.teste48" ui-money-mask maxlength="17">
+          <input type="text" class="text w100" ng-model="fs.fields.taxiProduct.month" ui-money-mask maxlength="17">
         </label>
       </div>
     </div>
@@ -354,16 +360,16 @@
       <div class="no-margin col-md-6">
         <label class="select w100">
           <span class="label-block">Tipo de contrato</span>
-          <select ng-model="fs.fields.teste49" class="col-xs-12 select-default">
-            <option>Processamento</option>
-            <option>Reembolso</option>
+          <select ng-model="fs.fields.taxiProduct.contract" class="col-xs-12 select-default">
+            <option disabled selected hidden></option>
+            <option ng-repeat="contract in fs.taxiContractTypes" value="contract.Description">{{contract.Description}}</option>
           </select>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="select w100">
           <span class="label-block">Prazo</span>
-          <select ng-model="fs.fields.teste50" class="col-xs-12 select-default">
+          <select ng-model="fs.fields.taxiProduct.prazo" class="col-xs-12 select-default">
             <option ng-repeat="day in fs.days" val="{{day}}">{{day}}</option>
           </select>
         </label>
@@ -371,7 +377,7 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Dia redundância
-          <input type="text" class="text w100" ng-model="fs.fields.teste51" ui-number-mask="0" maxlength="2">
+          <input type="text" class="text w100" ng-model="fs.fields.taxiProduct.day" ui-number-mask="0" maxlength="2">
         </label>
       </div>
     </div>
@@ -379,16 +385,16 @@
       <div class="no-margin col-md-4">
         <label class="select w100">
           <span class="label-block">Tipo de taxa</span>
-          <select ng-model="fs.fields.teste52" class="col-xs-12 select-default">
-            <option>Percentual da transação</option>
-            <option>Valor por transação</option>
+          <select ng-model="fs.fields.taxiProduct.typeTax" class="col-xs-12 select-default">
+            <option disabled selected hidden></option>
+            <option ng-repeat="type in fs.taxiTaxTypes">{{type.Description}}</option>
           </select>
         </label>
       </div>
       <div class="no-margin col-md-2">
         <label class="label-block">
           Taxa
-          <input type="text" class="text w100" maxlength="5" ng-model="fs.fields.teste53" ui-percentage-mask="0">
+          <input type="text" class="text w100" maxlength="5" ng-model="fs.fields.taxiProduct.tax" ui-percentage-mask="0">
         </label>
       </div>
       <div class="no-margin col-md-3">
@@ -396,13 +402,13 @@
           Início período
           <div class="no-margin row">
             <div class="no-margin col-md-5 no-padding">
-              <input type="text" class="text w100" ng-model="fs.fields.teste54" ui-number-mask="0" maxlength="2">
+              <input type="text" class="text w100" ng-model="fs.fields.taxiProduct.begin" ui-number-mask="0" maxlength="2">
             </div>
             <div class="no-margin col-md-2 no-padding text-center">
               <div class="margin-top-15">e</div>
             </div>
             <div class="no-margin col-md-5 no-padding">
-              <input type="text" class="text w100" ng-model="fs.fields.teste55" ui-number-mask="0" maxlength="2">
+              <input type="text" class="text w100" ng-model="fs.fields.taxiProduct.end" ui-number-mask="0" maxlength="2">
             </div>
           </div>
         </label>
@@ -410,7 +416,7 @@
       <div class="no-margin col-md-3">
         <label class="select w100">
           <span class="label-block">Fechar em (dias)</span>
-          <select ng-model="fs.fields.teste56" class="col-xs-12 select-default">
+          <select ng-model="fs.fields.taxiProduct.close" class="col-xs-12 select-default">
             <option ng-repeat="day in fs.days" val="{{day}}">{{day}}</option>
           </select>
         </label>

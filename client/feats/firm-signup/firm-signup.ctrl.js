@@ -1,5 +1,4 @@
 import $ from 'jquery';
-global.$ = $;
 
 export default class FirmSignup {
   /** @ngInject */
@@ -17,11 +16,18 @@ export default class FirmSignup {
       formInfos: {},
       formManager: {},
       formBilling: {},
-      formProduct: {
+      taxiProduct: {
         revenues: {},
         collection: {}
       }
     };
+
+    $rest.getCompanyGlobal().then(data => {
+      $log.debug(data);
+      this.formInfosSizes = data.Sizes;
+      this.taxiContractTypes = data.TaxiContractTypes;
+      this.taxiTaxTypes = data.TaxiTaxTypes;
+    });
   }
 
   getDays(day = 7, days = []) {
