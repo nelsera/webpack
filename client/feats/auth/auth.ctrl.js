@@ -27,7 +27,7 @@ export default class Login {
         this.loadingInline('block', 'none', false);
 
         if (err.data.error === 'invalid_grant') {
-          this.flash.danger('Login e/ou senhas inválidos.');
+          this.flash.danger('Usuário e/ou senhas inválidos.');
         }
       });
   }

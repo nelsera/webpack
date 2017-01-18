@@ -2,6 +2,7 @@ import ang from 'angular';
 
 import menu from './menu.mock';
 import states from './states.mock';
+import {ADM_API, AUTH_API} from '../$$init/init.const';
 
 class Rest {
   /** @ngInject */
@@ -10,13 +11,13 @@ class Rest {
   }
 
   getToken(data) {
-    return this.xhr.post('https://dev-auth.wappa.com.br/api/core/connect/token', data, {
+    return this.xhr.post(`${AUTH_API}core/connect/token`, data, {
       headers: {'content-type': 'application/x-www-form-urlencoded'}
     });
   }
 
   getAdress(zipcode) {
-    return this.xhr.get(`https://dev-adm-api.wappa.com.br/api/address?zipcode=${zipcode}`);
+    return this.xhr.get(`${ADM_API}address?zipcode=${zipcode}`).then(res => res.data);
   }
 
   getMenu() {
@@ -28,13 +29,13 @@ class Rest {
   }
 
   getCompanyGlobal() {
-    return this.xhr.get('https://dev-adm-api.wappa.com.br/api/company/metadata', {
+    return this.xhr.get(`${ADM_API}company/metadata`, {
       headers: {language: 'pt-BR'}
     }).then(res => res.data);
   }
 
   signupCompany(data) {
-    return this.xhr.post('https://dev-adm-api.wappa.com.br/api/Company', data);
+    return this.xhr.post(`${ADM_API}Company`, data).then(res => res.data);
   }
 }
 
