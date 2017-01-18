@@ -5,7 +5,8 @@ export default class FirmSignup {
   constructor($rootScope, $rest, $log) {
     $rootScope.title = this.title = 'Adicionar empresa cliente';
 
-    this.tab = 1;
+    this.setTab(1);
+
     this.rest = $rest;
     this.log = $log;
 
@@ -49,5 +50,14 @@ export default class FirmSignup {
         $(`[ng-model="fs.fields.${context}.number"]`).focus();
       }
     });
+  }
+
+  nextStep(isValid, step) {
+    this.log.debug(isValid);
+    this.setTab(step);
+  }
+
+  setTab(tab) {
+    return this.tab = tab;
   }
 }

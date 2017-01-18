@@ -148,7 +148,7 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Categoria
-          <input type="text" class="text w100" ng-model="fs.fields.teste16" maxlength="50">
+          <input type="text" class="text w100" ng-model="fs.fields.teste16" maxlength="50" ng-blur="fs.nextStep(formInfos.$valid, 2)">
         </label>
       </div>
     </div>
@@ -240,7 +240,7 @@
       <div class="no-margin col-md-2">
         <label class="select w100">
           <span class="label-block">Estado</span>
-          <select ng-model="fs.fields.formManager.state" class="col-xs-12 select-default">
+          <select ng-model="fs.fields.formManager.state" class="col-xs-12 select-default" ng-blur="fs.nextStep(formManager.$valid, 3)">
             <option disabled selected hidden></option>
             <option ng-repeat="state in fs.states" value="{{state.Sigla}}">{{state.Nome}}</option>
           </select>
@@ -329,7 +329,7 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           E-mail do 2º responsável pelo faturamento
-          <input type="email" ng-model="fs.fields.teste39" class="text w100" maxlength="250">
+          <input type="email" ng-model="fs.fields.teste39" class="text w100" maxlength="250" ng-blur="fs.nextStep(formBilling.$valid, 4)">
         </label>
       </div>
     </div>
