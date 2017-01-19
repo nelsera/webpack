@@ -384,7 +384,7 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Tipo de contrato
-          <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.contract" ng-init="fs.fields.taxiProduct.contract='Reembolso'" required>
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.contract" ng-init="fs.fields.taxiProduct.contract='Reembolso'" readonly required>
           </select>
         </label>
       </div>
@@ -407,7 +407,7 @@
             ng-model="fs.fields.taxiProduct.day"
             class="col-xs-12 select-default"
             ng-options="option.value as option.name for option in fs.daysMonth"
-            ng-init="fs.fields.taxiProduct.day=fs.daysMonth[0].value"
+            ng-init="fs.fields.taxiProduct.day=1"
             required>
           </select>
         </label>
@@ -420,8 +420,8 @@
           <select
             ng-model="fs.fields.taxiProduct.typeTax"
             class="col-xs-12 select-default"
-            ng-options="option.value as option.Description for option in fs.taxiTaxTypes"
-            ng-init="fs.fields.taxiProduct.typeTax=fs.taxiTaxTypes[0].Description"
+            ng-options="option.Description as option.Description for option in fs.taxiTaxTypes"
+            ng-init="fs.fields.taxiProduct.typeTax='Percentual'"
             required>
           </select>
         </label>
@@ -455,6 +455,32 @@
             <option ng-repeat="day in fs.days" val="{{day}}">{{day}}</option>
           </select>
         </label>
+      </div>
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-5">
+        <label class="select w100">
+          <span class="label-block">Responsável pós-venda</span>
+          <select
+            ng-model="fs.fields.taxiProduct.responsavelPosVenda"
+            class="col-xs-12 select-default" 
+            required>
+          </select>
+        </label>
+      </div>
+      <div class="no-margin col-md-5">
+        <label class="select w100">
+          <span class="label-block">Responsável comercial</span>
+          <select
+            ng-model="fs.fields.taxiProduct.responsavelComercial"
+            class="col-xs-12 select-default" 
+            required>
+          </select>
+        </label>
+      </div>
+      <div class="no-margin col-md-2">
+        <input id="enviarBoleto" type="checkbox" class="checkbox">
+        <label for="enviarBoleto" class="margin-top-25">Enviar boleto</label>
       </div>
     </div>
     <div class="no-margin row margin-top-25">

@@ -5,7 +5,7 @@ export default class FirmSignup {
   constructor($rootScope, $rest) {
     $rootScope.title = this.title = 'Adicionar empresa cliente';
 
-    this.setTab(4);
+    this.setTab(1);
 
     this.rest = $rest;
 
