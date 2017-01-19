@@ -2,15 +2,15 @@ import $ from 'jquery';
 
 export default class FirmSignup {
   /** @ngInject */
-  constructor($rootScope, $rest, $log) {
+  constructor($rootScope, $rest) {
     $rootScope.title = this.title = 'Adicionar empresa cliente';
 
-    this.setTab(1);
+    this.setTab(4);
 
     this.rest = $rest;
-    this.log = $log;
 
-    this.days = this.getDays();
+    this.days = this.getDays(7, 90);
+    this.daysMonth = this.getDays(1, 31);
     this.states = $rest.getStates();
 
     this.fields = {
@@ -25,15 +25,17 @@ export default class FirmSignup {
 
     $rest.getCompanyGlobal().then(data => {
       this.formInfosSizes = data.Sizes;
-      $log.debug(data.TaxiContractTypes);
       this.taxiContractTypes = data.TaxiContractTypes;
       this.taxiTaxTypes = data.TaxiTaxTypes;
     });
   }
 
-  getDays(day = 7, days = []) {
-    for (; day <= 90; ++day) {
-      days.push(day);
+  getDays(day, dayEnd, days = []) {
+    for (; day <= dayEnd; ++day) {
+      days.push({
+        name: day,
+        value: day
+      });
     }
 
     return days;
@@ -59,9 +61,7 @@ export default class FirmSignup {
     return this.tab = tab;
   }
 
-  signIn(data) {
-    this.log.debug(data);
-
+  signIn() {
     this.rest.signIn({
       Id: 0,
       Name: 'string',
@@ -207,7 +207,6 @@ export default class FirmSignup {
 
   getFormInfos(data) {
     const address = (obj = {}) => {
-      this.log.debug(obj);
       return this.fields.formBilling = {
         zipcode: obj.zipcode,
         street: obj.street,

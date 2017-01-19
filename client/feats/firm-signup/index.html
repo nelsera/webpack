@@ -347,7 +347,7 @@
       <div class="no-margin col-md-4">
         <label class="label-block">
           Telefone do 2º responsável
-          <input type="text" ng-model="fs.fields.formBilling.resp2Tel" class="text w100 text-upper" ui-br-phone-number required>
+          <input type="text" ng-model="fs.fields.formBilling.resp2Tel" class="text w100 text-upper" ui-br-phone-number>
         </label>
       </div>
     </div>
@@ -382,26 +382,34 @@
     <h3 class="no-margin margin-bottom-25">Taxas, prazos sugeridos e total mensal</h3>
     <div class="no-margin row margin-bottom-15">
       <div class="no-margin col-md-6">
-        <label class="select w100">
-          <span class="label-block">Tipo de contrato</span>
-          <select ng-model="fs.fields.taxiProduct.contract" class="col-xs-12 select-default" required>
-            <option ng-repeat="contract in fs.taxiContractTypes" value="{{contract.Description}}" selected>{{contract.Description}}</option>
+        <label class="label-block">
+          Tipo de contrato
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.contract" ng-init="fs.fields.taxiProduct.contract='Reembolso'" required>
           </select>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="select w100">
           <span class="label-block">Prazo</span>
-          <select ng-model="fs.fields.taxiProduct.prazo" class="col-xs-12 select-default" required>
+          <select 
+            ng-model="fs.fields.taxiProduct.prazo" 
+            class="col-xs-12 select-default"
+            ng-options="option.value as option.name for option in fs.days"
+            required>
             <option disabled selected hidden></option>
-            <option ng-repeat="day in fs.days" val="{{day}}">{{day}}</option>
           </select>
         </label>
       </div>
       <div class="no-margin col-md-3">
-        <label class="label-block">
-          Dia redundância
-          <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.day" ng-init="fs.fields.taxiProduct.day=1" ui-number-mask="0" maxlength="2" required>
+        <label class="select w100">
+          <span class="label-block">Dia de redundância</span>
+          <select 
+            ng-model="fs.fields.taxiProduct.day"
+            class="col-xs-12 select-default"
+            ng-options="option.value as option.name for option in fs.daysMonth"
+            ng-init="fs.fields.taxiProduct.day=fs.daysMonth[0].value"
+            required>
+          </select>
         </label>
       </div>
     </div>
@@ -409,9 +417,12 @@
       <div class="no-margin col-md-4">
         <label class="select w100">
           <span class="label-block">Tipo de taxa</span>
-          <select ng-model="fs.fields.taxiProduct.typeTax" class="col-xs-12 select-default" required>
-            <option disabled selected hidden></option>
-            <option ng-repeat="type in fs.taxiTaxTypes">{{type.Description}}</option>
+          <select
+            ng-model="fs.fields.taxiProduct.typeTax"
+            class="col-xs-12 select-default"
+            ng-options="option.value as option.Description for option in fs.taxiTaxTypes"
+            ng-init="fs.fields.taxiProduct.typeTax=fs.taxiTaxTypes[0].Description"
+            required>
           </select>
         </label>
       </div>
