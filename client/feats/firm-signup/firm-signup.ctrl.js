@@ -7,7 +7,7 @@ export default class FirmSignup {
 
     $rootScope.title = fs.title = 'Adicionar empresa cliente';
 
-    fs.setTab(4);
+    fs.setTab(1);
 
     fs.rest = $rest;
 
