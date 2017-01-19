@@ -381,7 +381,7 @@
 
     <h3 class="no-margin margin-bottom-25">Taxas, prazos sugeridos e total mensal</h3>
     <div class="no-margin row margin-bottom-15">
-      <div class="no-margin col-md-6">
+      <div class="no-margin col-md-3">
         <label class="label-block">
           Tipo de contrato
           <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.contract" ng-init="fs.fields.taxiProduct.contract='Reembolso'" readonly required>
@@ -412,9 +412,7 @@
           </select>
         </label>
       </div>
-    </div>
-    <div class="no-margin row margin-bottom-15">
-      <div class="no-margin col-md-4">
+      <div class="no-margin col-md-3">
         <label class="select w100">
           <span class="label-block">Tipo de taxa</span>
           <select
@@ -426,7 +424,9 @@
           </select>
         </label>
       </div>
-      <div class="no-margin col-md-2">
+    </div>
+    <div class="no-margin row margin-bottom-15">
+      <div class="no-margin col-md-3">
         <label class="label-block">
           Taxa
           <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.tax" ui-percentage-mask="2" maxlength="8" required>
@@ -434,31 +434,42 @@
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
-          Início período
-          <div class="no-margin row">
+          <input type="radio" ng-model="fs.selectRange" ng-click="fs.setRange()" value="period" id="optionsRadios1" class="radio">
+          <label for="optionsRadios1">Início período</label>
+          <div class="no-margin row input" ng-class="{disabled: fs.selectRange !== 'period'}">
             <div class="no-margin col-md-5 no-padding">
-              <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.begin" ui-number-mask="0" maxlength="2">
+              <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.begin" ui-number-mask="0" maxlength="2" ng-disabled="fs.selectRange !== 'period'">
             </div>
             <div class="no-margin col-md-2 no-padding text-center">
               <div class="margin-top-15">e</div>
             </div>
             <div class="no-margin col-md-5 no-padding">
-              <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.end" ui-number-mask="0" maxlength="2">
+              <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.end" ui-number-mask="0" maxlength="2" ng-disabled="fs.selectRange !== 'period'">
             </div>
           </div>
         </label>
       </div>
       <div class="no-margin col-md-3">
-        <label class="select w100">
-          <span class="label-block">Fechar em (dias)</span>
-          <select ng-model="fs.fields.taxiProduct.close" class="col-xs-12 select-default">
-            <option ng-repeat="day in fs.days" val="{{day}}">{{day}}</option>
+        <label class="select w100" ng-class="{disabled: fs.selectRange !== 'days'}">
+          <input type="radio" ng-model="fs.selectRange" ng-click="fs.setRange()" value="days" id="optionsRadios2" class="radio">
+          <label for="optionsRadios2">Fechar em (dias)</label>
+          <select 
+            ng-model="fs.fields.taxiProduct.close" 
+            class="col-xs-12 select-default"
+            ng-options="option.value as option.name for option in fs.days" 
+            ng-disabled="fs.selectRange !== 'days'"
+            required>
+            <option disabled selected hidden></option>
           </select>
         </label>
       </div>
+      <div class="no-margin col-md-3">
+        <input id="enviarBoleto" type="checkbox" class="checkbox">
+        <label for="enviarBoleto" class="margin-top-25">Enviar boleto</label>
+      </div>
     </div>
     <div class="no-margin row margin-bottom-15">
-      <div class="no-margin col-md-5">
+      <div class="no-margin col-md-6">
         <label class="select w100">
           <span class="label-block">Responsável pós-venda</span>
           <select
@@ -468,7 +479,7 @@
           </select>
         </label>
       </div>
-      <div class="no-margin col-md-5">
+      <div class="no-margin col-md-6">
         <label class="select w100">
           <span class="label-block">Responsável comercial</span>
           <select
@@ -478,14 +489,10 @@
           </select>
         </label>
       </div>
-      <div class="no-margin col-md-2">
-        <input id="enviarBoleto" type="checkbox" class="checkbox">
-        <label for="enviarBoleto" class="margin-top-25">Enviar boleto</label>
-      </div>
     </div>
     <div class="no-margin row margin-top-25">
       <button type="reset" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=3">Voltar</button>
-      <button type="submit" class="btn btn-primary btn-lg margin-left-10 pull-right" ng-invalid="formProduct.$invalid">Concluir o cadastro</button>
+      <button type="submit" class="btn btn-primary btn-lg margin-left-10 pull-right" ng-disabled="formProduct.$invalid">Concluir o cadastro</button>
     </div>
   </form>
 </div>

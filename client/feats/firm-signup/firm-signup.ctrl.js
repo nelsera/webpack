@@ -3,17 +3,19 @@ import $ from 'jquery';
 export default class FirmSignup {
   /** @ngInject */
   constructor($rootScope, $rest) {
-    $rootScope.title = this.title = 'Adicionar empresa cliente';
+    const fs = this;
 
-    this.setTab(1);
+    $rootScope.title = fs.title = 'Adicionar empresa cliente';
 
-    this.rest = $rest;
+    fs.setTab(4);
 
-    this.days = this.getDays(7, 90);
-    this.daysMonth = this.getDays(1, 31);
-    this.states = $rest.getStates();
+    fs.rest = $rest;
 
-    this.fields = {
+    fs.days = fs.getDays(7, 90);
+    fs.daysMonth = fs.getDays(1, 31);
+    fs.states = $rest.getStates();
+
+    fs.fields = {
       formInfos: {},
       formManager: {},
       formBilling: {},
@@ -24,10 +26,16 @@ export default class FirmSignup {
     };
 
     $rest.getCompanyGlobal().then(data => {
-      this.formInfosSizes = data.Sizes;
-      this.taxiContractTypes = data.TaxiContractTypes;
-      this.taxiTaxTypes = data.TaxiTaxTypes;
+      fs.formInfosSizes = data.Sizes;
+      fs.taxiContractTypes = data.TaxiContractTypes;
+      fs.taxiTaxTypes = data.TaxiTaxTypes;
     });
+
+    fs.setRange = () => {
+      fs.fields.taxiProduct.begin = undefined;
+      fs.fields.taxiProduct.end = undefined;
+      fs.fields.taxiProduct.close = undefined;
+    };
   }
 
   getDays(day, dayEnd, days = []) {
