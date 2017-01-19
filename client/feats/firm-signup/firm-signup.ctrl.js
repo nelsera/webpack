@@ -25,6 +25,7 @@ export default class FirmSignup {
 
     $rest.getCompanyGlobal().then(data => {
       this.formInfosSizes = data.Sizes;
+      $log.debug(data.TaxiContractTypes);
       this.taxiContractTypes = data.TaxiContractTypes;
       this.taxiTaxTypes = data.TaxiTaxTypes;
     });

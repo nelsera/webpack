@@ -21,7 +21,7 @@
   </a>
   <a href="#" class="Tabs" ng-class="{active:fs.tab===4}">
     <span class="label label-primary margin-right-5">4</span>
-    Preço do serviço intermediação
+    Serviço intermediação
   </a>
 </div>
 <div class="bgWhite boxShadow padding-25 no-margin margin-bottom-25 transition">
@@ -31,13 +31,13 @@
       <div class="no-margin col-md-6"> 
         <label class="label-block">
           Razão social*
-          <input type="text" ng-model="fs.fields.formInfos.razao" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formInfos.razao" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Nome fantasia*
-          <input type="text" ng-model="fs.fields.formInfos.name" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formInfos.name" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
     </div>
@@ -45,13 +45,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           CNPJ*
-          <input type="text" ng-model="fs.fields.formInfos.cnpj" class="text w100" ng-model="fs.initializedCpfCnpj" ui-br-cpfcnpj-mask required>
+          <input type="text" ng-model="fs.fields.formInfos.cnpj" class="text w100 text-upper" ng-model="fs.initializedCpfCnpj" ui-br-cpfcnpj-mask required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Inscrição estadual*
-          <input type="text" ng-model="fs.fields.formInfos.inscricaoEstadual" ng-init="fs.fields.formInfos.inscricaoEstadual = 'Isento'" class="text w100" maxlength="14" required>
+          <input type="text" ng-model="fs.fields.formInfos.inscricaoEstadual" ng-init="fs.fields.formInfos.inscricaoEstadual = 'Isento'" class="text w100 text-upper" maxlength="14" required>
         </label>
       </div>
     </div>
@@ -59,13 +59,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Inscrição municipal
-          <input type="text" ng-model="fs.fields.formInfos.inscricaoMunicipal" class="text w100" maxlength="14">
+          <input type="text" ng-model="fs.fields.formInfos.inscricaoMunicipal" class="text w100 text-upper" maxlength="14">
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           CEP*
-          <input type="text" ng-model="fs.fields.formInfos.zipcode" class="text w100" ui-br-cep-mask required ng-blur="fs.getAdress('formInfos')">
+          <input type="text" ng-model="fs.fields.formInfos.zipcode" class="text w100 text-upper" ui-br-cep-mask required ng-blur="fs.getAdress('formInfos')">
 
           <a href="http://m.correios.com.br/movel/buscaCep.do" target="_blank" class="absolute bottom-10 right-5 label-link">Não sei o cep</a>
         </label>
@@ -75,19 +75,19 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Endereço*
-          <input type="text" ng-model="fs.fields.formInfos.street" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formInfos.street" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Número*
-          <input type="text" class="text w100" ng-model="fs.fields.formInfos.number" ui-number-mask="0" required>
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.formInfos.number" ui-number-mask="0" required>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Complemento
-          <input type="text" ng-model="fs.fields.formInfos.complement" class="text w100" maxlength="30">
+          <input type="text" ng-model="fs.fields.formInfos.complement" class="text w100 text-upper" maxlength="30">
         </label>
       </div>
     </div>
@@ -96,13 +96,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Bairro*
-          <input type="text" ng-model="fs.fields.formInfos.district" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formInfos.district" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Cidade*
-          <input type="text" ng-model="fs.fields.formInfos.city" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formInfos.city" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-2">
@@ -128,7 +128,7 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Telefone comercial*
-          <input type="text" class="text w100" ng-model="fs.fields.formInfos.tel" ui-br-phone-number required>
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.formInfos.tel" ui-br-phone-number required>
         </label>
       </div>
       <div class="no-margin col-md-3">
@@ -190,7 +190,7 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Grupo empresarial
-          <input type="text" class="text w100" ng-model="fs.fields.formInfos.grupo" maxlength="50" ng-blur="fs.nextStep(formInfos.$valid, 2)">
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.formInfos.grupo" maxlength="50" ng-blur="fs.nextStep(formInfos.$valid, 2)">
         </label>
       </div>
     </div>
@@ -207,13 +207,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Nome*
-          <input type="text" ng-model="fs.fields.formManager.name" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formManager.name" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Área em que trabalha*
-          <input type="text" ng-model="fs.fields.formManager.area" class="text w100" maxlength="30" required>
+          <input type="text" ng-model="fs.fields.formManager.area" class="text w100 text-upper" maxlength="30" required>
         </label>
       </div>
     </div>
@@ -221,13 +221,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Cargo*
-          <input type="text" ng-model="fs.fields.formManager.cargo" class="text w100" maxlength="30" required>
+          <input type="text" ng-model="fs.fields.formManager.cargo" class="text w100 text-upper" maxlength="30" required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           E-mail*
-          <input type="email" ng-model="fs.fields.formManager.email" class="text w100" maxlength="250" required>
+          <input type="email" ng-model="fs.fields.formManager.email" class="text w100 text-upper" maxlength="250" required>
         </label>
       </div>
     </div>
@@ -235,13 +235,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Telefone comercial*
-          <input type="text" ng-model="fs.fields.formManager.telComercial" class="text w100" ui-br-phone-number required>
+          <input type="text" ng-model="fs.fields.formManager.telComercial" class="text w100 text-upper" ui-br-phone-number required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Telefone residencial*
-          <input type="text" ng-model="fs.fields.formManager.telResidencial" class="text w100" ui-br-phone-number required ng-blur="fs.nextStep(formManager.$valid, 3)">
+          <input type="text" ng-model="fs.fields.formManager.telResidencial" class="text w100 text-upper" ui-br-phone-number required ng-blur="fs.nextStep(formManager.$valid, 3)">
         </label>
       </div>
     </div>
@@ -264,20 +264,20 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           CEP*
-          <input type="text" class="text w100" ng-model="fs.fields.formBilling.zipcode" ui-br-cep-mask ng-blur="fs.getAdress('formBilling')" required>
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.formBilling.zipcode" ui-br-cep-mask ng-blur="fs.getAdress('formBilling')" required>
           <a href="http://m.correios.com.br/movel/buscaCep.do" class="absolute bottom-10 right-10 label-link" target="_blank">Não sei o cep</a>
         </label>
       </div>
       <div class="no-margin col-md-7">
         <label class="label-block">
           Endereço*
-          <input type="text" ng-model="fs.fields.formBilling.street" class="text w100" maxlength="100" required>
+          <input type="text" ng-model="fs.fields.formBilling.street" class="text w100 text-upper" maxlength="100" required>
         </label>
       </div>
       <div class="no-margin col-md-2">
         <label class="label-block">
           Número*
-          <input type="text" class="text w100" ng-model="fs.fields.formBilling.number" ui-number-mask="0" required>
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.formBilling.number" ui-number-mask="0" required>
         </label>
       </div>
     </div>
@@ -285,19 +285,19 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Complemento
-          <input type="text" ng-model="fs.fields.formBilling.complement" class="text w100" maxlength="30">
+          <input type="text" ng-model="fs.fields.formBilling.complement" class="text w100 text-upper" maxlength="30">
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Bairro*
-          <input type="text" ng-model="fs.fields.formBilling.district" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formBilling.district" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Cidade*
-          <input type="text" ng-model="fs.fields.formBilling.city" class="text w100" maxlength="50" required>
+          <input type="text" ng-model="fs.fields.formBilling.city" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-2">
@@ -312,30 +312,42 @@
     </div>
     <h3 class="no-margin margin-bottom-15">Responsáveis</h3>
     <div class="no-margin row margin-bottom-15">
-      <div class="no-margin col-md-6">
+      <div class="no-margin col-md-4">
         <label class="label-block">
           Responsável pelo faturamento*
-          <input type="text" ng-model="fs.fields.formBilling.resp1" required class="text w100" maxlength="250">
+          <input type="text" ng-model="fs.fields.formBilling.resp1" required class="text w100 text-upper" maxlength="250">
         </label>
       </div>
-      <div class="no-margin col-md-6">
+      <div class="no-margin col-md-4">
         <label class="label-block">
           E-mail do responsável pelo faturamento*
-          <input type="email" ng-model="fs.fields.formBilling.resp1Email" class="text w100" maxlength="250">
+          <input type="email" ng-model="fs.fields.formBilling.resp1Email" class="text w100 text-upper" maxlength="250">
+        </label>
+      </div>
+      <div class="no-margin col-md-4">
+        <label class="label-block">
+          Telefone do responsável*
+          <input type="text" ng-model="fs.fields.formBilling.resp1Tel" class="text w100 text-upper" ui-br-phone-number required>
         </label>
       </div>
     </div>
     <div class="no-margin row margin-bottom-25">
-      <div class="no-margin col-md-6">
+      <div class="no-margin col-md-4">
         <label class="label-block">
           2º Responsável pelo faturamento
-          <input type="text" ng-model="fs.fields.formBilling.resp2" class="text w100" maxlength="250">
+          <input type="text" ng-model="fs.fields.formBilling.resp2" class="text w100 text-upper" maxlength="250">
         </label>
       </div>
-      <div class="no-margin col-md-6">
+      <div class="no-margin col-md-4">
         <label class="label-block">
           E-mail do 2º responsável pelo faturamento
-          <input type="email" ng-model="fs.fields.formBilling.resp2Email" class="text w100" maxlength="250" ng-blur="fs.nextStep(formBilling.$valid, 4)">
+          <input type="email" ng-model="fs.fields.formBilling.resp2Email" class="text w100 text-upper" maxlength="250" ng-blur="fs.nextStep(formBilling.$valid, 4)">
+        </label>
+      </div>
+      <div class="no-margin col-md-4">
+        <label class="label-block">
+          Telefone do 2º responsável
+          <input type="text" ng-model="fs.fields.formBilling.resp2Tel" class="text w100 text-upper" ui-br-phone-number required>
         </label>
       </div>
     </div>
@@ -347,35 +359,41 @@
   <form novalidate name="formProduct" ng-show="fs.tab === 4">
     <h3 class="no-margin margin-bottom-25">Produto de interesse</h3>
     <div class="no-margin row margin-bottom-25">
-      <div class="no-margin col-md-6">
+      <div class="no-margin col-md-4">
         <label class="label-block">
           Nome
-          <input type="text" ng-model="fs.fields.taxiProduct.name" class="text w100" ng-init="fs.fields.taxiProduct.name = 'Wappa Táxi'" readonly>
+          <input type="text" ng-model="fs.fields.taxiProduct.name" class="text w100 text-upper" ng-init="fs.fields.taxiProduct.name = 'Wappa Táxi'" readonly required>
         </label>
       </div>
-      <div class="no-margin col-md-6">
+      <div class="no-margin col-md-4">
         <label class="label-block">
-          Benefício mensal (R$)
-          <input type="text" class="text w100" ng-model="fs.fields.taxiProduct.month" ui-money-mask maxlength="17">
+          Estimativa de gastos mensal (R$)
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.month" ui-money-mask maxlength="17" required>
+        </label>
+      </div>
+      <div class="no-margin col-md-4">
+        <label class="label-block">
+          Limite de crédito (R$)
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.limit" ui-money-mask maxlength="17" required>
         </label>
       </div>
     </div>
 
-    <h3 class="no-margin margin-bottom-25">Taxas e prazos sugeridos e total mensal</h3>
+    <h3 class="no-margin margin-bottom-25">Taxas, prazos sugeridos e total mensal</h3>
     <div class="no-margin row margin-bottom-15">
       <div class="no-margin col-md-6">
         <label class="select w100">
           <span class="label-block">Tipo de contrato</span>
-          <select ng-model="fs.fields.taxiProduct.contract" class="col-xs-12 select-default">
-            <option disabled selected hidden></option>
-            <option ng-repeat="contract in fs.taxiContractTypes" value="contract.Description">{{contract.Description}}</option>
+          <select ng-model="fs.fields.taxiProduct.contract" class="col-xs-12 select-default" required>
+            <option ng-repeat="contract in fs.taxiContractTypes" value="{{contract.Description}}" selected>{{contract.Description}}</option>
           </select>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="select w100">
           <span class="label-block">Prazo</span>
-          <select ng-model="fs.fields.taxiProduct.prazo" class="col-xs-12 select-default">
+          <select ng-model="fs.fields.taxiProduct.prazo" class="col-xs-12 select-default" required>
+            <option disabled selected hidden></option>
             <option ng-repeat="day in fs.days" val="{{day}}">{{day}}</option>
           </select>
         </label>
@@ -383,7 +401,7 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Dia redundância
-          <input type="text" class="text w100" ng-model="fs.fields.taxiProduct.day" ui-number-mask="0" maxlength="2">
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.day" ng-init="fs.fields.taxiProduct.day=1" ui-number-mask="0" maxlength="2" required>
         </label>
       </div>
     </div>
@@ -391,7 +409,7 @@
       <div class="no-margin col-md-4">
         <label class="select w100">
           <span class="label-block">Tipo de taxa</span>
-          <select ng-model="fs.fields.taxiProduct.typeTax" class="col-xs-12 select-default">
+          <select ng-model="fs.fields.taxiProduct.typeTax" class="col-xs-12 select-default" required>
             <option disabled selected hidden></option>
             <option ng-repeat="type in fs.taxiTaxTypes">{{type.Description}}</option>
           </select>
@@ -400,7 +418,7 @@
       <div class="no-margin col-md-2">
         <label class="label-block">
           Taxa
-          <input type="text" class="text w100" maxlength="5" ng-model="fs.fields.taxiProduct.tax" ui-percentage-mask="0">
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.tax" ui-percentage-mask="2" maxlength="8" required>
         </label>
       </div>
       <div class="no-margin col-md-3">
@@ -408,13 +426,13 @@
           Início período
           <div class="no-margin row">
             <div class="no-margin col-md-5 no-padding">
-              <input type="text" class="text w100" ng-model="fs.fields.taxiProduct.begin" ui-number-mask="0" maxlength="2">
+              <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.begin" ui-number-mask="0" maxlength="2">
             </div>
             <div class="no-margin col-md-2 no-padding text-center">
               <div class="margin-top-15">e</div>
             </div>
             <div class="no-margin col-md-5 no-padding">
-              <input type="text" class="text w100" ng-model="fs.fields.taxiProduct.end" ui-number-mask="0" maxlength="2">
+              <input type="text" class="text w100 text-upper" ng-model="fs.fields.taxiProduct.end" ui-number-mask="0" maxlength="2">
             </div>
           </div>
         </label>
