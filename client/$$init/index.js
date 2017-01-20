@@ -1,11 +1,11 @@
-import './init.less';
+import './index.less';
 
 import ang from 'angular';
 import uir from 'angular-ui-router';
 import mask from 'angular-input-masks';
 
-import run from './init.run';
-import config from './init.config';
+import run from './run';
+import config from './config';
 import topbar from '../comps/topbar';
 import navbar from '../comps/navbar';
 import auth from '../feats/auth';

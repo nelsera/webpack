@@ -2,7 +2,7 @@ import ang from 'angular';
 
 import menu from './menu.mock';
 import states from './states.mock';
-import {ADM_API, AUTH_API} from '../$$init/init.const';
+import {ADM_API, AUTH_API} from '../$$init/const';
 
 class Rest {
   /** @ngInject */
@@ -16,7 +16,7 @@ class Rest {
     });
   }
 
-  getAdress(zipcode) {
+  getAddress(zipcode) {
     return this.xhr.get(`${ADM_API}address?zipcode=${zipcode}`).then(res => res.data);
   }
 

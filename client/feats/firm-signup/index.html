@@ -51,7 +51,15 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Inscrição estadual*
-          <input type="text" ng-model="fs.fields.formInfos.inscricaoEstadual" ng-init="fs.fields.formInfos.inscricaoEstadual = 'Isento'" class="text w100 text-upper" maxlength="14" required>
+          <input id="isento" ng-model="fs.isFree" ng-click="fs.isFree ? fs.fields.formInfos.inscricaoEstadual='Isento' : fs.fields.formInfos.inscricaoEstadual=''" type="checkbox" class="checkbox">
+          <label for="isento" class="margin-left-10">Isento</label>
+          <input 
+          type="text" 
+          ng-model="fs.fields.formInfos.inscricaoEstadual" 
+          class="text w100 text-upper" 
+          maxlength="14" 
+          ng-readonly="fs.isFree"
+          required>
         </label>
       </div>
     </div>
@@ -65,7 +73,7 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           CEP*
-          <input type="text" ng-model="fs.fields.formInfos.zipcode" class="text w100 text-upper" ui-br-cep-mask required ng-blur="fs.getAdress('formInfos')">
+          <input type="text" ng-model="fs.fields.formInfos.zipcode" class="text w100 text-upper" ui-br-cep-mask required ng-blur="fs.getAddress('formInfos')">
 
           <a href="http://m.correios.com.br/movel/buscaCep.do" target="_blank" class="absolute bottom-10 right-5 label-link">Não sei o cep</a>
         </label>
@@ -235,13 +243,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Telefone comercial*
-          <input type="text" ng-model="fs.fields.formManager.telComercial" class="text w100 text-upper" ui-br-phone-number required>
+          <input type="text" ng-model="fs.fields.formManager.telComercial" class="text w100 text-upper" maxlength="14" ui-br-phone-number required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
-          Telefone residencial*
-          <input type="text" ng-model="fs.fields.formManager.telResidencial" class="text w100 text-upper" ui-br-phone-number required ng-blur="fs.nextStep(formManager.$valid, 3)">
+          Celular*
+          <input type="text" ng-model="fs.fields.formManager.celular" class="text w100 text-upper" maxlength="15" ui-br-phone-number required ng-blur="fs.nextStep(formManager.$valid, 3)">
         </label>
       </div>
     </div>
@@ -264,7 +272,7 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           CEP*
-          <input type="text" class="text w100 text-upper" ng-model="fs.fields.formBilling.zipcode" ui-br-cep-mask ng-blur="fs.getAdress('formBilling')" required>
+          <input type="text" class="text w100 text-upper" ng-model="fs.fields.formBilling.zipcode" ui-br-cep-mask ng-blur="fs.getAddress('formBilling')" required>
           <a href="http://m.correios.com.br/movel/buscaCep.do" class="absolute bottom-10 right-10 label-link" target="_blank">Não sei o cep</a>
         </label>
       </div>
@@ -321,7 +329,7 @@
       <div class="no-margin col-md-4">
         <label class="label-block">
           E-mail do responsável pelo faturamento*
-          <input type="email" ng-model="fs.fields.formBilling.resp1Email" class="text w100 text-upper" maxlength="250">
+          <input type="email" ng-model="fs.fields.formBilling.resp1Email" required class="text w100 text-upper" maxlength="250">
         </label>
       </div>
       <div class="no-margin col-md-4">
@@ -352,7 +360,7 @@
       </div>
     </div>
     <div class="no-margin row margin-top-25">
-      <button type="reset" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=2">Voltar</button>
+      <button type="button" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=2">Voltar</button>
       <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="formBilling.$invalid" ng-click="fs.tab=4">Avançar</button>
     </div>
   </form>
@@ -362,7 +370,7 @@
       <div class="no-margin col-md-4">
         <label class="label-block">
           Nome
-          <input type="text" ng-model="fs.fields.taxiProduct.name" class="text w100 text-upper" ng-init="fs.fields.taxiProduct.name = 'Wappa Táxi'" readonly required>
+          <input type="text" ng-model="fs.fields.taxiProduct.name" class="text w100 text-upper" ng-init="fs.fields.taxiProduct.name = 'Wappa Táxi'" required readonly>
         </label>
       </div>
       <div class="no-margin col-md-4">
@@ -457,8 +465,7 @@
             ng-model="fs.fields.taxiProduct.close" 
             class="col-xs-12 select-default"
             ng-options="option.value as option.name for option in fs.days" 
-            ng-disabled="fs.selectRange !== 'days'"
-            required>
+            ng-disabled="fs.selectRange !== 'days'">
             <option disabled selected hidden></option>
           </select>
         </label>
@@ -491,7 +498,7 @@
       </div>
     </div>
     <div class="no-margin row margin-top-25">
-      <button type="reset" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=3">Voltar</button>
+      <button type="button" class="btn btn-default btn-lg pull-left" ng-click="fs.tab=3">Voltar</button>
       <button type="submit" class="btn btn-primary btn-lg margin-left-10 pull-right" ng-disabled="formProduct.$invalid">Concluir o cadastro</button>
     </div>
   </form>

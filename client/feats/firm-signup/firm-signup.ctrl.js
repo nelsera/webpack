@@ -30,12 +30,6 @@ export default class FirmSignup {
       fs.taxiContractTypes = data.TaxiContractTypes;
       fs.taxiTaxTypes = data.TaxiTaxTypes;
     });
-
-    fs.setRange = () => {
-      fs.fields.taxiProduct.begin = undefined;
-      fs.fields.taxiProduct.end = undefined;
-      fs.fields.taxiProduct.close = undefined;
-    };
   }
 
   getDays(day, dayEnd, days = []) {
@@ -49,8 +43,8 @@ export default class FirmSignup {
     return days;
   }
 
-  getAdress(context) {
-    this.rest.getAdress(this.fields[context].zipcode).then(res => {
+  getAddress(context) {
+    this.rest.getAddress(this.fields[context].zipcode).then(res => {
       if (res.Street) {
         this.fields[context].street = res.Street;
         this.fields[context].district = res.District.Name;
@@ -67,6 +61,12 @@ export default class FirmSignup {
 
   setTab(tab) {
     return this.tab = tab;
+  }
+
+  setRange() {
+    this.fields.taxiProduct.begin = undefined;
+    this.fields.taxiProduct.end = undefined;
+    this.fields.taxiProduct.close = undefined;
   }
 
   signIn() {
