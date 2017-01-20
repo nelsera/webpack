@@ -53,3 +53,24 @@
 .input.disabled {
   color: #DCDCDC;
 }
+
+.ng-invalid.ng-dirty:not(select) {
+  border-color: #f05c58;
+
+  &::-moz-selection {
+    background: #f05c58;
+  }
+  &::selection {
+    background: #f05c58;
+  }
+}
+
+.ng-valid.ng-dirty {
+  border-color: #A1CF17;
+  &::-moz-selection {
+    background: #A1CF17;
+  }
+  &::selection {
+    background: #A1CF17;
+  }
+}
