@@ -6,7 +6,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FailPlugin = require('webpack-fail-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pkg = require('../../package.json');
-const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -28,7 +27,7 @@ module.exports = {
         test: /\.(css|less)$/,
         loaders: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
-          loader: 'css-loader?minimize!less-loader!postcss-loader'
+          loader: 'css-loader?minimize!less-loader'
         })
       },
       {
@@ -42,7 +41,7 @@ module.exports = {
       {
         test: /.html$/,
         loaders: [
-          'html-loader'
+          'html-loader?minimize'
         ]
       }
     ]
@@ -59,11 +58,6 @@ module.exports = {
     }),
     new ExtractTextPlugin('index-[contenthash].css'),
     new webpack.optimize.CommonsChunkPlugin({name: 'vendor'}),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: () => [autoprefixer]
-      }
-    }),
     new CopyWebpackPlugin([
       {from: `./${conf.path.npm('wappa-uikit/dist/**/*')}`},
       {from: `./${conf.path.src('Web.config')}`}

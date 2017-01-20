@@ -4,7 +4,6 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FailPlugin = require('webpack-fail-plugin');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
   module: {
@@ -26,8 +25,7 @@ module.exports = {
         loaders: [
           'style-loader',
           'css-loader',
-          'less-loader',
-          'postcss-loader'
+          'less-loader'
         ]
       },
       {
@@ -52,12 +50,6 @@ module.exports = {
     FailPlugin,
     new HtmlWebpackPlugin({
       template: conf.path.src('index.html')
-    }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: () => [autoprefixer]
-      },
-      debug: true
     })
   ],
   devtool: 'source-map',

@@ -149,41 +149,7 @@
           <span class="label-block">Segmento e/ou setor*</span>
           <select ng-model="cpn.fields.formInfos.segmento" class="col-xs-12 select-default" required>
             <option disabled selected hidden></option>  
-            <option>Agências de Comunicação/Publicidade</option>
-            <option>Alimentos</option>
-            <option>Artigos Esportivos</option>
-            <option>Autopeças</option>
-            <option>Auditoria</option>
-            <option>Consultoria Geral</option>
-            <option>Bancos</option>
-            <option>Bebidas</option>
-            <option>Açúcar e Álcool</option>
-            <option>Contact Center</option>
-            <option>Turismo</option>
-            <option>Agricultura/Pecuária</option>
-            <option>Jurídico</option>
-            <option>Tecnologia</option>
-            <option>Bancário/Financeiro</option>
-            <option>Comercio Atacado</option>
-            <option>Comercio Varejista</option>
-            <option>Comunicação</option>
-            <option>Construção Civil</option>
-            <option>Contabilidade/Auditoria</option>
-            <option>Diversão / Entretenimento</option>
-            <option>Educação e Idiomas</option>
-            <option>Telecomunicação</option>
-            <option>Energia/Eletricidade</option>
-            <option>Engenharia</option>
-            <option>Eventos</option>
-            <option>Farmacêutica</option>
-            <option>Industrias</option>
-            <option>Mineração</option>
-            <option>Órgãos Públicos</option>
-            <option>Petróleo, gás e combustíveis</option>
-            <option>Prestadora de Serviços</option>
-            <option>Saúde</option>
-            <option>Setor de seguros</option>
-            <option>Outros</option>
+            <option ng-repeat="segment in cpn.formInfosSegments" value="{{segment.Id}}">{{segment.Description}}</option>
           </select>
         </label>
       </div>
@@ -193,10 +159,8 @@
         <label class="select w100">
           <span class="label-block">Categoria*</span>
           <select ng-model="cpn.fields.formInfos.categoria" class="col-xs-12 select-default" required>
-            <option disabled selected hidden></option>  
-            <option>Silver</option>
-            <option>Gold</option>
-            <option>Platinum</option>
+            <option disabled selected hidden></option>
+            <option ng-repeat="category in cpn.formInfosCategories" value="{{category.Id}}">{{category.Description}}</option>
           </select>
         </label>
       </div>
@@ -253,8 +217,8 @@
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
-          Celular*
-          <input type="text" ng-model="cpn.fields.formManager.celular" class="text w100 text-upper" maxlength="15" ui-br-phone-number required ng-blur="cpn.nextStep(formManager.$valid, 3)">
+          Celular
+          <input type="text" ng-model="cpn.fields.formManager.celular" class="text w100 text-upper" maxlength="15" ui-br-phone-number ng-blur="cpn.nextStep(formManager.$valid, 3)">
         </label>
       </div>
     </div>
@@ -488,6 +452,8 @@
             ng-model="cpn.fields.taxiProduct.responsavelPosVenda"
             class="col-xs-12 select-default" 
             required>
+            <option disabled selected hidden></option>
+            <option ng-repeat="postSaleResponsible in cpn.postSaleResponsibles" value="{{postSaleResponsible.Id}}">{{postSaleResponsible.Description}}</option>
           </select>
         </label>
       </div>
@@ -498,6 +464,8 @@
             ng-model="cpn.fields.taxiProduct.responsavelComercial"
             class="col-xs-12 select-default" 
             required>
+            <option disabled selected hidden></option>
+            <option ng-repeat="commercialSaleResponsible in cpn.commercialSaleResponsibles" value="{{commercialSaleResponsible.Id}}">{{commercialSaleResponsible.Description}}</option>
           </select>
         </label>
       </div>

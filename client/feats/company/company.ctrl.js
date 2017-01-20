@@ -27,8 +27,12 @@ export default class Company {
 
     $rest.getCompanyGlobal().then(data => {
       cpn.formInfosSizes = data.Sizes;
+      cpn.formInfosSegments = data.Segments;
+      cpn.formInfosCategories = data.Categories;
       cpn.taxiContractTypes = data.TaxiContractTypes;
       cpn.taxiTaxTypes = data.TaxiTaxTypes;
+      cpn.postSaleResponsibles = data.PostSaleResponsible;
+      cpn.commercialSaleResponsibles = data.CommercialSaleResponsible;
     });
   }
 
