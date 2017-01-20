@@ -11,6 +11,6 @@ module.exports = function () {
       	'/node_modules': './node_modules'
       }
     },
-    open: true
+    open: false
   };
 };

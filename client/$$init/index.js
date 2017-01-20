@@ -10,18 +10,21 @@ import topbar from '../comps/topbar';
 import navbar from '../comps/navbar';
 import auth from '../feats/auth';
 import panel from '../feats/panel';
-import firmSignup from '../feats/firm-signup';
 import rest from '../rest';
 import flash from '../comps/flash';
+
+import company from '../feats/company';
+import establishment from '../feats/establishment';
 
 const m = [
   uir,
   rest,
   mask,
   auth,
-  firmSignup,
   panel,
-  flash
+  flash,
+  company,
+  establishment
 ];
 
 export default ang

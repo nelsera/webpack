@@ -4,7 +4,7 @@ export default function routes($stateProvider) {
     .state('painel.empresa/nova', {
       url: '/empresa/nova',
       template: require('./index.html'),
-      controller: 'FirmSignup',
-      controllerAs: 'fs'
+      controller: 'Company',
+      controllerAs: 'cpn'
     });
 }

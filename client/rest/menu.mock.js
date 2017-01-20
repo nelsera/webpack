@@ -16,7 +16,8 @@ export default [
       text: 'Estabelecimento',
       child: [{
         level: 2,
-        text: 'Cadastrar'
+        text: 'Adicionar',
+        link: 'estabelecimento/novo'
       }, {
         level: 2,
         text: 'Listar'

@@ -1,21 +1,21 @@
 import $ from 'jquery';
 
-export default class FirmSignup {
+export default class Company {
   /** @ngInject */
   constructor($rootScope, $rest) {
-    const fs = this;
+    const cpn = this;
 
-    $rootScope.title = fs.title = 'Adicionar empresa cliente';
+    $rootScope.title = cpn.title = 'Adicionar empresa';
 
-    fs.setTab(1);
+    cpn.setTab(1);
 
-    fs.rest = $rest;
+    cpn.rest = $rest;
 
-    fs.days = fs.getDays(7, 90);
-    fs.daysMonth = fs.getDays(1, 31);
-    fs.states = $rest.getStates();
+    cpn.days = cpn.getDays(7, 90);
+    cpn.daysMonth = cpn.getDays(1, 31);
+    cpn.states = $rest.getStates();
 
-    fs.fields = {
+    cpn.fields = {
       formInfos: {},
       formManager: {},
       formBilling: {},
@@ -26,9 +26,9 @@ export default class FirmSignup {
     };
 
     $rest.getCompanyGlobal().then(data => {
-      fs.formInfosSizes = data.Sizes;
-      fs.taxiContractTypes = data.TaxiContractTypes;
-      fs.taxiTaxTypes = data.TaxiTaxTypes;
+      cpn.formInfosSizes = data.Sizes;
+      cpn.taxiContractTypes = data.TaxiContractTypes;
+      cpn.taxiTaxTypes = data.TaxiTaxTypes;
     });
   }
 
@@ -50,7 +50,7 @@ export default class FirmSignup {
         this.fields[context].district = res.District.Name;
         this.fields[context].city = res.City.Name;
         this.fields[context].state = res.State.Code;
-        $(`[ng-model="fs.fields.${context}.number"]`).focus();
+        $(`[ng-model="cpn.fields.${context}.number"]`).focus();
       }
     });
   }
