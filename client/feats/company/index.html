@@ -1,6 +1,6 @@
 <ol class="no-margin breadcrumb bgWhite">
-  <li><a href="#">Empresa</a></li>
-  <li><a href="#">Administração</a></li>
+  <li class="txt-color-blue">Empresa</li>
+  <li class="txt-color-blue">Administração</li>
   <li class="active">Adicionar empresa</li>
 </ol>
 
@@ -25,7 +25,7 @@
   </a>
 </div>
 <div class="bgWhite boxShadow padding-25 no-margin margin-bottom-25 transition">
-  <form novalidate name="formInfos" ng-show="cpn.tab === 1">
+  <form novalidate name="Infos" ng-show="cpn.tab === 1">
     <h3 class="no-margin margin-bottom-15">Informações da empresa</h3>
     <div class="no-margin row margin-bottom-15">
       <div class="no-margin col-md-6"> 
@@ -33,7 +33,7 @@
           Razão social*
           <input 
             type="text" 
-            ng-model="cpn.fields.formInfos.razao" 
+            ng-model="cpn.Infos.Trade" 
             class="text w100 text-upper" 
             maxlength="50" 
             required>
@@ -42,7 +42,7 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Nome fantasia*
-          <input type="text" ng-model="cpn.fields.formInfos.name" class="text w100 text-upper" maxlength="100" required>
+          <input type="text" ng-model="cpn.Infos.Name" class="text w100 text-upper" maxlength="100" required>
         </label>
       </div>
     </div>
@@ -50,17 +50,17 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           CNPJ*
-          <input type="text" ng-model="cpn.fields.formInfos.cnpj" class="text w100 text-upper" ng-model="cpn.initializedCpfCnpj" ui-br-cpfcnpj-mask required>
+          <input type="text" ng-model="cpn.Infos.Cnpj" class="text w100 text-upper" ng-model="cpn.initializedCpfCnpj" ui-br-cpfcnpj-mask required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Inscrição estadual*
-          <input id="isento" ng-model="cpn.isFree" ng-click="cpn.isFree ? cpn.fields.formInfos.inscricaoEstadual='Isento' : cpn.fields.formInfos.inscricaoEstadual=''" type="checkbox" class="checkbox">
+          <input id="isento" ng-model="cpn.isFree" ng-click="cpn.isFree ? cpn.Infos.Registration.State='Isento' : cpn.Infos.Registration.State=''" type="checkbox" class="checkbox">
           <label for="isento" class="margin-left-10">Isento</label>
           <input 
           type="text" 
-          ng-model="cpn.fields.formInfos.inscricaoEstadual" 
+          ng-model="cpn.Infos.Registration.State" 
           class="text w100 text-upper" 
           maxlength="14" 
           ng-readonly="cpn.isFree"
@@ -72,13 +72,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Inscrição municipal
-          <input type="text" ng-model="cpn.fields.formInfos.inscricaoMunicipal" class="text w100 text-upper" maxlength="15">
+          <input type="text" ng-model="cpn.Infos.Registration.City" class="text w100 text-upper" maxlength="15">
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           CEP*
-          <input type="text" ng-model="cpn.fields.formInfos.zipcode" class="text w100 text-upper" ui-br-cep-mask required ng-blur="cpn.getAddress('formInfos')">
+          <input type="text" ng-model="cpn.Infos.Address.Zipcode" class="text w100 text-upper" ui-br-cep-mask required ng-blur="cpn.getAddress('Infos')">
 
           <a href="http://m.correios.com.br/movel/buscaCep.do" target="_blank" class="absolute bottom-10 right-5 label-link">Não sei o cep</a>
         </label>
@@ -88,19 +88,19 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Endereço*
-          <input type="text" ng-model="cpn.fields.formInfos.street" class="text w100 text-upper" maxlength="50" required>
+          <input type="text" ng-model="cpn.Infos.Address.Street" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Número*
-          <input type="text" class="text w100 text-upper" ng-model="cpn.fields.formInfos.number" ui-number-mask="0" required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.Infos.Address.Number" ui-number-mask="0" required>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Complemento
-          <input type="text" ng-model="cpn.fields.formInfos.complement" class="text w100 text-upper" maxlength="30">
+          <input type="text" ng-model="cpn.Infos.Address.Complement" class="text w100 text-upper" maxlength="30">
         </label>
       </div>
     </div>
@@ -109,19 +109,19 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Bairro*
-          <input type="text" ng-model="cpn.fields.formInfos.district" class="text w100 text-upper" maxlength="50" required>
+          <input type="text" ng-model="cpn.Infos.Address.District.Name" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Cidade*
-          <input type="text" ng-model="cpn.fields.formInfos.city" class="text w100 text-upper" maxlength="50" required>
+          <input type="text" ng-model="cpn.Infos.Address.City.Name" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-2">
         <label class="select w100">
           <span class="label-block">Estado*</span>
-          <select ng-model="cpn.fields.formInfos.state" class="col-xs-12 select-default" required>
+          <select ng-model="cpn.Infos.Address.State.Code" class="col-xs-12 select-default" required>
             <option disabled selected hidden></option>
             <option ng-repeat="state in cpn.states" value="{{state.Sigla}}">{{state.Nome}}</option>
           </select>
@@ -132,24 +132,24 @@
       <div class="no-margin col-md-6">
         <label class="select w100">
           <span class="label-block">Porte</span>
-          <select ng-model="cpn.fields.formInfos.size" class="col-xs-12 select-default" required>
+          <select ng-model="cpn.Infos.Size" class="col-xs-12 select-default" required>
             <option disabled selected hidden></option>  
-            <option ng-repeat="size in cpn.formInfosSizes" value="{{size.Id}}">{{size.Description}}</option>
+            <option ng-repeat="size in cpn.InfosSizes" value="{{size.Id}}">{{size.Description}}</option>
           </select>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Telefone comercial*
-          <input type="text" class="text w100 text-upper" ng-model="cpn.fields.formInfos.tel" ui-br-phone-number required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.Infos.Phone" ui-br-phone-number required>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="select w100">
           <span class="label-block">Segmento e/ou setor*</span>
-          <select ng-model="cpn.fields.formInfos.segmento" class="col-xs-12 select-default" required>
+          <select ng-model="cpn.Infos.Segment" class="col-xs-12 select-default" required>
             <option disabled selected hidden></option>  
-            <option ng-repeat="segment in cpn.formInfosSegments" value="{{segment.Id}}">{{segment.Description}}</option>
+            <option ng-repeat="segment in cpn.InfosSegments" value="{{segment.Id}}">{{segment.Description}}</option>
           </select>
         </label>
       </div>
@@ -158,39 +158,40 @@
       <div class="no-margin col-md-6">
         <label class="select w100">
           <span class="label-block">Categoria*</span>
-          <select ng-model="cpn.fields.formInfos.categoria" class="col-xs-12 select-default" required>
+          <select ng-model="cpn.Infos.Category" class="col-xs-12 select-default" required>
             <option disabled selected hidden></option>
-            <option ng-repeat="category in cpn.formInfosCategories" value="{{category.Id}}">{{category.Description}}</option>
+            <option ng-repeat="category in cpn.InfosCategories" value="{{category.Id}}">{{category.Description}}</option>
           </select>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Grupo empresarial
-          <input type="text" class="text w100 text-upper" ng-model="cpn.fields.formInfos.grupo" maxlength="50" ng-blur="cpn.nextStep(formInfos.$valid, 2)">
+          <input type="text" class="text w100 text-upper" ng-model="cpn.Infos.Group.Name" maxlength="50" ng-blur="cpn.nextStep(Infos.$valid, 2)">
         </label>
       </div>
     </div>
 
     <div class="no-margin row margin-top-25">
       <button type="reset" class="btn btn-default btn-lg pull-left">Cancelar</button>
-      <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="formInfos.$invalid" ng-click="cpn.tab=2">Avançar</button>
+      <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="Infos.$invalid" ng-click="cpn.tab=2">Avançar</button>
     </div>      
   </form>
-  <form novalidate name="formManager" ng-show="cpn.tab === 2">
+
+  <form novalidate name="Manager" ng-show="cpn.tab === 2">
     <h3 class="no-margin margin-bottom-15">Informações do gestor</h3>
 
     <div class="no-margin row margin-bottom-15">
       <div class="no-margin col-md-6">
         <label class="label-block">
           Nome*
-          <input type="text" ng-model="cpn.fields.formManager.name" class="text w100 text-upper" maxlength="50" required>
+          <input type="text" ng-model="cpn.Manager.Name" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Área em que trabalha*
-          <input type="text" ng-model="cpn.fields.formManager.area" class="text w100 text-upper" maxlength="30" required>
+          <input type="text" ng-model="cpn.Manager.Departament" class="text w100 text-upper" maxlength="30" required>
         </label>
       </div>
     </div>
@@ -198,13 +199,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Cargo*
-          <input type="text" ng-model="cpn.fields.formManager.cargo" class="text w100 text-upper" maxlength="30" required>
+          <input type="text" ng-model="cpn.Manager.JobTitle" class="text w100 text-upper" maxlength="30" required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           E-mail*
-          <input type="email" ng-model="cpn.fields.formManager.email" class="text w100 text-upper" maxlength="250" required>
+          <input type="email" ng-model="cpn.Manager.Email" class="text w100 text-upper" maxlength="250" required>
         </label>
       </div>
     </div>
@@ -212,27 +213,28 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Telefone comercial*
-          <input type="text" ng-model="cpn.fields.formManager.telComercial" class="text w100 text-upper" maxlength="14" ui-br-phone-number required>
+          <input type="text" ng-model="cpn.Manager.CommercialPhone" class="text w100 text-upper" maxlength="14" ui-br-phone-number required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Celular
-          <input type="text" ng-model="cpn.fields.formManager.celular" class="text w100 text-upper" maxlength="15" ui-br-phone-number ng-blur="cpn.nextStep(formManager.$valid, 3)">
+          <input type="text" ng-model="cpn.Manager.PrivatePhone" class="text w100 text-upper" maxlength="15" ui-br-phone-number ng-blur="cpn.nextStep(Manager.$valid, 3)">
         </label>
       </div>
     </div>
     
     <div class="no-margin row margin-top-25">
       <button type="button" class="btn btn-default btn-lg pull-left" ng-click="cpn.tab=1">Voltar</button>
-      <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="formManager.$invalid" ng-click="cpn.tab=3">Avançar</button>
+      <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="Manager.$invalid" ng-click="cpn.tab=3">Avançar</button>
     </div>
   </form>
-  <form novalidate name="formBilling" ng-show="cpn.tab === 3">
+
+  <form novalidate name="Billing" ng-show="cpn.tab === 3">
     <h3 class="no-margin margin-bottom-15">Informações do faturamento</h3>
     <div class="no-margin row margin-bottom-15">
       <label class="check-person">
-        <input type="checkbox" class="ios-switch tinyswitch" ng-model="cpn.switchAddress" ng-click="cpn.getFormInfos(cpn.fields.formInfos)">
+        <input type="checkbox" class="ios-switch tinyswitch" ng-model="cpn.switchAddress" ng-click="cpn.getInfos(cpn.Infos)">
         <div class="display-inline-block margin-right-5"><div></div></div>
         <span class="relative">Usar o mesmo endereço da empresa para faturamento</span>
       </label>
@@ -241,20 +243,20 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           CEP*
-          <input type="text" class="text w100 text-upper" ng-model="cpn.fields.formBilling.zipcode" ui-br-cep-mask ng-blur="cpn.getAddress('formBilling')" required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.Billing.Address.Zipcode" ui-br-cep-mask ng-blur="cpn.getAddress('Billing')" required>
           <a href="http://m.correios.com.br/movel/buscaCep.do" class="absolute bottom-10 right-10 label-link" target="_blank">Não sei o cep</a>
         </label>
       </div>
       <div class="no-margin col-md-7">
         <label class="label-block">
           Endereço*
-          <input type="text" ng-model="cpn.fields.formBilling.street" class="text w100 text-upper" maxlength="100" required>
+          <input type="text" ng-model="cpn.Billing.Address.Street" class="text w100 text-upper" maxlength="100" required>
         </label>
       </div>
       <div class="no-margin col-md-2">
         <label class="label-block">
           Número*
-          <input type="text" class="text w100 text-upper" ng-model="cpn.fields.formBilling.number" ui-number-mask="0" required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.Billing.Address.Number" ui-number-mask="0" required>
         </label>
       </div>
     </div>
@@ -262,25 +264,25 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Complemento
-          <input type="text" ng-model="cpn.fields.formBilling.complement" class="text w100 text-upper" maxlength="30">
+          <input type="text" ng-model="cpn.Billing.Address.Complement" class="text w100 text-upper" maxlength="30">
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Bairro*
-          <input type="text" ng-model="cpn.fields.formBilling.district" class="text w100 text-upper" maxlength="50" required>
+          <input type="text" ng-model="cpn.Billing.Address.District.Name" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Cidade*
-          <input type="text" ng-model="cpn.fields.formBilling.city" class="text w100 text-upper" maxlength="50" required>
+          <input type="text" ng-model="cpn.Billing.Address.City.Name" class="text w100 text-upper" maxlength="50" required>
         </label>
       </div>
       <div class="no-margin col-md-2">
         <label class="select w100">
           <span class="label-block">Estado*</span>
-          <select ng-model="cpn.fields.formBilling.state" class="col-xs-12 select-default" required>
+          <select ng-model="cpn.Billing.Address.State.Code" class="col-xs-12 select-default" required>
             <option disabled selected hidden></option>
             <option ng-repeat="state in cpn.states" value="{{state.Sigla}}">{{state.Nome}}</option>
           </select>
@@ -292,19 +294,19 @@
       <div class="no-margin col-md-4">
         <label class="label-block">
           Responsável pelo faturamento*
-          <input type="text" ng-model="cpn.fields.formBilling.resp1" required class="text w100 text-upper" maxlength="250">
+          <input type="text" ng-model="cpn.Billing.ResponsibleOne.Name" required class="text w100 text-upper" maxlength="250">
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           E-mail do responsável pelo faturamento*
-          <input type="email" ng-model="cpn.fields.formBilling.resp1Email" required class="text w100 text-upper" maxlength="250">
+          <input type="email" ng-model="cpn.Billing.ResponsibleOne.Email" required class="text w100 text-upper" maxlength="250">
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Telefone do responsável*
-          <input type="text" ng-model="cpn.fields.formBilling.resp1Tel" class="text w100 text-upper" ui-br-phone-number required>
+          <input type="text" ng-model="cpn.Billing.ResponsibleOne.Phone" class="text w100 text-upper" ui-br-phone-number required>
         </label>
       </div>
     </div>
@@ -312,46 +314,47 @@
       <div class="no-margin col-md-4">
         <label class="label-block">
           2º Responsável pelo faturamento
-          <input type="text" ng-model="cpn.fields.formBilling.resp2" class="text w100 text-upper" maxlength="250">
+          <input type="text" ng-model="cpn.Billing.ResponsibleTwo.Name" class="text w100 text-upper" maxlength="250">
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           E-mail do 2º responsável pelo faturamento
-          <input type="email" ng-model="cpn.fields.formBilling.resp2Email" class="text w100 text-upper" maxlength="250" ng-blur="cpn.nextStep(formBilling.$valid, 4)">
+          <input type="email" ng-model="cpn.Billing.ResponsibleTwo.Email" class="text w100 text-upper" maxlength="250" ng-blur="cpn.nextStep(Billing.$valid, 4)">
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Telefone do 2º responsável
-          <input type="text" ng-model="cpn.fields.formBilling.resp2Tel" class="text w100 text-upper" ui-br-phone-number>
+          <input type="text" ng-model="cpn.Billing.ResponsibleTwo.Phone" class="text w100 text-upper" ui-br-phone-number>
         </label>
       </div>
     </div>
     <div class="no-margin row margin-top-25">
       <button type="button" class="btn btn-default btn-lg pull-left" ng-click="cpn.tab=2">Voltar</button>
-      <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="formBilling.$invalid" ng-click="cpn.tab=4">Avançar</button>
+      <button type="button" class="btn btn-success btn-lg margin-left-10 pull-right" ng-disabled="Billing.$invalid" ng-click="cpn.tab=4">Avançar</button>
     </div>
   </form>
-  <form novalidate name="formProduct" ng-show="cpn.tab === 4">
+
+  <form novalidate name="TaxiProduct" ng-show="cpn.tab === 4">
     <h3 class="no-margin margin-bottom-15">Produto de interesse</h3>
     <div class="no-margin row margin-bottom-25">
       <div class="no-margin col-md-4">
         <label class="label-block">
           Nome
-          <input type="text" ng-model="cpn.fields.taxiProduct.name" class="text w100 text-upper" ng-init="cpn.fields.taxiProduct.name = 'Wappa Táxi'" required readonly>
+          <input type="text" class="text w100 text-upper" value="Wappa Táxi" required readonly>
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Estimativa de gastos mensal (R$)
-          <input type="text" class="text w100 text-upper" ng-model="cpn.fields.taxiProduct.month" ui-money-mask maxlength="17" required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.TaxiProduct.Credit.Total" ui-money-mask maxlength="17" required>
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Limite de crédito (R$)
-          <input type="text" class="text w100 text-upper" ng-model="cpn.fields.taxiProduct.limit" ui-money-mask maxlength="17" required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.TaxiProduct.Credit.Limit" ui-money-mask maxlength="17" required>
         </label>
       </div>
     </div>
@@ -361,7 +364,7 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Tipo de contrato
-          <input type="text" class="text w100 text-upper" ng-model="cpn.fields.taxiProduct.contract" ng-init="cpn.fields.taxiProduct.contract='Reembolso'" readonly required>
+          <input type="text" class="text w100 text-upper" value="Reembolso" readonly required>
           </select>
         </label>
       </div>
@@ -369,7 +372,7 @@
         <label class="select w100">
           <span class="label-block">Prazo</span>
           <select 
-            ng-model="cpn.fields.taxiProduct.prazo" 
+            ng-model="cpn.TaxiProduct.DeadlineInDays" 
             class="col-xs-12 select-default"
             ng-options="option.value as option.name for option in cpn.days"
             required>
@@ -381,10 +384,10 @@
         <label class="select w100">
           <span class="label-block">Dia de redundância</span>
           <select 
-            ng-model="cpn.fields.taxiProduct.day"
+            ng-model="cpn.TaxiProduct.RedundancyDays"
             class="col-xs-12 select-default"
             ng-options="option.value as option.name for option in cpn.daysMonth"
-            ng-init="cpn.fields.taxiProduct.day=1"
+            ng-init="cpn.TaxiProduct.RedundancyDays=1"
             required>
           </select>
         </label>
@@ -393,10 +396,10 @@
         <label class="select w100">
           <span class="label-block">Tipo de taxa</span>
           <select
-            ng-model="cpn.fields.taxiProduct.typeTax"
+            ng-model="cpn.TaxiProduct.Tax.Type"
             class="col-xs-12 select-default"
-            ng-options="option.Description as option.Description for option in cpn.taxiTaxTypes"
-            ng-init="cpn.fields.taxiProduct.typeTax='Percentual'"
+            ng-options="option.Id as option.Description for option in cpn.taxiTaxTypes"
+            ng-init="cpn.TaxiProduct.Tax.Type=1"
             required>
           </select>
         </label>
@@ -406,7 +409,7 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Taxa
-          <input type="text" class="text w100 text-upper" ng-model="cpn.fields.taxiProduct.tax" ui-percentage-mask="2" maxlength="8" required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.TaxiProduct.Tax.Value" ui-percentage-mask="2" maxlength="8" required>
         </label>
       </div>
       <div class="no-margin col-md-3">
@@ -415,13 +418,13 @@
           <label for="optionsRadios1">Início período</label>
           <div class="no-margin row input" ng-class="{disabled: cpn.selectRange !== 'period'}">
             <div class="no-margin col-md-5 no-padding">
-              <input type="text" class="text w100 text-upper" ng-model="cpn.fields.taxiProduct.begin" ui-number-mask="0" maxlength="2" ng-disabled="cpn.selectRange !== 'period'">
+              <input type="text" class="text w100 text-upper" ng-model="cpn.TaxiProduct.Period.Start" ui-number-mask="0" maxlength="2" ng-disabled="cpn.selectRange !== 'period'">
             </div>
             <div class="no-margin col-md-2 no-padding text-center">
               <div class="margin-top-15">e</div>
             </div>
             <div class="no-margin col-md-5 no-padding">
-              <input type="text" class="text w100 text-upper" ng-model="cpn.fields.taxiProduct.end" ui-number-mask="0" maxlength="2" ng-disabled="cpn.selectRange !== 'period'">
+              <input type="text" class="text w100 text-upper" ng-model="cpn.TaxiProduct.Period.End" ui-number-mask="0" maxlength="2" ng-disabled="cpn.selectRange !== 'period'">
             </div>
           </div>
         </label>
@@ -431,7 +434,7 @@
           <input type="radio" ng-model="cpn.selectRange" ng-click="cpn.setRange()" value="days" id="optionsRadios2" class="radio">
           <label for="optionsRadios2">Fechar em (dias)</label>
           <select 
-            ng-model="cpn.fields.taxiProduct.close" 
+            ng-model="cpn.TaxiProduct.CloseInDays" 
             class="col-xs-12 select-default"
             ng-options="option.value as option.name for option in cpn.days" 
             ng-disabled="cpn.selectRange !== 'days'">
@@ -440,7 +443,7 @@
         </label>
       </div>
       <div class="no-margin col-md-3">
-        <input id="enviarBoleto" type="checkbox" class="checkbox">
+        <input id="enviarBoleto" ng-model="cpn.TaxiProduct.PaymentSlip.Send" type="checkbox" class="checkbox">
         <label for="enviarBoleto" class="margin-top-25">Enviar boleto</label>
       </div>
     </div>
@@ -449,7 +452,7 @@
         <label class="select w100">
           <span class="label-block">Responsável pós-venda</span>
           <select
-            ng-model="cpn.fields.taxiProduct.responsavelPosVenda"
+            ng-model="cpn.TaxiProduct.PostSaleResponsible"
             class="col-xs-12 select-default" 
             required>
             <option disabled selected hidden></option>
@@ -461,7 +464,7 @@
         <label class="select w100">
           <span class="label-block">Responsável comercial</span>
           <select
-            ng-model="cpn.fields.taxiProduct.responsavelComercial"
+            ng-model="cpn.TaxiProduct.CommercialResponsible"
             class="col-xs-12 select-default" 
             required>
             <option disabled selected hidden></option>
@@ -472,7 +475,7 @@
     </div>
     <div class="no-margin row margin-top-50">
       <button type="button" class="btn btn-default btn-lg pull-left" ng-click="cpn.tab=3">Voltar</button>
-      <button type="submit" class="btn btn-primary btn-lg margin-left-10 pull-right" ng-disabled="formProduct.$invalid">Concluir o cadastro</button>
+      <button type="submit" ng-click="cpn.signIn(cpn.Infos, cpn.Manager, cpn.Billing, cpn.TaxiProduct)" class="btn btn-primary btn-lg margin-left-10 pull-right" ng-disabled="TaxiProduct.$invalid">Concluir o cadastro</button>
     </div>
   </form>
 </div>

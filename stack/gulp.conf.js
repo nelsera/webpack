@@ -1,34 +1,16 @@
 'use strict';
 
-/**
- *  This file contains the variables used in other gulp files
- *  which defines tasks
- *  By design, we only put there very generic config values
- *  which are used in several places to keep good readability
- *  of the tasks
- */
-
 const path = require('path');
 const gutil = require('gulp-util');
 
 exports.ngModule = 'client';
 
-/**
- *  The main paths of your project handle these with care
- */
 exports.paths = {
   npm: 'node_modules',
   src: 'client',
   dist: 'dist',
   tmp: '._',
   tasks: 'stack'
-};
-
-/**
-* used on gulp dist
-*/
-exports.htmlmin = {
-  ignoreCustomFragments: [/{{.*?}}/]
 };
 
 exports.path = {};
@@ -43,9 +25,6 @@ for (const pathName in exports.paths) {
   }
 }
 
-/**
- *  Common implementation for an error handler of a Gulp plugin
- */
 exports.errorHandler = function (title) {
   return function (err) {
     gutil.log(gutil.colors.red(`[${title}]`), err.toString());

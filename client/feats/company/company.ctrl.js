@@ -2,8 +2,9 @@ import $ from 'jquery';
 
 export default class Company {
   /** @ngInject */
-  constructor($rootScope, $rest) {
+  constructor($rootScope, $rest, $log) {
     const cpn = this;
+    this.log = $log;
 
     $rootScope.title = cpn.title = 'Adicionar empresa';
 
@@ -15,20 +16,17 @@ export default class Company {
     cpn.daysMonth = cpn.getDays(1, 31);
     cpn.states = $rest.getStates();
 
-    cpn.fields = {
-      formInfos: {},
-      formManager: {},
-      formBilling: {},
-      taxiProduct: {
-        revenues: {},
-        collection: {}
-      }
+    cpn.Infos = {
+      Address: {}
     };
+    cpn.Manager = {};
+    cpn.Billing = {};
+    cpn.TaxiProduct = {};
 
     $rest.getCompanyGlobal().then(data => {
-      cpn.formInfosSizes = data.Sizes;
-      cpn.formInfosSegments = data.Segments;
-      cpn.formInfosCategories = data.Categories;
+      cpn.InfosSizes = data.Sizes;
+      cpn.InfosSegments = data.Segments;
+      cpn.InfosCategories = data.Categories;
       cpn.taxiContractTypes = data.TaxiContractTypes;
       cpn.taxiTaxTypes = data.TaxiTaxTypes;
       cpn.postSaleResponsibles = data.PostSaleResponsible;
@@ -48,13 +46,10 @@ export default class Company {
   }
 
   getAddress(context) {
-    this.rest.getAddress(this.fields[context].zipcode).then(res => {
+    this.rest.getAddress(this[context].Address.Zipcode).then(res => {
       if (res.Street) {
-        this.fields[context].street = res.Street;
-        this.fields[context].district = res.District.Name;
-        this.fields[context].city = res.City.Name;
-        this.fields[context].state = res.State.Code;
-        $(`[ng-model="cpn.fields.${context}.number"]`).focus();
+        this[context].Address = res;
+        $(`[ng-model="cpn.${context}.Address.Number"]`).focus();
       }
     });
   }
@@ -68,158 +63,21 @@ export default class Company {
   }
 
   setRange() {
-    this.fields.taxiProduct.begin = undefined;
-    this.fields.taxiProduct.end = undefined;
-    this.fields.taxiProduct.close = undefined;
+    this.TaxiProduct.Start = undefined;
+    this.TaxiProduct.End = undefined;
+    this.TaxiProduct.CloseInDays = undefined;
   }
 
-  signIn() {
-    this.rest.signIn({
-      Id: 0,
-      Name: 'string',
-      Email: 'string',
-      Website: 'string',
-      Trade: 'string',
-      Registration: {
-        City: 'string',
-        State: 'string'
-      },
-      Cnpj: 'string',
-      Address: {
-        Street: 'string',
-        Number: 'string',
-        Complement: 'string',
-        Zipcode: 'string',
-        District: {
-          Id: 0,
-          Name: 'string'
-        },
-        City: {
-          Id: 0,
-          Name: 'string'
-        },
-        State: {
-          Id: 0,
-          Code: 'string'
-        }
-      },
-      Phone: {
-        Ddd: 'string',
-        Number: 'string'
-      },
-      Size: 0,
-      Manager: {
-        Name: 'string',
-        Email: 'string',
-        JobTitle: 'string',
-        Department: 'string',
-        PrivatePhone: {
-          Ddd: 'string',
-          Number: 'string'
-        },
-        CommercialPhone: {
-          Ddd: 'string',
-          Number: 'string'
-        },
-        Address: {
-          Street: 'string',
-          Number: 'string',
-          Complement: 'string',
-          Zipcode: 'string',
-          District: {
-            Id: 0,
-            Name: 'string'
-          },
-          City: {
-            Id: 0,
-            Name: 'string'
-          },
-          State: {
-            Id: 0,
-            Code: 'string'
-          }
-        }
-      },
-      Billing: {
-        ResponsibleOne: {
-          Name: 'string',
-          Email: 'string'
-        },
-        ResponsibleTwo: {
-          Name: 'string',
-          Email: 'string'
-        },
-        Address: {
-          Street: 'string',
-          Number: 'string',
-          Complement: 'string',
-          Zipcode: 'string',
-          District: {
-            Id: 0,
-            Name: 'string'
-          },
-          City: {
-            Id: 0,
-            Name: 'string'
-          },
-          State: {
-            Id: 0,
-            Code: 'string'
-          }
-        }
-      },
-      ShippingAddress: {
-        Street: 'string',
-        Number: 'string',
-        Complement: 'string',
-        Zipcode: 'string',
-        District: {
-          Id: 0,
-          Name: 'string'
-        },
-        City: {
-          Id: 0,
-          Name: 'string'
-        },
-        State: {
-          Id: 0,
-          Code: 'string'
-        }
-      },
-      PaymentSlip: {
-        Charge: true,
-        Send: true,
-        Cost: 0
-      },
-      TaxiProduct: {
-        DeadlineInDays: 0,
-        Contract: 0,
-        Tax: {
-          Type: 0,
-          Value: 0
-        },
-        Period: {
-          Start: 0,
-          End: 0
-        },
-        ClosesInDays: 0,
-        RedundancyDay: 0,
-        Credit: {
-          Limit: 0,
-          Total: 0
-        },
-        Value: 0
-      },
-      Status: {
-        Active: true,
-        Blocked: true
-      }
-    });
+  signIn(Infos, Manager, Billing, TaxiProduct) {
+    this.log.debug(Infos);
+    this.log.debug(Manager);
+    this.log.debug(Billing);
+    this.log.debug(TaxiProduct);
   }
 
-  getFormInfos(data) {
+  getInfos(data) {
     const address = (obj = {}) => {
-      return this.fields.formBilling = {
+      return this.Billing = {
         zipcode: obj.zipcode,
         street: obj.street,
         number: obj.number,

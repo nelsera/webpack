@@ -9,12 +9,12 @@ export default class Navbar {
 
     this.items = $rest.getMenu();
 
-    $timeout(() => this.activeMenu($location.path()));
-
     $('body')
     .on('click', `${this.ui} .nav>ul>li>a`, e => this.openMenu(this, e))
     .on('click', `${this.ui} .nav>ul>li>ul>li>a`, e => this.openSubmenu(this, e))
     .on('click', `${this.ui} .nav>ul>li>ul>li>ul>li>a`, this.setMenu);
+
+    $timeout(() => this.activeMenu($location.path()));
   }
 
   resetMenu(el) {
