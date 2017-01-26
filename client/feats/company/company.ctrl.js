@@ -6,7 +6,6 @@ export default class Company {
     $rootScope.title = this.title = 'Adicionar empresa';
 
     this.flash = flash;
-
     this.setTab(1);
 
     this.xhr = $rest;
@@ -89,33 +88,20 @@ export default class Company {
     return this.tab = tab;
   }
 
+  formatPhone(e) {
+    return (e) ? {Ddd: e.slice(0, 2), Number: e.slice(2)} : null;
+  }
+
   signIn(Infos, Manager, Billing, PaymentSlip, TaxiProduct) {
-    Infos.Phone.Ddd = Infos.Phone.Number.slice(0, 2);
-    Infos.Phone.Number = Infos.Phone.Number.slice(2);
-
-    Manager.CommercialPhone.Ddd = Manager.CommercialPhone.Number.slice(0, 2);
-    Manager.CommercialPhone.Number = Manager.CommercialPhone.Number.slice(2);
-
-    if (Manager.PrivatePhone.Number) {
-      Manager.PrivatePhone.Ddd = Manager.PrivatePhone.Number.slice(0, 2);
-      Manager.PrivatePhone.Number = Manager.PrivatePhone.Number.slice(2);
-    }
-
-    Billing.ResponsibleOne.Phone.Ddd = Billing.ResponsibleOne.Phone.Number.slice(0, 2);
-    Billing.ResponsibleOne.Phone.Number = Billing.ResponsibleOne.Phone.Number.slice(2);
-
-    if (Billing.ResponsibleTwo.Phone.Number) {
-      Billing.ResponsibleTwo.Phone.Ddd = Billing.ResponsibleTwo.Phone.Number.slice(0, 2);
-      Billing.ResponsibleTwo.Phone.Number = Billing.ResponsibleTwo.Phone.Number.slice(2);
-    }
+    Infos.Phone = this.formatPhone(Infos.Phone.Number);
+    Manager.CommercialPhone = this.formatPhone(Manager.CommercialPhone.Number);
+    Manager.PrivatePhone = this.formatPhone(Manager.PrivatePhone.Number);
+    Billing.ResponsibleOne = this.formatPhone(Billing.ResponsibleOne.Phone.Number);
+    Billing.ResponsibleTwo = this.formatPhone(Billing.ResponsibleTwo.Phone.Number);
 
     TaxiProduct.Contract = 2;
 
-    const data = Infos;
-    data.Manager = Manager;
-    data.Billing = Billing;
-    data.PaymentSlip = PaymentSlip;
-    data.TaxiProduct = TaxiProduct;
+    const data = Object.assign(Infos, {Manager}, {Billing}, {PaymentSlip}, {TaxiProduct});
 
     this.xhr.company(data)
     .then(() => {
