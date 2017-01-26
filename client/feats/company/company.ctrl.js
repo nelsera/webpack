@@ -108,10 +108,10 @@ export default class Company {
 
     this.xhr.company(req)
     .then(() => {
-      this.flash.success('A empresa foi cadastrada.');
+      this.flash.success('A empresa foi cadastrada com sucesso.');
     })
     .catch(() => {
-      this.flash.danger('Houve um erro no cadastro.');
+      this.flash.danger('Houve um erro no cadastro. Tente novamente');
     })
     .finally(() => {
       this.route.reload();

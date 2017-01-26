@@ -1,33 +1,31 @@
 import ang from 'angular';
 
-export default ang.module('client.Flash', [])
-  .factory('flash', flash)
-  .name;
+class Flash {
+  /** @ngInject */
+  constructor($rootScope, $timeout) {
+    this.set = data => {
+      $rootScope.flash = data;
+      $timeout(() => $rootScope.flash = {}, 5000);
+    };
+  }
 
-/** @ngInject */
-function flash($rootScope, $timeout) {
-  $rootScope.flash = {};
+  success(i) {
+    return this.set({
+      message: i,
+      type: 'success',
+      info: 'Parabéns'
+    });
+  }
 
-  const asf = data => {
-    $rootScope.flash = data;
-    $timeout(() => $rootScope.flash = {}, 5000);
-  };
-
-  return {
-    success: i => {
-      asf({
-        message: i,
-        type: 'success',
-        info: 'Sucesso'
-      });
-    },
-    danger: i => {
-      asf({
-        message: i,
-        type: 'danger',
-        info: 'Atenção'
-      });
-    }
-  };
+  danger(i) {
+    return this.set({
+      message: i,
+      type: 'danger',
+      info: 'Atenção'
+    });
+  }
 }
 
+export default ang.module('client.Flash', [])
+  .service('flash', Flash)
+  .name;

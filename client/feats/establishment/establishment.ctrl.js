@@ -58,7 +58,7 @@ export default class Establishment {
   signIn(Infos) {
     Infos.ProductId = 1;
 
-    this.flash.success('O estabelecimento foi cadastrado.');
+    this.flash.success('O estabelecimento foi cadastrado com sucesso.');
     this.route.reload();
   }
 }
