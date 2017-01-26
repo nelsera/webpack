@@ -23,7 +23,6 @@ export default class Establishment {
         value: day
       });
     }
-
     return days;
   }
 
