@@ -16,10 +16,10 @@ export default class Login {
     $scope.$on("$destroy", () => delete $rootScope.htmlClass);
   }
 
-  connect(data) {
+  connect(req) {
     this.loadingInline('none', 'block', true);
 
-    const post = encodeURI(`client_id=appadm&client_secret=BC444D64-037A-4F32-80C6-FD83F7465441&grant_type=password&scope=administrative offline_access&username=${data.username}&password=${data.password}`);
+    const post = encodeURI(`client_id=appadm&client_secret=BC444D64-037A-4F32-80C6-FD83F7465441&grant_type=password&scope=administrative offline_access&username=${req.username}&password=${req.password}`);
 
     this.rest.getToken(post)
       .then(res => this.setSession(res))
@@ -32,8 +32,8 @@ export default class Login {
       });
   }
 
-  setSession(data) {
-    localStorage.setItem('wappaAdm', ang.toJson(data));
+  setSession(req) {
+    localStorage.setItem('wappaAdm', ang.toJson(req));
     this.location.path('/painel');
   }
 

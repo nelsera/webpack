@@ -10,7 +10,7 @@ import topbar from '../comps/topbar';
 import navbar from '../comps/navbar';
 import auth from '../feats/auth';
 import panel from '../feats/panel';
-import rest from '../rest';
+import rest from '../comps/rest';
 import flash from '../comps/flash';
 
 import company from '../feats/company';

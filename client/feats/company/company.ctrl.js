@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 export default class Company {
   /** @ngInject */
-  constructor($rootScope, $rest, flash, $state) {
+  constructor($rootScope, $rest, flash, $state, $log) {
     $rootScope.title = this.title = 'Adicionar empresa';
 
     this.flash = flash;
@@ -12,7 +12,8 @@ export default class Company {
 
     this.days = this.getDays(7, 90);
     this.daysMonth = this.getDays(1, 31);
-    this.states = $rest.getStates();
+
+    $rest.getStates().then(res => this.states = res);
 
     this.Infos = {
       Address: null,
@@ -58,6 +59,7 @@ export default class Company {
     });
 
     this.route = $state;
+    this.log = $log;
   }
 
   getDays(day, dayEnd, days = []) {
@@ -73,6 +75,7 @@ export default class Company {
 
   getAddress(scope) {
     this.xhr.getAddress(this[scope].Address.Zipcode).then(res => {
+      this.log.debug(res);
       if (res.Street) {
         this[scope].Address = res;
         $(`[ng-model="cpn.${scope}.Address.Number"]`).focus();
@@ -101,9 +104,9 @@ export default class Company {
 
     TaxiProduct.Contract = 2;
 
-    const data = Object.assign(Infos, {Manager}, {Billing}, {PaymentSlip}, {TaxiProduct});
+    const req = Object.assign(Infos, {Manager}, {Billing}, {PaymentSlip}, {TaxiProduct});
 
-    this.xhr.company(data)
+    this.xhr.company(req)
     .then(() => {
       this.flash.success('A empresa foi cadastrada.');
     })
@@ -115,10 +118,10 @@ export default class Company {
     });
   }
 
-  getInfos(data) {
-    data.Zipcode = data.Zipcode.replace('-', '');
+  getInfos(req) {
+    req.Zipcode = req.Zipcode.replace('-', '');
     const address = (obj = {}) => this.Billing.Address = obj;
 
-    return this.switchAddress ? address(data) : address();
+    return this.switchAddress ? address(req) : address();
   }
 }

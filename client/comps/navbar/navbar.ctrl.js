@@ -1,13 +1,14 @@
 import $ from 'jquery';
+import menu from './navbar.mock';
 
 export default class Navbar {
   /** @ngInject */
-  constructor($rest, $location, $timeout) {
+  constructor($location, $timeout) {
     this.ui = '#leftPanel';
     this.level0 = '.nav>ul>li';
     this.level1 = '.nav>ul>li>ul>li';
 
-    this.items = $rest.getMenu();
+    this.items = menu;
 
     $('body')
     .on('click', `${this.ui} .nav>ul>li>a`, e => this.openMenu(this, e))

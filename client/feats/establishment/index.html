@@ -147,7 +147,7 @@
           <span class="label-block">Estado*</span>
           <select ng-model="etb.Address.State.Code" class="col-xs-12 select-default" required ng-blur="etb.nextStep(Address.$valid, 3)">
             <option disabled selected hidden></option>
-            <option ng-repeat="state in etb.states" value="{{state.Sigla}}">{{state.Nome}}</option>
+            <option ng-repeat="state in etb.states" value="{{state.Code}}">{{state.Code}}</option>
           </select>
         </label>
       </div>
@@ -165,19 +165,19 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Quantidade de funcionários*
-          <input type="text" ng-model="etb.Infos.qtdfuncio" class="text w100 text-upper" maxlength="10" ui-number-mask="0" required>
+          <input type="text" ng-model="etb.Commercial.qtdfuncio" class="text w100 text-upper" maxlength="10" ui-number-mask="0" required>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Faturamento mensal
-          <input type="text" ng-model="etb.Infos.fatuMensal" class="text w100 text-upper" ui-money-mask="0">
+          <input type="text" ng-model="etb.Commercial.fatuMensal" class="text w100 text-upper" ui-money-mask="0">
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Interlocutor*
-          <input type="text" maxlength="100" ng-model="etb.Infos.interlocutor" class="text w100 text-upper" required>
+          <input type="text" maxlength="100" ng-model="etb.Commercial.interlocutor" class="text w100 text-upper" required>
         </label>
       </div>
     </div>
@@ -186,19 +186,19 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Cargo*
-          <input type="text" ng-model="etb.Infos.inscricaoMunicipal" class="text w100 text-upper" maxlength="10" required>
+          <input type="text" ng-model="etb.Commercial.inscricaoMunicipal" class="text w100 text-upper" maxlength="10" required>
         </label>
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
           Telefone de contato
-          <input type="text" ng-model="etb.Infos.zipcode" class="text w100 text-upper" ui-br-phone-number>
+          <input type="text" ng-model="etb.Commercial.tel" class="text w100 text-upper" ui-br-phone-number>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           E-mail
-          <input type="email" maxlength="100" ng-model="etb.Infos.zipcode" class="text w100 text-upper" ui-br-phone-number required>
+          <input type="email" maxlength="100" ng-model="etb.Commercial.email" class="text w100 text-upper" required>
         </label>
       </div>
     </div>

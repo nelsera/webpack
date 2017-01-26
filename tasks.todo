@@ -4,22 +4,22 @@ Primeira semana: 02/01 - 06/01 - Desenvolvimento - 35h:
  ✔ Header e menu - layout - 4h @done (17-01-03 15:37)
  ✔ Menu - integração com API - 2h @done (17-01-05 15:13)
  ✔ Login - layout - 2h @done (17-01-05 15:13)
- ☐ Empresa Cliente/Administração/Adicionar Empresa Cliente - layout - 19h
+ ✔ Empresa Cliente/Administração/Adicionar Empresa Cliente - layout - 19h @done (17-01-26 14:42)
 
 
 Segunda semana: 09/01 - 13/01 - Desenvolvimento - 70h:
 
  ☐ Login - integração com API autenticação/renovação/expiração do token - 4h
- ☐ Empresa Cliente/Administração/Adicionar Empresa Cliente - layout - 9h
- ☐ Empresa Cliente/Administração/Adicionar Empresa Cliente - integação com API - 16h
+ ✔ Empresa Cliente/Administração/Adicionar Empresa Cliente - layout - 9h @done (17-01-26 14:42)
+ ✔ Empresa Cliente/Administração/Adicionar Empresa Cliente - integação com API - 16h @done (17-01-26 14:42)
  ☐ Login - gerenciar permissões de acesso - 4h
- ☐ Estab. Credenciado/Administração/Adicionar Estab. Credenciado - layout - 6h
+ ✔ Estab. Credenciado/Administração/Adicionar Estab. Credenciado - layout - 6h @done (17-01-26 14:42)
 
 
 Terceira semana: 16/01 - 20/01 - Desenvolvimento - 105h:
  
- ☐ Estab. Credenciado/Administração/Adicionar Estab. Credenciado - layout - 2h
- ☐ Estab. Credenciado/Administração/Adicionar Estab. Credenciado - integração com API - 4h
+ ✔ Estab. Credenciado/Administração/Adicionar Estab. Credenciado - layout - 2h @done (17-01-26 14:42)
+ ✔ Estab. Credenciado/Administração/Adicionar Estab. Credenciado - integração com API - 4h @done (17-01-26 14:42)
  ☐ Estab. Credenciado/Administração/Listagem Estab. Credenciado - layout - 2h
  ☐ Estab. Credenciado/Administração/Listagem Estab. Credenciado - integração com API - 2h
  ☐ Estab. Credenciado/Administração/Deleção Estab. Credenciado - layout - 2h
