@@ -2,10 +2,17 @@ import $ from 'jquery';
 
 export default class Establishment {
   /** @ngInject */
-  constructor($rootScope, $rest) {
-    this.xhr = $rest;
-    this.states = $rest.getStates();
+  constructor($rootScope, $rest, flash, $state) {
     $rootScope.title = this.title = 'Adicionar estabelecimento';
+
+    this.xhr = $rest;
+    $rest.getStates().then(res => this.states = res);
+
+    this.route = $state;
+    this.flash = flash;
+
+    this.daysRefund = this.getDays(4, 30);
+    this.daysReceiving = this.getDays(3, 100);
 
     this.setTab(1);
 
@@ -23,6 +30,7 @@ export default class Establishment {
         value: day
       });
     }
+
     return days;
   }
 
@@ -49,5 +57,8 @@ export default class Establishment {
 
   signIn(Infos) {
     Infos.ProductId = 1;
+
+    this.flash.success('O estabelecimento foi cadastrado.');
+    this.route.reload();
   }
 }
