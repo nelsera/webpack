@@ -4,7 +4,7 @@
   <li class="active">Adicionar empresa</li>
 </ol>
 
-<h2 class="margin-top-40 margin-bottom-25">{{cpn.title}}</h2>
+<h2 class="margin-top-40 margin-bottom-25" ng-click="cpn.reload()">{{cpn.title}}</h2>
 
 <div class="contentTabs no-select display-block overflow-hidden">
   <a href="#" class="Tabs" ng-class="{active:cpn.tab===1}"> 
@@ -141,7 +141,7 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           Telefone comercial*
-          <input type="text" class="text w100 text-upper" ng-model="cpn.Infos.Phone" ui-br-phone-number required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.Infos.Phone.Number" ui-br-phone-number required>
         </label>
       </div>
       <div class="no-margin col-md-3">
@@ -191,7 +191,7 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Área em que trabalha*
-          <input type="text" ng-model="cpn.Manager.Departament" class="text w100 text-upper" maxlength="30" required>
+          <input type="text" ng-model="cpn.Manager.Department" class="text w100 text-upper" maxlength="30" required>
         </label>
       </div>
     </div>
@@ -213,13 +213,13 @@
       <div class="no-margin col-md-6">
         <label class="label-block">
           Telefone comercial*
-          <input type="text" ng-model="cpn.Manager.CommercialPhone" class="text w100 text-upper" maxlength="14" ui-br-phone-number required>
+          <input type="text" ng-model="cpn.Manager.CommercialPhone.Number" class="text w100 text-upper" maxlength="14" ui-br-phone-number required>
         </label>
       </div>
       <div class="no-margin col-md-6">
         <label class="label-block">
           Celular
-          <input type="text" ng-model="cpn.Manager.PrivatePhone" class="text w100 text-upper" maxlength="15" ui-br-phone-number ng-blur="cpn.nextStep(Manager.$valid, 3)">
+          <input type="text" ng-model="cpn.Manager.PrivatePhone.Number" class="text w100 text-upper" maxlength="15" ui-br-phone-number ng-blur="cpn.nextStep(Manager.$valid, 3)">
         </label>
       </div>
     </div>
@@ -234,7 +234,7 @@
     <h3 class="no-margin margin-bottom-15">Informações do faturamento</h3>
     <div class="no-margin row margin-bottom-15">
       <label class="check-person">
-        <input type="checkbox" class="ios-switch tinyswitch" ng-model="cpn.switchAddress" ng-click="cpn.getInfos(cpn.Infos)">
+        <input type="checkbox" class="ios-switch tinyswitch" ng-model="cpn.switchAddress" ng-click="cpn.getInfos(cpn.Infos.Address)">
         <div class="display-inline-block margin-right-5"><div></div></div>
         <span class="relative">Usar o mesmo endereço da empresa para faturamento</span>
       </label>
@@ -243,7 +243,7 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           CEP*
-          <input type="text" class="text w100 text-upper" ng-model="cpn.Billing.Address.Zipcode" ui-br-cep-mask ng-blur="cpn.getAddress('Billing')" required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.Billing.Address.Zipcode" ui-br-cep-mask required>
           <a href="http://m.correios.com.br/movel/buscaCep.do" class="absolute bottom-10 right-10 label-link" target="_blank">Não sei o cep</a>
         </label>
       </div>
@@ -306,7 +306,7 @@
       <div class="no-margin col-md-4">
         <label class="label-block">
           Telefone do responsável*
-          <input type="text" ng-model="cpn.Billing.ResponsibleOne.Phone" class="text w100 text-upper" ui-br-phone-number required>
+          <input type="text" ng-model="cpn.Billing.ResponsibleOne.Phone.Number" class="text w100 text-upper" ui-br-phone-number required>
         </label>
       </div>
     </div>
@@ -320,13 +320,13 @@
       <div class="no-margin col-md-4">
         <label class="label-block">
           E-mail do 2º responsável pelo faturamento
-          <input type="email" ng-model="cpn.Billing.ResponsibleTwo.Email" class="text w100 text-upper" maxlength="250" ng-blur="cpn.nextStep(Billing.$valid, 4)">
+          <input type="email" ng-model="cpn.Billing.ResponsibleTwo.Email" class="text w100 text-upper" maxlength="250">
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Telefone do 2º responsável
-          <input type="text" ng-model="cpn.Billing.ResponsibleTwo.Phone" class="text w100 text-upper" ui-br-phone-number>
+          <input type="text" ng-model="cpn.Billing.ResponsibleTwo.Phone.Number" class="text w100 text-upper" ui-br-phone-number ng-blur="cpn.nextStep(Billing.$valid, 4)">
         </label>
       </div>
     </div>
@@ -348,13 +348,13 @@
       <div class="no-margin col-md-4">
         <label class="label-block">
           Estimativa de gastos mensal (R$)
-          <input type="text" class="text w100 text-upper" ng-model="cpn.TaxiProduct.Credit.Total" ui-money-mask maxlength="17" required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.TaxiProduct.Credit.Total" ui-money-mask="0" maxlength="17" required>
         </label>
       </div>
       <div class="no-margin col-md-4">
         <label class="label-block">
           Limite de crédito (R$)
-          <input type="text" class="text w100 text-upper" ng-model="cpn.TaxiProduct.Credit.Limit" ui-money-mask maxlength="17" required>
+          <input type="text" class="text w100 text-upper" ng-model="cpn.TaxiProduct.Credit.Limit" ui-money-mask="0" maxlength="17" required>
         </label>
       </div>
     </div>
@@ -384,10 +384,10 @@
         <label class="select w100">
           <span class="label-block">Dia de redundância</span>
           <select 
-            ng-model="cpn.TaxiProduct.RedundancyDays"
+            ng-model="cpn.TaxiProduct.RedundancyDay"
             class="col-xs-12 select-default"
             ng-options="option.value as option.name for option in cpn.daysMonth"
-            ng-init="cpn.TaxiProduct.RedundancyDays=1"
+            ng-init="cpn.TaxiProduct.RedundancyDay=1"
             required>
           </select>
         </label>
@@ -398,7 +398,7 @@
           <select
             ng-model="cpn.TaxiProduct.Tax.Type"
             class="col-xs-12 select-default"
-            ng-options="option.Id as option.Description for option in cpn.taxiTaxTypes"
+            ng-options="option.Id as option.Description for option in cpn.TaxiTaxTypes"
             ng-init="cpn.TaxiProduct.Tax.Type=1"
             required>
           </select>
@@ -414,7 +414,7 @@
       </div>
       <div class="no-margin col-md-3">
         <label class="label-block">
-          <input type="radio" ng-model="cpn.selectRange" ng-click="cpn.setRange()" value="period" id="optionsRadios1" class="radio">
+          <input type="radio" ng-model="cpn.selectRange" ng-click="cpn.TaxiProduct.Period.Start = undefined; cpn.TaxiProduct.Period.End = undefined" value="period" id="optionsRadios1" class="radio">
           <label for="optionsRadios1">Início período</label>
           <div class="no-margin row input" ng-class="{disabled: cpn.selectRange !== 'period'}">
             <div class="no-margin col-md-5 no-padding">
@@ -431,7 +431,7 @@
       </div>
       <div class="no-margin col-md-3">
         <label class="select w100" ng-class="{disabled: cpn.selectRange !== 'days'}">
-          <input type="radio" ng-model="cpn.selectRange" ng-click="cpn.setRange()" value="days" id="optionsRadios2" class="radio">
+          <input type="radio" ng-model="cpn.selectRange" ng-click="cpn.TaxiProduct.CloseInDays = undefined" value="days" id="optionsRadios2" class="radio">
           <label for="optionsRadios2">Fechar em (dias)</label>
           <select 
             ng-model="cpn.TaxiProduct.CloseInDays" 
@@ -443,7 +443,7 @@
         </label>
       </div>
       <div class="no-margin col-md-3">
-        <input id="enviarBoleto" ng-model="cpn.TaxiProduct.PaymentSlip.Send" type="checkbox" class="checkbox">
+        <input id="enviarBoleto" ng-model="cpn.PaymentSlip.Send" type="checkbox" class="checkbox" ng-init="cpn.PaymentSlip.Send=true">
         <label for="enviarBoleto" class="margin-top-25">Enviar boleto</label>
       </div>
     </div>
@@ -456,7 +456,7 @@
             class="col-xs-12 select-default" 
             required>
             <option disabled selected hidden></option>
-            <option ng-repeat="postSaleResponsible in cpn.postSaleResponsibles" value="{{postSaleResponsible.Id}}">{{postSaleResponsible.Description}}</option>
+            <option ng-repeat="postSaleResponsible in cpn.PostSaleResponsibles" value="{{postSaleResponsible.Id}}">{{postSaleResponsible.Description}}</option>
           </select>
         </label>
       </div>
@@ -468,14 +468,14 @@
             class="col-xs-12 select-default" 
             required>
             <option disabled selected hidden></option>
-            <option ng-repeat="commercialSaleResponsible in cpn.commercialSaleResponsibles" value="{{commercialSaleResponsible.Id}}">{{commercialSaleResponsible.Description}}</option>
+            <option ng-repeat="commercialSaleResponsible in cpn.CommercialSaleResponsibles" value="{{commercialSaleResponsible.Id}}">{{commercialSaleResponsible.Description}}</option>
           </select>
         </label>
       </div>
     </div>
     <div class="no-margin row margin-top-50">
       <button type="button" class="btn btn-default btn-lg pull-left" ng-click="cpn.tab=3">Voltar</button>
-      <button type="submit" ng-click="cpn.signIn(cpn.Infos, cpn.Manager, cpn.Billing, cpn.TaxiProduct)" class="btn btn-primary btn-lg margin-left-10 pull-right" ng-disabled="TaxiProduct.$invalid">Concluir o cadastro</button>
+      <button type="submit" ng-click="cpn.signIn(cpn.Infos, cpn.Manager, cpn.Billing, cpn.PaymentSlip, cpn.TaxiProduct)" class="btn btn-primary btn-lg margin-left-10 pull-right" ng-disabled="TaxiProduct.$invalid">Concluir o cadastro</button>
     </div>
   </form>
 </div>

@@ -34,7 +34,7 @@ class Rest {
     }).then(res => res.data);
   }
 
-  signupCompany(data) {
+  company(data) {
     return this.xhr.post(`${ADM_API}Company`, data).then(res => res.data);
   }
 }

@@ -2,36 +2,63 @@ import $ from 'jquery';
 
 export default class Company {
   /** @ngInject */
-  constructor($rootScope, $rest, $log) {
-    const cpn = this;
-    this.log = $log;
+  constructor($rootScope, $rest, flash, $state) {
+    $rootScope.title = this.title = 'Adicionar empresa';
 
-    $rootScope.title = cpn.title = 'Adicionar empresa';
+    this.flash = flash;
 
-    cpn.setTab(1);
+    this.setTab(1);
 
-    cpn.rest = $rest;
+    this.xhr = $rest;
 
-    cpn.days = cpn.getDays(7, 90);
-    cpn.daysMonth = cpn.getDays(1, 31);
-    cpn.states = $rest.getStates();
+    this.days = this.getDays(7, 90);
+    this.daysMonth = this.getDays(1, 31);
+    this.states = $rest.getStates();
 
-    cpn.Infos = {
-      Address: {}
+    this.Infos = {
+      Address: null,
+      Phone: {
+        Ddd: null,
+        Number: null
+      }
     };
-    cpn.Manager = {};
-    cpn.Billing = {};
-    cpn.TaxiProduct = {};
+    this.Manager = {
+      CommercialPhone: {
+        Ddd: null,
+        Number: null
+      },
+      PrivatePhone: {
+        Ddd: null,
+        Number: null
+      }
+    };
+    this.Billing = {
+      Address: null,
+      ResponsibleOne: {
+        Phone: {
+          Ddd: null,
+          Number: null
+        }
+      },
+      ResponsibleTwo: {
+        Phone: {
+          Ddd: null,
+          Number: null
+        }
+      }
+    };
+    this.TaxiProduct = {};
 
-    $rest.getCompanyGlobal().then(data => {
-      cpn.InfosSizes = data.Sizes;
-      cpn.InfosSegments = data.Segments;
-      cpn.InfosCategories = data.Categories;
-      cpn.taxiContractTypes = data.TaxiContractTypes;
-      cpn.taxiTaxTypes = data.TaxiTaxTypes;
-      cpn.postSaleResponsibles = data.PostSaleResponsible;
-      cpn.commercialSaleResponsibles = data.CommercialSaleResponsible;
+    $rest.getCompanyGlobal().then(res => {
+      this.InfosSizes = res.Sizes;
+      this.InfosSegments = res.Segments;
+      this.InfosCategories = res.Categories;
+      this.TaxiTaxTypes = res.TaxiTaxTypes;
+      this.PostSaleResponsibles = res.PostSaleResponsible;
+      this.CommercialSaleResponsibles = res.CommercialSaleResponsible;
     });
+
+    this.route = $state;
   }
 
   getDays(day, dayEnd, days = []) {
@@ -45,11 +72,11 @@ export default class Company {
     return days;
   }
 
-  getAddress(context) {
-    this.rest.getAddress(this[context].Address.Zipcode).then(res => {
+  getAddress(scope) {
+    this.xhr.getAddress(this[scope].Address.Zipcode).then(res => {
       if (res.Street) {
-        this[context].Address = res;
-        $(`[ng-model="cpn.${context}.Address.Number"]`).focus();
+        this[scope].Address = res;
+        $(`[ng-model="cpn.${scope}.Address.Number"]`).focus();
       }
     });
   }
@@ -62,31 +89,49 @@ export default class Company {
     return this.tab = tab;
   }
 
-  setRange() {
-    this.TaxiProduct.Start = undefined;
-    this.TaxiProduct.End = undefined;
-    this.TaxiProduct.CloseInDays = undefined;
-  }
+  signIn(Infos, Manager, Billing, PaymentSlip, TaxiProduct) {
+    Infos.Phone.Ddd = Infos.Phone.Number.slice(0, 2);
+    Infos.Phone.Number = Infos.Phone.Number.slice(2);
 
-  signIn(Infos, Manager, Billing, TaxiProduct) {
-    this.log.debug(Infos);
-    this.log.debug(Manager);
-    this.log.debug(Billing);
-    this.log.debug(TaxiProduct);
+    Manager.CommercialPhone.Ddd = Manager.CommercialPhone.Number.slice(0, 2);
+    Manager.CommercialPhone.Number = Manager.CommercialPhone.Number.slice(2);
+
+    if (Manager.PrivatePhone.Number) {
+      Manager.PrivatePhone.Ddd = Manager.PrivatePhone.Number.slice(0, 2);
+      Manager.PrivatePhone.Number = Manager.PrivatePhone.Number.slice(2);
+    }
+
+    Billing.ResponsibleOne.Phone.Ddd = Billing.ResponsibleOne.Phone.Number.slice(0, 2);
+    Billing.ResponsibleOne.Phone.Number = Billing.ResponsibleOne.Phone.Number.slice(2);
+
+    if (Billing.ResponsibleTwo.Phone.Number) {
+      Billing.ResponsibleTwo.Phone.Ddd = Billing.ResponsibleTwo.Phone.Number.slice(0, 2);
+      Billing.ResponsibleTwo.Phone.Number = Billing.ResponsibleTwo.Phone.Number.slice(2);
+    }
+
+    TaxiProduct.Contract = 2;
+
+    const data = Infos;
+    data.Manager = Manager;
+    data.Billing = Billing;
+    data.PaymentSlip = PaymentSlip;
+    data.TaxiProduct = TaxiProduct;
+
+    this.xhr.company(data)
+    .then(() => {
+      this.flash.success('A empresa foi cadastrada.');
+    })
+    .catch(() => {
+      this.flash.danger('Houve um erro no cadastro.');
+    })
+    .finally(() => {
+      this.route.reload();
+    });
   }
 
   getInfos(data) {
-    const address = (obj = {}) => {
-      return this.Billing = {
-        zipcode: obj.zipcode,
-        street: obj.street,
-        number: obj.number,
-        complement: obj.complement,
-        district: obj.district,
-        city: obj.city,
-        state: obj.state
-      };
-    };
+    data.Zipcode = data.Zipcode.replace('-', '');
+    const address = (obj = {}) => this.Billing.Address = obj;
 
     return this.switchAddress ? address(data) : address();
   }

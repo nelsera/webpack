@@ -8,21 +8,21 @@ export default ang.module('client.Flash', [])
 function flash($rootScope, $timeout) {
   $rootScope.flash = {};
 
-  const flash = data => {
+  const asf = data => {
     $rootScope.flash = data;
     $timeout(() => $rootScope.flash = {}, 5000);
   };
 
   return {
     success: i => {
-      flash({
+      asf({
         message: i,
         type: 'success',
         info: 'Sucesso'
       });
     },
     danger: i => {
-      flash({
+      asf({
         message: i,
         type: 'danger',
         info: 'Atenção'
