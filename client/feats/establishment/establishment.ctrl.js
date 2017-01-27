@@ -13,7 +13,7 @@ export default class Establishment {
     this.daysRefund = register.getDays(4, 30);
     this.daysReceiving = register.getDays(3, 100);
 
-    this.setTab(2);
+    this.setTab(1);
 
     this.Infos = {
       ProductId: 1

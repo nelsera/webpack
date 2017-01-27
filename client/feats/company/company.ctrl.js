@@ -69,8 +69,10 @@ export default class Company {
 
   signIn(Infos, Manager, Billing, PaymentSlip, TaxiProduct) {
     Infos.Phone = this.reg.formatPhone(Infos.Phone.Number);
+
     Manager.CommercialPhone = this.reg.formatPhone(Manager.CommercialPhone.Number);
     Manager.PrivatePhone = this.reg.formatPhone(Manager.PrivatePhone.Number);
+
     Billing.ResponsibleOne = this.reg.formatPhone(Billing.ResponsibleOne.Phone.Number);
     Billing.ResponsibleTwo = this.reg.formatPhone(Billing.ResponsibleTwo.Phone.Number);
 
@@ -91,7 +93,6 @@ export default class Company {
   }
 
   getInfos(req) {
-    req.Zipcode = req.Zipcode.replace('-', '');
     const address = (obj = {}) => this.Billing.Address = obj;
 
     return this.switchAddress ? address(req) : address();

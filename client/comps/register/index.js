@@ -24,12 +24,20 @@ class Register {
     }
 
     this.xhr.getAddress(e.target.value).then(Address => {
-      if (Address.Street) {
-        this[scope] = (this[scope].Address) ? {Address} : Address;
-
-        $(e.target).closest('form')
-        .find('[ng-model$="Address.Number"]').focus();
+      if (!Address.Street) {
+        return;
       }
+
+      Address.Zipcode = Address.Zipcode.replace('-', '');
+
+      if (this[scope].Address) {
+        this[scope].Address = Address;
+      } else {
+        this[scope] = Address;
+      }
+
+      $(e.target).closest('form')
+        .find('[ng-model$="Address.Number"]').focus();
     });
   }
 
