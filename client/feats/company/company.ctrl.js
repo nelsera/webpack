@@ -1,17 +1,17 @@
-import $ from 'jquery';
-
 export default class Company {
+
   /** @ngInject */
-  constructor($rootScope, $rest, flash, $state, $log) {
+  constructor($rootScope, $rest, flash, $state, register) {
     $rootScope.title = this.title = 'Adicionar empresa';
 
+    this.reg = register;
     this.flash = flash;
+    this.getAddress = register.getAddress;
     this.setTab(1);
-
     this.xhr = $rest;
-
-    this.days = this.getDays(7, 90);
-    this.daysMonth = this.getDays(1, 31);
+    this.days = register.getDays(7, 90);
+    this.daysMonth = register.getDays(1, 31);
+    this.route = $state;
 
     $rest.getStates().then(res => this.states = res);
 
@@ -57,30 +57,6 @@ export default class Company {
       this.PostSaleResponsibles = res.PostSaleResponsible;
       this.CommercialSaleResponsibles = res.CommercialSaleResponsible;
     });
-
-    this.route = $state;
-    this.log = $log;
-  }
-
-  getDays(day, dayEnd, days = []) {
-    for (; day <= dayEnd; ++day) {
-      days.push({
-        name: day,
-        value: day
-      });
-    }
-
-    return days;
-  }
-
-  getAddress(scope) {
-    this.xhr.getAddress(this[scope].Address.Zipcode).then(res => {
-      this.log.debug(res);
-      if (res.Street) {
-        this[scope].Address = res;
-        $(`[ng-model="cpn.${scope}.Address.Number"]`).focus();
-      }
-    });
   }
 
   nextStep(isValid, step) {
@@ -91,16 +67,12 @@ export default class Company {
     return this.tab = tab;
   }
 
-  formatPhone(e) {
-    return (e) ? {Ddd: e.slice(0, 2), Number: e.slice(2)} : null;
-  }
-
   signIn(Infos, Manager, Billing, PaymentSlip, TaxiProduct) {
-    Infos.Phone = this.formatPhone(Infos.Phone.Number);
-    Manager.CommercialPhone = this.formatPhone(Manager.CommercialPhone.Number);
-    Manager.PrivatePhone = this.formatPhone(Manager.PrivatePhone.Number);
-    Billing.ResponsibleOne = this.formatPhone(Billing.ResponsibleOne.Phone.Number);
-    Billing.ResponsibleTwo = this.formatPhone(Billing.ResponsibleTwo.Phone.Number);
+    Infos.Phone = this.reg.formatPhone(Infos.Phone.Number);
+    Manager.CommercialPhone = this.reg.formatPhone(Manager.CommercialPhone.Number);
+    Manager.PrivatePhone = this.reg.formatPhone(Manager.PrivatePhone.Number);
+    Billing.ResponsibleOne = this.reg.formatPhone(Billing.ResponsibleOne.Phone.Number);
+    Billing.ResponsibleTwo = this.reg.formatPhone(Billing.ResponsibleTwo.Phone.Number);
 
     TaxiProduct.Contract = 2;
 
@@ -124,4 +96,5 @@ export default class Company {
 
     return this.switchAddress ? address(req) : address();
   }
+
 }

@@ -12,9 +12,10 @@ import auth from '../feats/auth';
 import panel from '../feats/panel';
 import rest from '../comps/rest';
 import flash from '../comps/flash';
+import reg from '../comps/register';
 
-import company from '../feats/company';
-import establishment from '../feats/establishment';
+import cpn from '../feats/company';
+import etb from '../feats/establishment';
 
 const m = [
   uir,
@@ -23,8 +24,9 @@ const m = [
   auth,
   panel,
   flash,
-  company,
-  establishment
+  cpn,
+  etb,
+  reg
 ];
 
 export default ang

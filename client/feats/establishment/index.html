@@ -106,7 +106,7 @@
       <div class="no-margin col-md-3">
         <label class="label-block">
           CEP*
-          <input type="text" class="text w100 text-upper" ng-model="etb.Address.Zipcode" ui-br-cep-mask required ng-blur="etb.getAddress('Address')">
+          <input type="text" class="text w100 text-upper" ng-model="etb.Address.Zipcode" ui-br-cep-mask required ng-blur="etb.getAddress($event, 'Address')">
           <a href="http://m.correios.com.br/movel/buscaCep.do" class="absolute bottom-10 right-10 label-link" target="_blank">Não sei o cep</a>
         </label>
       </div>
