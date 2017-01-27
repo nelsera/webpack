@@ -1,11 +1,13 @@
-import './company.less';
+import './@.less';
 
 import ang from 'angular';
 import uir from 'angular-ui-router';
 import route from './company.routes';
-import ctrl from './company.ctrl';
+import add from './company.ctrl.add';
+import ls from './company.ctrl.ls';
 
 export default ang.module('client.Company', [uir])
   .config(route)
-  .controller('Company', ctrl)
+  .controller('Company', add)
+  .controller('CompanyLs', ls)
   .name;

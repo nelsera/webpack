@@ -3,7 +3,7 @@ export default function routes($stateProvider) {
   $stateProvider
     .state('painel.estabelecimento/novo', {
       url: '/estabelecimento/novo',
-      template: require('./index.html'),
+      template: require('./$add.html'),
       controller: 'Establishment',
       controllerAs: 'etb'
     });

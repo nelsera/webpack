@@ -38,7 +38,7 @@ module.exports = {
         ]
       },
       {
-        test: /.html$/,
+        test: /\.(html|tpl)$/,
         loaders: [
           'html-loader?minimize'
         ]
@@ -67,7 +67,7 @@ module.exports = {
     filename: '[name]-[hash].js'
   },
   entry: {
-    app: `./${conf.path.src('$$init/index')}`,
+    app: `./${conf.path.src('$init/index')}`,
     vendor: Object.keys(pkg.dependencies).filter(dep => ['wappa-uikit'].indexOf(dep) === -1)
   }
 };

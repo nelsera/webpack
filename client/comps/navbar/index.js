@@ -1,8 +1,8 @@
-import './navbar.less';
+import './@.less';
 
 import ctrl from './navbar.ctrl';
 
 export default {
-  template: require('./navbar.html'),
+  template: require('./$navbar.tpl'),
   controller: ctrl
 };

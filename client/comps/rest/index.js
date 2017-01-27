@@ -1,5 +1,5 @@
 import ang from 'angular';
-import {ADM_API, AUTH_API} from '../../$$init/const';
+import {ADM_API, AUTH_API} from '../../$init/const';
 
 class Rest {
   /** @ngInject */

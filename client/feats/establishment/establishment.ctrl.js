@@ -3,6 +3,8 @@ export default class Establishment {
   constructor($rootScope, $rest, flash, $state, register) {
     $rootScope.title = this.title = 'Adicionar estabelecimento';
 
+    this.tab = 1;
+
     this.xhr = $rest;
     this.getAddress = register.getAddress;
     $rest.getStates().then(res => this.states = res);
@@ -13,21 +15,11 @@ export default class Establishment {
     this.daysRefund = register.getDays(4, 30);
     this.daysReceiving = register.getDays(3, 100);
 
-    this.setTab(1);
-
     this.Infos = {
       ProductId: 1
     };
     this.Address = {};
     this.Commercial = {};
-  }
-
-  nextStep(isValid, step) {
-    return isValid ? this.setTab(step) : false;
-  }
-
-  setTab(tab) {
-    return this.tab = tab;
   }
 
   signIn(Infos) {

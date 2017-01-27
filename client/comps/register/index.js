@@ -4,7 +4,7 @@ import ang from 'angular';
 class Register {
 
   formatPhone(e) {
-    return (e) ? {Ddd: e.slice(0, 2), Number: e.slice(2)} : null;
+    return e ? {Ddd: e.slice(0, 2), Number: e.slice(2)} : null;
   }
 
   getDays(day, dayEnd, days = []) {
@@ -30,14 +30,12 @@ class Register {
 
       Address.Zipcode = Address.Zipcode.replace('-', '');
 
-      if (this[scope].Address) {
-        this[scope].Address = Address;
-      } else {
-        this[scope] = Address;
-      }
-
       $(e.target).closest('form')
         .find('[ng-model$="Address.Number"]').focus();
+
+      return this[scope].Address ?
+        this[scope].Address = Address :
+        this[scope] = Address;
     });
   }
 

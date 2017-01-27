@@ -3,8 +3,8 @@ import ang from 'angular';
 class Flash {
   /** @ngInject */
   constructor($rootScope, $timeout) {
-    this.set = data => {
-      $rootScope.flash = data;
+    this.set = obj => {
+      $rootScope.flash = obj;
       $timeout(() => $rootScope.flash = {}, 5000);
     };
   }

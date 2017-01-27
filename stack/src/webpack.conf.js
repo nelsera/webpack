@@ -36,7 +36,7 @@ module.exports = {
         ]
       },
       {
-        test: /.html$/,
+        test: /\.(html|tpl)$/,
         loaders: [
           'html-loader'
         ]
@@ -56,5 +56,5 @@ module.exports = {
     path: path.join(process.cwd(), conf.paths.tmp),
     filename: 'index.js'
   },
-  entry: `./${conf.path.src('$$init/index')}`
+  entry: `./${conf.path.src('$init/index')}`
 };

@@ -13,7 +13,7 @@ export default class Login {
     this.location = $location;
     this.rootScope = $rootScope;
 
-    $scope.$on("$destroy", () => delete $rootScope.htmlClass);
+    $scope.$on('$destroy', () => delete $rootScope.htmlClass);
   }
 
   connect(req) {

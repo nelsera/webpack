@@ -1,4 +1,4 @@
-import './establishment.less';
+import './@.less';
 
 import ang from 'angular';
 import uir from 'angular-ui-router';

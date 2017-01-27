@@ -11,26 +11,26 @@ export default class Navbar {
     this.items = menu;
 
     $('body')
-    .on('click', `${this.ui} .nav>ul>li>a`, e => this.openMenu(this, e))
-    .on('click', `${this.ui} .nav>ul>li>ul>li>a`, e => this.openSubmenu(this, e))
-    .on('click', `${this.ui} .nav>ul>li>ul>li>ul>li>a`, this.setMenu);
+      .on('click', `${this.ui} .nav>ul>li>a`, e => this.openMenu(this, e))
+      .on('click', `${this.ui} .nav>ul>li>ul>li>a`, e => this.openSubmenu(this, e))
+      .on('click', `${this.ui} .nav>ul>li>ul>li>ul>li>a`, this.setMenu);
 
     $timeout(() => this.activeMenu($location.path()));
   }
 
   resetMenu(el) {
     return $(el)
-    .removeClass('active')
-    .find('ul')
-    .slideUp('fast');
+      .removeClass('active')
+      .find('ul')
+      .slideUp('fast');
   }
 
   resetSubmenu(el) {
     return $(el)
-    .removeClass('active')
-    .find('ul').slideUp('fast').end()
-    .find('i').removeClass('hide').end()
-    .find('i.icon-minus').addClass('hide');
+      .removeClass('active')
+      .find('ul').slideUp('fast').end()
+      .find('i').removeClass('hide').end()
+      .find('i.icon-minus').addClass('hide');
   }
 
   activeMenu(e) {
@@ -59,11 +59,9 @@ export default class Navbar {
     t.resetSubmenu(t.level1);
     t.resetMenu(t.level0);
 
-    if ($e.siblings('ul').is(':hidden')) {
-      $e
-      .parent('li').addClass('active').end()
-      .siblings('ul').slideDown('fast');
-    }
+    return $e.siblings('ul').is(':hidden') ?
+      $e.parent('li').addClass('active').end()
+      .siblings('ul').slideDown('fast') : null;
   }
 
   setMenu(e) {
@@ -76,12 +74,10 @@ export default class Navbar {
 
     t.resetSubmenu(t.level1);
 
-    if ($e.siblings('ul').is(':hidden')) {
-      $e
-      .find('i').removeClass('hide').end()
+    return $e.siblings('ul').is(':hidden') ?
+      $e.find('i').removeClass('hide').end()
       .find('i.icon-plus').addClass('hide').end()
       .siblings('ul').slideDown('fast').end()
-      .parent().addClass('active');
-    }
+      .parent().addClass('active') : null;
   }
 }
