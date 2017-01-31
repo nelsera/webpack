@@ -1,6 +1,6 @@
 function getEnv() {
   const lh = location.host;
-  let env = 'hm';
+  let env = '';
 
   if (lh.split(':')[1]) {
     env = 'dev';
