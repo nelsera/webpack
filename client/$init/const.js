@@ -4,7 +4,7 @@ function getEnv() {
 
   if (lh.split(':')[1]) {
     env = 'dev';
-  } else if (lh.split('.')[0].split('-')[2]) {
+  } else if (lh.split('.')[0].split('-')[1]) {
     env = lh.split('.')[0].split('-')[0];
   }
 
