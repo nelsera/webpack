@@ -8,6 +8,6 @@ import ls from './company.ctrl.ls';
 
 export default ang.module('client.Company', [uir])
   .config(route)
-  .controller('Company', add)
+  .controller('CompanyAdd', add)
   .controller('CompanyLs', ls)
   .name;

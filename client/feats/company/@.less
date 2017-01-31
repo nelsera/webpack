@@ -1,0 +1,87 @@
+.contentTabs .Tabs {
+  margin: 0 0 0 30px;
+  font-size: 15px;
+}
+
+.label-block{
+  color: #302f2f;
+}
+.contentTabs .Tabs {
+  cursor: default;
+  &:hover:not(.active) {
+    color: #797979;
+  }
+  &.active {
+    cursor: default;
+  }
+}
+
+.Tabs {
+  .label-primary {
+    position: relative;
+    bottom: 2px;
+    background: #b3b3b3;
+  }
+
+  &.active .label-primary {
+    background: #0099CC;
+  }
+}
+
+.text, .label-block {
+  &::-moz-selection {
+    background: #0099ff;
+    color: white;
+  }
+  &::selection {
+    background: #0099ff;
+    color: white;
+  }
+}
+
+.label-link {
+  color: #797979;
+  &:hover, &:focus, &:active {
+    color: #0099cc;
+  }
+}
+
+.check-person span {
+  top: .12em;
+}
+
+.input.disabled {
+  color: #DCDCDC;
+}
+
+.ng-invalid.ng-dirty:not(select) {
+  border-color: #f05c58;
+
+  &::-moz-selection {
+    background: #f05c58;
+  }
+  &::selection {
+    background: #f05c58;
+  }
+}
+
+.ng-valid.ng-dirty {
+  border-color: #A1CF17;
+  &::-moz-selection {
+    background: #A1CF17;
+  }
+  &::selection {
+    background: #A1CF17;
+  }
+}
+
+.table-striped>thead>tr>th {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.table-striped>tbody>tr>td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

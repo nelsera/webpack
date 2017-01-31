@@ -33,7 +33,8 @@ export default [
       child: [
         {
           level: 2,
-          text: 'Empresas ativas/inativas/bloqueadas'
+          text: 'Empresas ativas/inativas/bloqueadas',
+          link: 'empresa'
         }
         // {
         //   level: 2,
