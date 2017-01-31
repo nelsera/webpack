@@ -1,13 +1,11 @@
-/** @ngInject */
 export default class CompanyLs {
   /** @ngInject */
   constructor($rest, $rootScope) {
     $rootScope.title = this.title = 'Relatório de empresas';
+
     this.rest = $rest;
-    $rest.getStates().then(res => this.states = res);
-
+    this.rest.getStates().then(res => this.states = res);
     this.getter();
-
     this.query = {};
   }
 

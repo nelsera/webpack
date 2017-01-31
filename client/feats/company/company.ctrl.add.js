@@ -1,7 +1,7 @@
 export default class CompanyAdd {
 
   /** @ngInject */
-  constructor($rootScope, $rest, flash, $state, register, $log, $stateParams) {
+  constructor($rootScope, $rest, flash, $state, register, $stateParams) {
     $rootScope.title = this.title = 'Adicionar empresa';
 
     this.tab = 1;
@@ -59,11 +59,9 @@ export default class CompanyAdd {
       this.CommercialSaleResponsibles = res.CommercialSaleResponsible;
     });
 
-    this.log = $log;
-
-    $log.debug($stateParams);
-
-    return $stateParams.Id ? this.edit($stateParams.Id) : constructor;
+    return $stateParams.Id ?
+      this.edit($stateParams.Id) :
+      null;
   }
 
   signIn(Infos, Manager, Billing, PaymentSlip, TaxiProduct) {
@@ -105,7 +103,6 @@ export default class CompanyAdd {
 
   edit(Id) {
     this.xhr.getCompany(Id).then(res => {
-      this.log.debug(res);
       res.Phone.Number = res.Phone.Ddd + res.Phone.Number;
       res.Manager.CommercialPhone.Number = res.Manager.CommercialPhone.Ddd + res.Manager.CommercialPhone.Number;
 
