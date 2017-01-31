@@ -33,7 +33,7 @@ export default [
       child: [
         {
           level: 2,
-          text: 'Empresas ativas/inativas/bloqueadas',
+          text: 'Empresos ativas/inativas/bloqueadas',
           link: 'empresa'
         }
         // {
@@ -81,6 +81,17 @@ export default [
           //   level: 2,
           //   text: 'Autorizar estab. credenciado nji9'
           // }
+        ]
+      },
+      {
+        level: 1,
+        text: 'Relatórios',
+        child: [
+          {
+            level: 2,
+            text: 'Estab. credenciados ativos/inativos/bloqueados',
+            link: 'estabelecimento'
+          }
         ]
       }
     ]
