@@ -48,6 +48,16 @@ class Rest {
     return this.xhr.put(`${ADM_API}Company${id}`)
     .then(res => res.data);
   }
+
+  getEstablishment(id) {
+    return this.xhr.get(`${ADM_API}Establishment/${id}`)
+    .then(res => res.data.Data[0]);
+  }
+
+  searchEstablishment(fill = {}) {
+    return this.xhr.get(`${ADM_API}Establishment`, {params: fill})
+    .then(res => res.data);
+  }
 }
 
 export default ang.module('client.$rest', [])

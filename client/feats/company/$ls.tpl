@@ -46,10 +46,10 @@
   </div>
 </form>
 
-<h3 ng-if="cp.Pagination.TotalPages" class="no-margin margin-top-15 margin-bottom-15">Rersultado da busca:</h3>
+<h3 ng-if="cp.Pagination.TotalPages" class="no-margin margin-top-15">Rersultado da busca:</h3>
 
-<div class="bgWhite boxShadow padding-25 no-margin margin-bottom-25 transition">
-  <p ng-if="!cp.Companies.length">Nenhuma empresa encontrada.</p>
+<div class="bgWhite boxShadow padding-25 no-margin margin-top-15 margin-bottom-25 transition">
+  <p ng-if="!cp.Companies.length" class="no-margin">Nenhuma empresa encontrada.</p>
 
   <table ng-if="cp.Companies.length" class="table-striped w100">
     <thead>
@@ -70,11 +70,12 @@
         <td>{{$cp.Name || 'Não informado'}}</td>
         <td>{{$cp.Trade || 'Não informado'}}</td>
         <td>{{$cp.Address.City.Name || 'Não informado'}}</td>
-        <td>{{$cp.Address.State.Code}}</td>
+        <td>{{$cp.Address.State.Code || '-'}}</td>
         <td>{{$cp.Billing.ResponsibleOne.Name || 'Não informado'}}</td>
         <td>
           <span ng-if="$cp.Status.Active">Ativa</span>
           <span ng-if="$cp.Status.Blocked">Bloqueada</span>
+          <span ng-if="!$cp.Status">-</span>
         </td>
         <td>
           <a href="/painel/empresa/visualizar/{{$cp.Id}}" title="Visualizar"><span class="label label-warning"><span class="icon-search"></span></span></a>

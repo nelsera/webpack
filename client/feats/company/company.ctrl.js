@@ -1,4 +1,4 @@
-export default class CompanyAdd {
+export default class Company {
 
   /** @ngInject */
   constructor($rootScope, $rest, flash, $state, register, $stateParams) {

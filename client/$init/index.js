@@ -15,7 +15,7 @@ import flash from '../comps/flash';
 import reg from '../comps/register';
 
 import cpn from '../feats/company';
-import etb from '../feats/establishment';
+import etb from '../feats/estab';
 
 const m = [
   uir,

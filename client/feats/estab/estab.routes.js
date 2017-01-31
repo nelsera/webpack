@@ -10,7 +10,7 @@ export default function routes($stateProvider) {
     .state('painel.estabelecimento', {
       url: '/estabelecimento',
       template: require('./$ls.tpl'),
-      controller: 'Establishment',
+      controller: 'EstablishmentLs',
       controllerAs: 'etb'
     });
 }

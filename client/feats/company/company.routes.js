@@ -4,13 +4,13 @@ export default function routes($stateProvider) {
     .state('painel.empresa/nova', {
       url: '/empresa/nova',
       template: require('./$add.tpl'),
-      controller: 'CompanyAdd',
+      controller: 'Company',
       controllerAs: 'cp'
     })
     .state('painel.empresa/editar', {
       url: '/empresa/:Id',
       template: require('./$add.tpl'),
-      controller: 'CompanyAdd',
+      controller: 'Company',
       controllerAs: 'cp'
     })
     .state('painel.empresa', {
