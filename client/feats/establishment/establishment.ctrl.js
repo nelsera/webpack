@@ -1,4 +1,5 @@
 export default class Establishment {
+
   /** @ngInject */
   constructor($rootScope, $rest, flash, $state, register) {
     $rootScope.title = this.title = 'Adicionar estabelecimento';
@@ -28,4 +29,5 @@ export default class Establishment {
     this.flash.success('O estabelecimento foi cadastrado com sucesso.');
     this.route.reload();
   }
+
 }
